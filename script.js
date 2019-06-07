@@ -32,14 +32,14 @@ function fetchData(tag) {
             ];
           const imageURL = currentEdge["node"]["display_url"];
           const likes = currentEdge["node"]["edge_media_preview_like"]["count"];
-          await fetch(`https://i.instagram.com/api/v1/users/${userID}/info`)
-            .then(async data => {
-              return await data.json();
-            })
-            .then(async data => {
-              username = await data["user"]["username"];
-              userDPUrl = await data["user"]["profile_pic_url"];
-            });
+          // await fetch(`https://i.instagram.com/api/v1/users/${userID}/info`)
+          //   .then(async data => {
+          //     return await data.json();
+          //   })
+          //   .then(async data => {
+          //     username = await data["user"]["username"];
+          //     userDPUrl = await data["user"]["profile_pic_url"];
+          //   });
           postContainer.innerHTML += `<img src = "${imageURL}" height = "500px" width = "500px"/><br/><img src = "${userDPUrl}" height = "50px" width = "50px" style = "border-radius: 25px" /><p style = "font-weight: bold;">${username}</p><p>${caption}</p><p>Likes: ${likes}</p><p style = "font-weight: bold;">${userID}</p><br/><hr/>`;
           counter++;
         }
