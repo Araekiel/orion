@@ -16,6 +16,7 @@ function fetchData(tag) {
       return data.json();
     })
     .then(async data => {
+      console.log(data);
       let username;
       let userDPUrl;
       const edges =
@@ -26,10 +27,17 @@ function fetchData(tag) {
           currentEdge = edges[i];
           console.log(currentEdge);
           const userID = currentEdge["node"]["owner"]["id"];
-          const caption =
-            currentEdge["node"]["edge_media_to_caption"]["edges"][0]["node"][
-              "text"
-            ];
+          console.log(currentEdge["node"]["edge_media_to_caption"]["edges"]);
+          let caption = "";
+          try {
+            caption =
+              currentEdge["node"]["edge_media_to_caption"]["edges"][0]["node"][
+                "text"
+              ];
+          } catch (e) {
+            console.log(counter);
+            console.log(e);
+          }
           const imageURL = currentEdge["node"]["display_url"];
           const likes = currentEdge["node"]["edge_media_preview_like"]["count"];
           // await fetch(`https://i.instagram.com/api/v1/users/${userID}/info`)
