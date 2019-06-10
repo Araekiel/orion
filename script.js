@@ -23,35 +23,32 @@ function fetchData(tag) {
         data["graphql"]["hashtag"]["edge_hashtag_to_media"]["edges"];
       let count = edges.length > 50 ? 50 : edges.length;
       for (let i = 0; i < edges.length; i++) {
-        if (edges[i]["node"]["edge_media_preview_like"]["count"] > 10) {
-          currentEdge = edges[i];
-          console.log(currentEdge);
-          const userID = currentEdge["node"]["owner"]["id"];
-          console.log(currentEdge["node"]["edge_media_to_caption"]["edges"]);
-          let caption = "";
-          try {
-            caption =
-              currentEdge["node"]["edge_media_to_caption"]["edges"][0]["node"][
-                "text"
-              ];
-          } catch (e) {
-            console.log(counter);
-            console.log(e);
-          }
-          const imageURL = currentEdge["node"]["display_url"];
-          const likes = currentEdge["node"]["edge_media_preview_like"]["count"];
-          // await fetch(`https://i.instagram.com/api/v1/users/${userID}/info`)
-          //   .then(async data => {
-          //     return await data.json();
-          //   })
-          //   .then(async data => {
-          //     username = await data["user"]["username"];
-          //     userDPUrl = await data["user"]["profile_pic_url"];
-          //   });
-          postContainer.innerHTML += `<img src = "${imageURL}" height = "500px" width = "500px"/><br/><img src = "${userDPUrl}" height = "50px" width = "50px" style = "border-radius: 25px" /><p style = "font-weight: bold;">${username}</p><p>${caption}</p><p>Likes: ${likes}</p><p style = "font-weight: bold;">${userID}</p><br/><hr/>`;
-          counter++;
+        currentEdge = edges[i];
+        console.log(currentEdge);
+        const userID = currentEdge["node"]["owner"]["id"];
+        console.log(currentEdge["node"]["edge_media_to_caption"]["edges"]);
+        let caption = "";
+        try {
+          caption =
+            currentEdge["node"]["edge_media_to_caption"]["edges"][0]["node"][
+              "text"
+            ];
+        } catch (e) {
+          console.log(counter);
+          console.log(e);
         }
-        await setTimeout(function() {}, 1000);
+        const imageURL = currentEdge["node"]["display_url"];
+        const likes = currentEdge["node"]["edge_media_preview_like"]["count"];
+        // await fetch(`https://i.instagram.com/api/v1/users/${userID}/info`)
+        //   .then(async data => {
+        //     return await data.json();
+        //   })
+        //   .then(async data => {
+        //     username = await data["user"]["username"];
+        //     userDPUrl = await data["user"]["profile_pic_url"];
+        //   });
+        postContainer.innerHTML += `<img src = "${imageURL}" height = "500px" width = "500px"/><br/><img src = "${userDPUrl}" height = "50px" width = "50px" style = "border-radius: 25px" /><p style = "font-weight: bold;">${username}</p><p>${caption}</p><p>Likes: ${likes}</p><p style = "font-weight: bold;">${userID}</p><br/><hr/>`;
+        counter++;
       }
       console.log(counter);
       postContainer.innerHTML +=
