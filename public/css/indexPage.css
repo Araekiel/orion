@@ -1,0 +1,62 @@
+@font-face {
+  src: url(./../fonts/mont.otf);
+  font-family: "Mont";
+}
+
+body {
+  text-align: center;
+  background-color: #e0e3e8;
+}
+
+*:focus {
+  outline: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+#img {
+  margin-top: 100px;
+  height: 200px;
+  width: 600px;
+}
+
+#cont {
+  display: block;
+  text-align: center;
+  margin: auto;
+  height: auto;
+  width: 580px;
+  margin-top: 10px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+  border-radius: 40px;
+}
+
+#cont #search {
+  height: 34px;
+  width: 475px;
+  background-color: white;
+  border: 2px solid white;
+  border-top-left-radius: 40px;
+  border-bottom-left-radius: 40px;
+  color: #f93a29;
+  text-align: center;
+  font-size: 15px;
+}
+
+#cont #search::placeholder {
+  color: grey;
+}
+
+#cont #btn {
+  display: inline-block;
+  height: 40px;
+  width: 100px;
+  font-size: 20px;
+  background-color: #f0f0f0;
+  color: #f93a29;
+  border: 2px solid #f0f0f0;
+  border-top-right-radius: 40px;
+  border-bottom-right-radius: 40px;
+  cursor: pointer;
+  margin-left: -4px;
+  font-family: "Mont", sans-serif;
+}
