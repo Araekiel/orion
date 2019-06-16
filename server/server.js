@@ -20,6 +20,12 @@ server.get("/", (req, res) => {
   res.status(200).render("indexPage.hbs");
 });
 
+server.get("/search", (req, res) => {
+  res.status(200).render("searchPage.hbs", {
+    searchTerm: "test"
+  });
+});
+
 server.listen(port, () => {
   console.log(`App is running on port ${port}`);
 });

@@ -4,8 +4,9 @@
 }
 
 body {
-  text-align: center;
   background-color: #e0e3e8;
+  margin: 0px;
+  padding: 0px;
 }
 
 *:focus {
@@ -13,23 +14,33 @@ body {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-#socialhunter-logo {
+#index-container {
+  position: fixed;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+}
+
+#index-container #socialhunter-logo {
   margin-top: 100px;
   height: 200px;
   width: 600px;
 }
 
-#search-container {
+#index-container #search-container {
   display: block;
   text-align: center;
   margin: auto;
   height: auto;
   width: 580px;
-  /* box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5); */
   border-radius: 40px;
 }
 
-#search-container #search-bar {
+#index-container #search-container:enabled {
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+}
+
+#index-container #search-container #search-bar {
   height: 40px;
   width: 475px;
   background-color: white;
@@ -41,11 +52,11 @@ body {
   font-size: 15px;
 }
 
-#search-container #search-bar::placeholder {
+#index-container #search-container #search-bar::placeholder {
   color: grey;
 }
 
-#search-container #search-btn {
+#index-container #search-container #search-btn {
   display: inline-block;
   height: 46px;
   width: 100px;
