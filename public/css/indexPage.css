@@ -13,47 +13,46 @@ body {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-#img {
+#socialhunter-logo {
   margin-top: 100px;
   height: 200px;
   width: 600px;
 }
 
-#cont {
+#search-container {
   display: block;
   text-align: center;
   margin: auto;
   height: auto;
   width: 580px;
-  margin-top: 10px;
-  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+  /* box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5); */
   border-radius: 40px;
 }
 
-#cont #search {
-  height: 34px;
+#search-container #search-bar {
+  height: 40px;
   width: 475px;
   background-color: white;
   border: 2px solid white;
   border-top-left-radius: 40px;
   border-bottom-left-radius: 40px;
-  color: #f93a29;
+  color: black;
   text-align: center;
   font-size: 15px;
 }
 
-#cont #search::placeholder {
+#search-container #search-bar::placeholder {
   color: grey;
 }
 
-#cont #btn {
+#search-container #search-btn {
   display: inline-block;
-  height: 40px;
+  height: 46px;
   width: 100px;
-  font-size: 20px;
-  background-color: #f0f0f0;
-  color: #f93a29;
-  border: 2px solid #f0f0f0;
+  font-size: 16.5px;
+  background-color: #f93a29;
+  color: #f0f0f0;
+  border: 2px solid #f93a29;
   border-top-right-radius: 40px;
   border-bottom-right-radius: 40px;
   cursor: pointer;
