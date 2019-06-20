@@ -14,11 +14,29 @@ body {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
+.logo-search-active {
+  display: none;
+  -webkit-transition: 0.5s linear;
+  -moz-transition: 0.5s linear;
+  -o-transition: 0.5s linear;
+  transition: 0.5s linear;
+}
+
+.form-search-active {
+  position: relative;
+  top: 35px;
+  -webkit-transition: 0.5s linear;
+  -moz-transition: 0.5s linear;
+  -o-transition: 0.5s linear;
+  transition: 0.5s linear;
+}
+
 #index-container {
   position: fixed;
   text-align: center;
   height: 100%;
   width: 100%;
+  overflow-y: scroll;
 }
 
 #index-container #socialhunter-logo {
@@ -27,7 +45,7 @@ body {
   width: 600px;
 }
 
-#index-container #search-container {
+#index-container #search-form {
   display: block;
   text-align: center;
   margin: auto;
@@ -36,11 +54,11 @@ body {
   border-radius: 40px;
 }
 
-#index-container #search-container:enabled {
+#index-container #search-form:enabled {
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
 }
 
-#index-container #search-container #search-bar {
+#index-container #search-form #search-field {
   height: 40px;
   width: 475px;
   background-color: white;
@@ -52,11 +70,11 @@ body {
   font-size: 15px;
 }
 
-#index-container #search-container #search-bar::placeholder {
+#index-container #search-form #search-field::placeholder {
   color: grey;
 }
 
-#index-container #search-container #search-btn {
+#index-container #search-form #search-btn {
   display: inline-block;
   height: 46px;
   width: 100px;

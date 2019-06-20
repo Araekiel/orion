@@ -3,8 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {{!-- <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"> --}}
     <title>Socialhunter</title>
     <link rel="stylesheet" href="../css/indexPage.css" type="text/css" />
     <link rel="shortcut icon" href="../images/logo.png" type="image/png" />
@@ -13,9 +13,9 @@
 <body>
     <div class="container" id="index-container">
         <img class="logo" id="socialhunter-logo" src="../images/socialhunter.png" />
-        <div class="container" id="search-container">
-            <input class="text" id="search-bar" type="text" placeholder="Search" />
-            <a href="/search"><input class="btn" id="search-btn" type="button" value="Hunt!" /></a>
+        <div class="container form" id="search-form">
+            <input class="text" id="search-field" type="text" name="q" placeholder="Search" />
+            <input class="btn" id="search-btn" type="submit" value="Hunt!" />
         </div>
     </div>
 

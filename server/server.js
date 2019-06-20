@@ -20,10 +20,18 @@ server.get("/", (req, res) => {
   res.status(200).render("indexPage.hbs");
 });
 
-server.get("/search", (req, res) => {
+server.post("/redirect", (req, res) => {
+  res.redirect("/search");
+});
+
+server.get("/hunt", (req, res) => {
   res.status(200).render("searchPage.hbs", {
-    searchTerm: "test"
+    searchTerm: req.query.q
   });
+});
+
+server.get("/search/:id", (req, res) => {
+  res.send(req.params);
 });
 
 server.listen(port, () => {
