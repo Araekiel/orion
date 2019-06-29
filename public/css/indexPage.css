@@ -6,7 +6,7 @@
 body {
   margin: 0px;
   padding: 0px;
-  background-color: #1a1b20;
+  background-color: #e0e3e8;
 }
 
 *:focus {
@@ -15,15 +15,21 @@ body {
 }
 
 .logo-search-active {
-  display: none;
+  margin-top: 0px;
+  height: 60px;
+  width: 180px;
+  transition: 0.1s linear;
 }
 
 .logo-search-inactive {
-  display: content;
+  margin-top: 150px;
+  height: 200px;
+  width: 600px;
+  transition: 0.1s linear;
 }
 
-.form-search-active {
-  top: 35px;
+/* .form-search-active {
+  top: 0px;
 }
 
 .form-search-inactive {
@@ -36,7 +42,7 @@ body {
 
 .ind-search-cont-search-inactive {
   height: 100%;
-}
+} */
 
 #index-search-container {
   position: fixed;
@@ -56,9 +62,6 @@ body {
 }
 
 #index-search-container #socialhunter-logo {
-  margin-top: 150px;
-  height: 200px;
-  width: 600px;
   cursor: pointer;
 }
 
@@ -67,16 +70,16 @@ body {
   position: relative;
   margin: auto;
   height: 48px;
-  width: 580px;
-  border-radius: 10px;
-  box-shadow: 0px 0px 50px black;
+  width: 578px;
+  border-radius: 40px;
+  /* box-shadow: 0px 0px 10px black; */
 }
 
 #index-search-container #search-form #search-field {
   float: left;
   height: 48px;
   width: 478px;
-  background-color: #232429;
+  background-color: white;
   border: 0px;
   border-right: 0px;
   border-top-left-radius: 10px;
@@ -84,7 +87,7 @@ body {
   color: black;
   text-align: center;
   font-size: 15px;
-  color: white;
+  color: black;
 }
 
 #index-search-container #search-form #search-field::placeholder {
@@ -95,9 +98,9 @@ body {
   float: left;
   height: 50px;
   width: 100px;
-  font-size: 16.5px;
+  font-size: 18px;
   background-color: #f93a29;
-  color: #232429;
+  color: white;
   border: 0px;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
@@ -106,8 +109,22 @@ body {
 }
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 1024px) {
+  .logo-search-active {
+    margin-top: 0px;
+    height: 100px;
+    width: 300px;
+    transition: 0.1s linear;
+  }
+
+  .logo-search-inactive {
+    margin-top: 450px;
+    height: 300px;
+    width: 900px;
+    transition: 0.1s linear;
+  }
+
   .form-search-active {
-    top: 70px;
+    top: 0px;
   }
 
   .ind-search-cont-search-active {
@@ -115,16 +132,12 @@ body {
   }
 
   #index-search-container #socialhunter-logo {
-    margin-top: 450px;
-    height: 300px;
-    width: 900px;
   }
 
   #index-search-container #search-form {
-    width: 907px;
+    width: 900px;
     height: 96px;
     border-radius: 20px;
-    box-shadow: 0px 0px 100px black;
   }
 
   #index-search-container #search-form #search-field {
