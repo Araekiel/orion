@@ -4,9 +4,9 @@
 }
 
 body {
-  background-color: #e0e3e8;
   margin: 0px;
   padding: 0px;
+  background-color: #1a1b20;
 }
 
 *:focus {
@@ -16,75 +16,131 @@ body {
 
 .logo-search-active {
   display: none;
-  -webkit-transition: 0.5s linear;
-  -moz-transition: 0.5s linear;
-  -o-transition: 0.5s linear;
-  transition: 0.5s linear;
+}
+
+.logo-search-inactive {
+  display: content;
 }
 
 .form-search-active {
-  position: relative;
   top: 35px;
-  -webkit-transition: 0.5s linear;
-  -moz-transition: 0.5s linear;
-  -o-transition: 0.5s linear;
-  transition: 0.5s linear;
 }
 
-#index-container {
-  position: fixed;
-  text-align: center;
+.form-search-inactive {
+  top: 0px;
+}
+
+.ind-search-cont-search-active {
+  height: 110px;
+}
+
+.ind-search-cont-search-inactive {
   height: 100%;
-  width: 100%;
-  overflow-y: scroll;
 }
 
-#index-container #socialhunter-logo {
-  margin-top: 100px;
+#index-search-container {
+  position: fixed;
+  width: 100%;
+  text-align: center;
+  overflow-y: scroll;
+  height: 100%;
+}
+
+#index-search-container::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+#index-search-container::-webkit-scrollbar-thumb {
+  background: transparent;
+}
+
+#index-search-container #socialhunter-logo {
+  margin-top: 150px;
   height: 200px;
   width: 600px;
+  cursor: pointer;
 }
 
-#index-container #search-form {
-  display: block;
+#index-search-container #search-form {
   text-align: center;
+  position: relative;
   margin: auto;
-  height: auto;
+  height: 48px;
   width: 580px;
-  border-radius: 40px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 50px black;
 }
 
-#index-container #search-form:enabled {
-  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
-}
-
-#index-container #search-form #search-field {
-  height: 40px;
-  width: 475px;
-  background-color: white;
-  border: 2px solid white;
-  border-top-left-radius: 40px;
-  border-bottom-left-radius: 40px;
+#index-search-container #search-form #search-field {
+  float: left;
+  height: 48px;
+  width: 478px;
+  background-color: #232429;
+  border: 0px;
+  border-right: 0px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
   color: black;
   text-align: center;
   font-size: 15px;
+  color: white;
 }
 
-#index-container #search-form #search-field::placeholder {
+#index-search-container #search-form #search-field::placeholder {
   color: grey;
 }
 
-#index-container #search-form #search-btn {
-  display: inline-block;
-  height: 46px;
+#index-search-container #search-form #search-btn {
+  float: left;
+  height: 50px;
   width: 100px;
   font-size: 16.5px;
   background-color: #f93a29;
-  color: #f0f0f0;
-  border: 2px solid #f93a29;
-  border-top-right-radius: 40px;
-  border-bottom-right-radius: 40px;
+  color: #232429;
+  border: 0px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
   cursor: pointer;
-  margin-left: -4px;
   font-family: "Mont", sans-serif;
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 1024px) {
+  .form-search-active {
+    top: 70px;
+  }
+
+  .ind-search-cont-search-active {
+    height: 220px;
+  }
+
+  #index-search-container #socialhunter-logo {
+    margin-top: 450px;
+    height: 300px;
+    width: 900px;
+  }
+
+  #index-search-container #search-form {
+    width: 907px;
+    height: 96px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 100px black;
+  }
+
+  #index-search-container #search-form #search-field {
+    height: 96px;
+    width: 725px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    font-size: 40px;
+  }
+
+  #index-search-container #search-form #search-btn {
+    height: 98px;
+    width: 175px;
+    font-size: 44px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    line-height: 98px;
+  }
 }
