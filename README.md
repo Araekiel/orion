@@ -6,6 +6,9 @@ Socialhunter is an open-source Search Engine for social media websites built wit
 <br/>
 <br/>
 **Currently under development.**
+<br/>
+<br/>
+Click on this [link](https://https://kssbro.github.io/socialhunter/instagram/) to see instagram search in action.
 
 ## Getting Started
 
