@@ -3,6 +3,9 @@
 # Socialhunter
 
 Socialhunter is an open-source Search Engine for social media websites built with Node.js.
+<br/>
+<br/>
+**Currently under development.**
 
 ## Getting Started
 
