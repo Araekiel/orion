@@ -48,7 +48,8 @@ body {
 }
 
 .ind-res-cont-search-active {
-  background-color: rgba(0, 0, 0, 0.1);
+  display: content;
+  /* background-color: rgba(0, 0, 0, 0.1); */
 }
 
 .ind-res-cont-search-inactive {
