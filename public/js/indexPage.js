@@ -1,18 +1,19 @@
 var btn = document.getElementById("search-btn");
 var request = new XMLHttpRequest();
-var field = document.getElementById("search-bar");
 var logo = document.getElementById("socialhunter-logo");
 var form = document.getElementById("search-form");
-var cont = document.getElementById("index-search-container");
+var searchContainer = document.getElementById("index-search-container");
+var resContainer = document.getElementById("index-result-container");
 
 btn.addEventListener("click", function(event) {
-  logo.classList.toggle("logo-search-active");
-  logo.classList.toggle("logo-search-inactive");
+  logo.classList.remove("logo-search-inactive");
+  logo.classList.add("logo-search-active");
+  searchContainer.classList.remove("ind-search-cont-search-inactive");
+  searchContainer.classList.add("ind-search-cont-search-active");
+  setTimeout(function() {
+    resContainer.classList.remove("ind-res-cont-search-inactive");
+    resContainer.classList.add("ind-res-cont-search-active");
+  }, 150);
   // form.classList.toggle("form-search-active");
   // form.classList.toggle("form-search-inactive");
-  // cont.classList.toggle("ind-search-cont-search-active");
-  // cont.classList.toggle("ind-search-cont-search-inactive");
-  console.log(logo);
-  console.log(form);
-  console.log(cont);
 });
