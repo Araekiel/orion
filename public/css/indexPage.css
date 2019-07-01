@@ -129,7 +129,7 @@ body {
   margin-bottom: 40px;
 }
 
-#index-result-container .result {
+#index-result-container .result-card {
   position: relative;
   display: block;
   margin: auto;
@@ -142,7 +142,7 @@ body {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
-#index-result-container .result:hover {
+#index-result-container .result-card:hover {
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
@@ -186,7 +186,7 @@ body {
     line-height: 98px;
   }
 
-  #index-result-container .result {
+  #index-result-container .result-card {
     min-height: 375px;
     height: auto;
     width: 900px;
