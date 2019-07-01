@@ -15,7 +15,7 @@ Click on this [link](https://kssbro.github.io/socialhunter/instagram/) to see in
 ### Prerequisites
 
 [Git](https://git-scm.com/) is needed to clone the repository on your machine.
-Use [Node.js](https://nodejs.org/en/download/) and the package manager [npm](https://www.npmjs.com/get-npm) that is installed along with it to run Wiscro on your machine.
+Use [Node.js](https://nodejs.org/en/download/) and the package manager [npm](https://www.npmjs.com/get-npm) that is installed along with it to run Socialhunter on your machine.
 
 ### Installing and Running
 
