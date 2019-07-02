@@ -8,12 +8,13 @@ html {
 }
 
 html::-webkit-scrollbar {
-  width: 0px;
+  width: 10px;
   background: transparent;
 }
 
 html::-webkit-scrollbar-thumb {
-  background: transparent;
+  width: 10px;
+  background: #f93a29;
 }
 
 body {
@@ -51,7 +52,6 @@ body {
 
 .ind-res-cont-search-active {
   display: content;
-  /* background-color: rgba(0, 0, 0, 0.1); */
 }
 
 .ind-res-cont-search-inactive {
@@ -140,10 +140,23 @@ body {
   background-color: white;
   border-radius: 10px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  transition: 0.1s ease-in;
+  overflow: hidden;
 }
 
 #index-result-container .result-card:hover {
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+#index-result-container .result-card .result-card-image {
+  width: 600px;
+}
+
+#index-result-container .result-card p {
+  font-family: sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+  margin: 10px;
 }
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 1024px) {
@@ -192,6 +205,15 @@ body {
     width: 900px;
     margin-top: 40px;
     border-radius: 20px;
+  }
+
+  #index-result-container .result-card .result-card-image {
+    width: 900px;
+  }
+
+  #index-result-container .result-card p {
+    font-size: 17px;
+    margin: 20px;
   }
 }
 
