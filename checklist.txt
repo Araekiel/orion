@@ -1,8 +1,10 @@
 TO-DO:
-[] 1. Finish the UI - way to display differences between posts from different websites, and other common data 
-      available 
-[] 2. Write functions on server side to fetch data from websites
+[] 1. Decide the data that needs to be shown
+[] 2. Finish the UI 
+    [] 1. display differences between posts from different websites, and other common data available 
+    [] 2. Display all kinds of error messages
+[] 3. Write functions on server side to fetch data from websites
     [] 1. Complete instagram first
     [] 2. Find endpoints for other websites
-[] 3. Use the functions to finish the /feed endpoint 
-[] 4. Deploy
+[] 4. Use the functions to finish the /feed endpoint 
+[] 5. Deploy on heroku for the time being
