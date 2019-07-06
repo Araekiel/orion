@@ -11,4 +11,3 @@ TO-DO:
     [] 1. Complete instagram first
     [] 2. Find endpoints for other websites
 [] 4. Use the functions to finish the /feed endpoint 
-[] 5. Deploy on heroku for the time being

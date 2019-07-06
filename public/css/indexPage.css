@@ -162,11 +162,12 @@ body {
   width: 600px;
 }
 
-#index-result-container .result-card p {
+#index-result-container .result-card .result-card-text {
   font-family: sans-serif;
   font-size: 15px;
   font-weight: bold;
   margin: 10px;
+  width: 96%;
 }
 
 #index-result-container .loader {

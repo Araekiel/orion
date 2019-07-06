@@ -38,7 +38,7 @@ searchBtn.addEventListener("click", function(event) {
                   edge["node"]["display_url"]
                 }" />
                 <br />
-                <p>
+                <p class = "result-card-text">
                     Caption: ${
                       edge["node"]["edge_media_to_caption"]["edges"][0]["node"][
                         "text"
