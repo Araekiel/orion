@@ -3,6 +3,15 @@
   font-family: "Mont";
 }
 
+@keyframes spinLoader {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 html {
   overflow-y: scroll;
 }
@@ -91,14 +100,15 @@ body {
 #index-search-container #search-form #search-field {
   float: left;
   height: 48px;
-  width: 500px;
+  width: 480px;
   background-color: white;
   border: 0px;
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
   color: black;
-  text-align: center;
-  font-size: 15px;
+  text-align: left;
+  font-size: 18px;
+  padding-left: 20px;
 }
 
 #index-search-container #search-form #search-field::placeholder {
@@ -159,6 +169,17 @@ body {
   margin: 10px;
 }
 
+#index-result-container .loader {
+  margin: auto;
+  margin-top: 150px;
+  border: 12px solid transparent;
+  border-top: 12px double #f93a29;
+  border-radius: 50%;
+  width: 75px;
+  height: 75px;
+  animation: spinLoader 0.75s linear infinite;
+}
+
 @media only screen and (min-device-width: 320px) and (max-device-width: 1024px) {
   .logo-search-active {
     margin-top: 0px;
@@ -184,15 +205,15 @@ body {
 
   #index-search-container #search-form #search-field {
     height: 96px;
-    width: 725px;
+    width: 700px;
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
-    font-size: 40px;
+    font-size: 42px;
   }
 
   #index-search-container #search-form #search-btn {
     height: 98px;
-    width: 175px;
+    width: 180px;
     font-size: 44px;
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
@@ -214,6 +235,14 @@ body {
   #index-result-container .result-card p {
     font-size: 17px;
     margin: 20px;
+  }
+
+  #index-result-container .loader {
+    margin-top: 450px;
+    border: 16px solid transparent;
+    border-top: 16px double #f93a29;
+    width: 120px;
+    height: 120px;
   }
 }
 

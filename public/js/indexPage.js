@@ -22,32 +22,37 @@ searchBtn.addEventListener("click", function(event) {
     method: "GET",
     data: {
       hashtag: searchValue
+    },
+    beforeSend: function() {
+      resContainer.innerHTML = `<div class="loader"></div>`;
+    },
+    success: function(data) {
+      resContainer.innerHTML = "";
+      const edges =
+        data["graphql"]["hashtag"]["edge_hashtag_to_media"]["edges"];
+      edges.forEach(function(edge) {
+        resContainer.innerHTML += `
+        <div class="result-card">
+              <img class="result-card-image" src="${
+                edge["node"]["display_url"]
+              }" />
+              <br />
+              <p>
+                  Caption: ${
+                    edge["node"]["edge_media_to_caption"]["edges"][0]["node"][
+                      "text"
+                    ]
+                  }
+                  <br />
+                  <br />
+                  Likes: ${edge["node"]["edge_liked_by"]["count"]}
+                  <br />
+                  <br />
+                  Comments: ${edge["node"]["edge_media_to_comment"]["count"]}
+              </p>
+          </div>
+          `;
+      });
     }
-  }).done(function(data) {
-    resContainer.innerHTML = "";
-    const edges = data["graphql"]["hashtag"]["edge_hashtag_to_media"]["edges"];
-    edges.forEach(function(edge) {
-      resContainer.innerHTML += `
-      <div class="result-card">
-            <img class="result-card-image" src="${
-              edge["node"]["display_url"]
-            }" />
-            <br />
-            <p>
-                Caption: ${
-                  edge["node"]["edge_media_to_caption"]["edges"][0]["node"][
-                    "text"
-                  ]
-                }
-                <br />
-                <br />
-                Likes: ${edge["node"]["edge_liked_by"]["count"]}
-                <br />
-                <br />
-                Comments: ${edge["node"]["edge_media_to_comment"]["count"]}
-            </p>
-        </div>
-        `;
-    });
   });
 });
