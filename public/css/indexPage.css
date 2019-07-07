@@ -35,17 +35,7 @@
 }
 
 html {
-  overflow-y: hidden;
-}
-
-html::-webkit-scrollbar {
-  width: 10px;
-  background: transparent;
-}
-
-html::-webkit-scrollbar-thumb {
-  width: 10px;
-  background: #f93a29;
+  overflow-y: scroll;
 }
 
 body {

@@ -1,3 +1,4 @@
+const html = document.getElementsByTagName("html")[0];
 const snackbar = document.getElementById("snackbar");
 const snackbarText = document.getElementById("snackbar-text");
 

@@ -1,6 +1,5 @@
 const request = new XMLHttpRequest();
 
-const html = document.getElementsByTagName("html")[0];
 const searchContainer = document.getElementById("index-search-container");
 const mainLogo = document.getElementById("socialhunter-logo");
 const searchForm = document.getElementById("search-form");
@@ -36,7 +35,6 @@ function search() {
         resContainer.innerHTML = `<div class="loader"></div>`;
       },
       success: function(data) {
-        html.style.overflowY = "scroll";
         resContainer.innerHTML = "";
         const edges =
           data["graphql"]["hashtag"]["edge_hashtag_to_media"]["edges"];
