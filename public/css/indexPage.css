@@ -12,8 +12,30 @@
   }
 }
 
+@keyframes fadein {
+  from {
+    bottom: -40px;
+    opacity: 0;
+  }
+  to {
+    bottom: 0px;
+    opacity: 1;
+  }
+}
+
+@keyframes fadeout {
+  from {
+    bottom: 0px;
+    opacity: 1;
+  }
+  to {
+    bottom: -40px;
+    opacity: 0;
+  }
+}
+
 html {
-  overflow-y: scroll;
+  overflow-y: hidden;
 }
 
 html::-webkit-scrollbar {
@@ -181,6 +203,32 @@ body {
   animation: spinLoader 0.75s linear infinite;
 }
 
+#snackbar {
+  background-color: #f93a29;
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  height: 40px;
+  text-align: center;
+  visibility: hidden;
+  transform: translateZ(0);
+}
+
+#snackbar p {
+  font-family: sans-serif;
+  font-weight: bold;
+  line-height: 100%;
+  font-size: 15px;
+  color: white;
+  transform: translateZ(0);
+}
+
+.snackbar-visible {
+  visibility: visible !important;
+  animation: fadein 0.5s, fadeout 0.5s 2s;
+  transform: translateZ(0);
+}
+
 @media only screen and (min-device-width: 320px) and (max-device-width: 1024px) {
   .logo-search-active {
     margin-top: 0px;
@@ -240,10 +288,18 @@ body {
 
   #index-result-container .loader {
     margin-top: 450px;
-    border: 16px solid transparent;
-    border-top: 16px double #f93a29;
-    width: 120px;
-    height: 120px;
+    border: 28px solid transparent;
+    border-top: 28px double #f93a29;
+    width: 180px;
+    height: 180px;
+  }
+
+  #snackbar {
+    height: 110px;
+  }
+
+  #snackbar p {
+    font-size: 40px;
   }
 }
 

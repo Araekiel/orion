@@ -1,13 +1,21 @@
-var request = new XMLHttpRequest();
+const request = new XMLHttpRequest();
 
-var searchContainer = document.getElementById("index-search-container");
-var mainLogo = document.getElementById("socialhunter-logo");
-var searchForm = document.getElementById("search-form");
-var searchField = document.getElementById("search-field");
-var searchBtn = document.getElementById("search-btn");
-var resContainer = document.getElementById("index-result-container");
+const html = document.getElementsByTagName("html")[0];
+const searchContainer = document.getElementById("index-search-container");
+const mainLogo = document.getElementById("socialhunter-logo");
+const searchForm = document.getElementById("search-form");
+const searchField = document.getElementById("search-field");
+const searchBtn = document.getElementById("search-btn");
+const resContainer = document.getElementById("index-result-container");
 
-searchBtn.addEventListener("click", function(event) {
+document.addEventListener("keypress", function(event) {
+  if (event.keyCode === 13) {
+    search();
+  }
+});
+searchBtn.addEventListener("click", search);
+
+function search() {
   let searchValue = searchField.value;
   if (searchValue) {
     mainLogo.classList.remove("logo-search-inactive");
@@ -28,6 +36,7 @@ searchBtn.addEventListener("click", function(event) {
         resContainer.innerHTML = `<div class="loader"></div>`;
       },
       success: function(data) {
+        html.style.overflowY = "scroll";
         resContainer.innerHTML = "";
         const edges =
           data["graphql"]["hashtag"]["edge_hashtag_to_media"]["edges"];
@@ -57,6 +66,6 @@ searchBtn.addEventListener("click", function(event) {
       }
     });
   } else {
-    alert("Enter something in the search field");
+    snackbarController("Enter something in the search field");
   }
-});
+}
