@@ -39,27 +39,23 @@ function search() {
         const edges =
           data["graphql"]["hashtag"]["edge_hashtag_to_media"]["edges"];
         edges.forEach(function(edge) {
-          resContainer.innerHTML += `
-          <div class="result-card">
-                <img class="result-card-image" src="${
-                  edge["node"]["display_url"]
-                }" />
-                <br />
-                <p class = "result-card-text">
-                    Caption: ${
-                      edge["node"]["edge_media_to_caption"]["edges"][0]["node"][
-                        "text"
-                      ]
-                    }
-                    <br />
-                    <br />
-                    Likes: ${edge["node"]["edge_liked_by"]["count"]}
-                    <br />
-                    <br />
-                    Comments: ${edge["node"]["edge_media_to_comment"]["count"]}
-                </p>
-            </div>
-            `;
+          resContainer.innerHTML += `<div class="result-card">
+        <img class="result-card-image" src="${edge["node"]["display_url"]}" />
+        <br />
+        <div class="stat-container">
+        <div class = "stat stat-logo"><img class = "stat-logo-img" src="images/sm/insta.png" type="image/png"/></div>         
+        <p class="stat"><span class="stat-value">${
+          edge["node"]["edge_liked_by"]["count"]
+        }</span> <br /> <span class="stat-name">LIKES</span></p>
+            <p class="stat stat-right"><span class="stat-value">${
+              edge["node"]["edge_media_to_comment"]["count"]
+            }</span> <br /> <span class="stat-name">COMMENTS</span></p>
+            
+        </div>
+        <p class="result-card-caption">
+        ${edge["node"]["edge_media_to_caption"]["edges"][0]["node"]["text"]}
+        </p>
+    </div>`;
         });
       }
     });
