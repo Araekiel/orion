@@ -181,7 +181,7 @@ body {
   position: relative;
   font-family: sans-serif;
   width: 600px;
-  margin: 15px 0px 0px 15px;
+  margin: 10px 0px 10px 0px;
 }
 
 #index-result-container .result-card .stat-container .stat {
@@ -311,7 +311,7 @@ body {
 
   #index-result-container .result-card .stat-container {
     width: 900px;
-    margin: 30px 0px 0px 30px;
+    margin: 20px 0px 20px 0px;
   }
 
   #index-result-container .result-card .stat-container .stat {
