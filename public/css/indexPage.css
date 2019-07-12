@@ -320,6 +320,10 @@ body {
     border-right: 1px solid grey;
   }
 
+  #index-result-container .result-card .stat-container .stat-right {
+    border: 0px;
+  }
+
   #index-result-container .result-card .stat-container .stat-value {
     font-size: 48px;
   }
