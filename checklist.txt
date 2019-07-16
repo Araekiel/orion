@@ -6,7 +6,8 @@ TO-DO:
     [✓] 3. Display differences between posts from different websites, and other common data available
     [] 4. Display all kinds of messages
         [✓] 1. Error messages: No text input
-        [✓] 2. Success messages: none    
+        [✓] 2. Success messages: none
+        [] 3. Look for more messages that need to be displayed    
     [] 5. Fix the height of the search container
 [] 3. Write functions on server side to fetch data from websites
     [] 1. Complete instagram first
