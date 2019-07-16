@@ -5,8 +5,8 @@ TO-DO:
     [] 2. Decide the information that needs to be shown and design the UI accordingly
     [✓] 3. Display differences between posts from different websites, and other common data available
     [] 4. Display all kinds of messages
-        [] 1. Error messages: No text input
-        [] 2. Success messages: none    
+        [✓] 1. Error messages: No text input
+        [✓] 2. Success messages: none    
     [] 5. Fix the height of the search container
 [] 3. Write functions on server side to fetch data from websites
     [] 1. Complete instagram first
