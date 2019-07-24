@@ -50,8 +50,7 @@ function search() {
             } catch (e) {
               caption = "";
             }
-            resContainer.innerHTML += `<div class="result-card">            
-              <p class="result-card-caption">${caption}</p>
+            resContainer.innerHTML += `<div class="result-card">                          
               <img class="result-card-image" src="${
                 edge["node"]["display_url"]
               }" />
@@ -66,6 +65,7 @@ function search() {
                   }</span> <br /> <span class="stat-name">COMMENTS</span></p>
 
               </div>
+              <p class="result-card-caption">${caption}</p>
             </div>`;
           }
         });
