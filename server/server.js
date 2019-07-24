@@ -1,9 +1,7 @@
 const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");
-const morganLogger = require("morgan");
 const request = require("request");
-const https = require("https");
 
 const port = process.env.PORT || 108;
 const server = express();
@@ -15,7 +13,6 @@ server.use(
   })
 );
 server.use(bodyParser.json());
-server.use(morganLogger("dev"));
 
 server.get("/", (req, res) => {
   res.status(200).render("indexPage.hbs");
