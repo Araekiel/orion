@@ -1,9 +1,9 @@
 const express = require("express");
-const hbs = require("hbs");
 const path = require("path");
 const bodyParser = require("body-parser");
 const morganLogger = require("morgan");
 const request = require("request");
+const https = require("https");
 
 const port = process.env.PORT || 108;
 const server = express();
@@ -21,16 +21,25 @@ server.get("/", (req, res) => {
   res.status(200).render("indexPage.hbs");
 });
 
-server.get("/feed", (req, res) => {
-  const url = `https://www.instagram.com/explore/tags/${
-    req.query.hashtag
-  }/?__a=1`;
-  request(url, { json: true }, (err, response, body) => {
-    if (err) {
-      return console.log(err);
-    }
-    res.status(200).send(body);
+//Use Promises for get-data functions.
+
+function getPostsByTag(tag) {
+  const url = `https://www.instagram.com/explore/tags/${tag}/?__a=1`;
+  return new Promise((resolve, reject) => {
+    request(url, { json: true }, async (err, response, body) => {
+      if (err) {
+        reject(err);
+      } else {
+        resolve(body);
+      }
+    });
   });
+}
+
+server.get("/feed", async (req, res) => {
+  const tag = req.query.hashtag;
+  const data = await getPostsByTag(tag);
+  res.status(200).send(data);
 });
 
 server.listen(port, () => {

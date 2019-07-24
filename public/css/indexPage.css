@@ -102,7 +102,7 @@ body {
   width: 600px;
   border-radius: 10px;
   transform: translateZ(0);
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
 #index-search-container #search-form:hover {
@@ -115,8 +115,8 @@ body {
   width: 480px;
   background-color: white;
   border: 0px;
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
   color: black;
   text-align: left;
   font-size: 18px;
@@ -135,8 +135,8 @@ body {
   background-color: #f93a29;
   color: white;
   border: 0px;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
   cursor: pointer;
   font-family: "Mont", sans-serif;
 }
@@ -159,9 +159,9 @@ body {
   height: auto;
   width: 600px;
   margin-top: 20px;
-  background-color: white;
-  border-radius: 10px;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  background-color: #fafafa;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   transition: 0.1s ease-in;
   overflow: hidden;
 }
@@ -171,7 +171,12 @@ body {
 }
 
 #index-result-container .result-card .result-card-image {
-  width: 600px;
+  position: relative;
+  width: 550px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  left: 50%;
+  margin-left: -275px;
+  border-radius: 5px;
 }
 
 #index-result-container .result-card .stat-container {
@@ -181,7 +186,7 @@ body {
   position: relative;
   font-family: sans-serif;
   width: 600px;
-  margin: 0px 0px 10px 0px;
+  margin-bottom: 10px;
 }
 
 #index-result-container .result-card .stat-container .stat {
@@ -215,9 +220,10 @@ body {
 
 #index-result-container .result-card .result-card-caption {
   font-family: sans-serif;
-  font-size: 20px;
-  margin: 10px;
-  width: 96%;
+  font-size: 18px;
+  margin: 20px 0px 20px 25px;
+  width: 91.5%;
+  overflow-wrap: break-word;
 }
 
 #index-result-container .loader {
@@ -278,13 +284,14 @@ body {
     width: 900px;
     height: 96px;
     border-radius: 20px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   }
 
   #index-search-container #search-form #search-field {
     height: 96px;
     width: 700px;
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
     font-size: 42px;
   }
 
@@ -292,8 +299,8 @@ body {
     height: 98px;
     width: 180px;
     font-size: 44px;
-    border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
     line-height: 98px;
   }
 
@@ -302,16 +309,19 @@ body {
     height: auto;
     width: 900px;
     margin-top: 40px;
-    border-radius: 20px;
+    border-radius: 15px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   }
 
   #index-result-container .result-card .result-card-image {
-    width: 900px;
+    width: 800px;
+    left: 50%;
+    margin-left: -400px;
   }
 
   #index-result-container .result-card .stat-container {
     width: 900px;
-    margin: 0px 0px 20px 0px;
+    margin-bottom: 20px;
   }
 
   #index-result-container .result-card .stat-container .stat {
@@ -339,8 +349,9 @@ body {
   }
 
   #index-result-container .result-card .result-card-caption {
-    font-size: 24px;
-    margin: 20px;
+    font-size: 15px;
+    width: 88.5%;
+    margin: 40px 0px 40px 50px;
     border: 0px;
   }
 
