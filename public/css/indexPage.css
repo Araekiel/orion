@@ -193,7 +193,6 @@ body {
   height: 50px;
   width: 200px;
   border-right: 0.5px solid grey;
-  box-shadow: 0px 0px 2px solid black;
 }
 
 #index-result-container .result-card .stat-container .stat-right {
