@@ -9,7 +9,6 @@ const resContainer = document.getElementById("index-result-container");
 
 document.addEventListener("keyup", function(event) {
   if (event.keyCode === 13) {
-    console.log("enter");
     search();
   }
 });
@@ -36,7 +35,6 @@ function search() {
         resContainer.innerHTML = `<div class="loader"></div>`;
       },
       success: function(data) {
-        console.log(data);
         resContainer.innerHTML = "";
         data.forEach(currentElement => {
           resContainer.innerHTML += currentElement["string"];

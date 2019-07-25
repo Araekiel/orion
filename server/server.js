@@ -85,6 +85,9 @@ function getPostsByTag(tag) {
                   }</span> <br /> <span class="stat-name">Comments</span></p>
               </div>
               <p class="result-card-caption">${caption}</p>
+              <a href = "https://www.instagram.com/p/${
+                edge["node"]["shortcode"]
+              }"><input type = "button" class = "view-post-btn" value = "View Post"></input></a>
             </div>`
             });
           }
@@ -124,13 +127,16 @@ function getUsersBySearch(query) {
               }</p><p class = "result-card-user-username">@${
                 user["user"]["username"]
               }</p>
-              <div class="stat-container user-stat-container">
-                <p class = "stat"><img class = "stat-img" src="images/sm/insta.png" type="image/png"/><br/><span class = "stat-name">Instagram</span></p>
-                    <p class="stat"><span class="stat-value">${
-                      user["user"]["follower_count"]
-                    }</span> <br /> <span class="stat-name">Followers</span></p>
-                    ${verifiedStatString}
+                <div class="stat-container user-stat-container">
+                  <p class = "stat"><img class = "stat-img" src="images/sm/insta.png" type="image/png"/><br/><span class = "stat-name">Instagram</span></p>
+                      <p class="stat"><span class="stat-value">${
+                        user["user"]["follower_count"]
+                      }</span> <br /> <span class="stat-name">Followers</span></p>
+                      ${verifiedStatString}
                 </div>
+                <a href = "https://www.instagram.com/${
+                  user["user"]["username"]
+                }"><input type = "button" class = "view-profile-btn" value = "View Profile"></input></a> 
               </div>`
             });
           } else {
@@ -152,6 +158,9 @@ function getUsersBySearch(query) {
                     }</span> <br /> <span class="stat-name">Followers</span></p>
                     ${verifiedStatString}
                 </div>
+                <a href = "https://www.instagram.com/${
+                  user["user"]["username"]
+                }"><input type = "button" class = "view-profile-btn" value = "View Profile"></input></a>
               </div>`
             });
           }
@@ -171,7 +180,7 @@ server.get("/feed", async (req, res) => {
   const posts = await getPostsByTag(value);
   const usersObj = await getUsersBySearch(value);
   const finalData = usersObj["verified"].concat(
-    shuffleArray(posts.concat(usersObj["unverified"]))
+    shuffleArray(usersObj["unverified"].concat(posts))
   );
   res.status(200).send(finalData);
 });
