@@ -30,44 +30,16 @@ function search() {
       url: "/feed",
       method: "GET",
       data: {
-        hashtag: searchValue
+        value: searchValue
       },
       beforeSend: function() {
         resContainer.innerHTML = `<div class="loader"></div>`;
       },
       success: function(data) {
+        console.log(data);
         resContainer.innerHTML = "";
-        const edges =
-          data["graphql"]["hashtag"]["edge_hashtag_to_media"]["edges"];
-        edges.forEach(function(edge) {
-          if (edge["node"]["edge_liked_by"]["count"] > 10) {
-            let caption = "";
-            try {
-              caption =
-                edge["node"]["edge_media_to_caption"]["edges"][0]["node"][
-                  "text"
-                ];
-            } catch (e) {
-              caption = "";
-            }
-            resContainer.innerHTML += `<div class="result-card">                          
-              <img class="result-card-image" src="${
-                edge["node"]["display_url"]
-              }" />
-              <br />
-              <div class="stat-container">
-              <div class = "stat stat-logo"><img class = "stat-logo-img" src="images/sm/insta.png" type="image/png"/></div>
-              <p class="stat"><span class="stat-value">${
-                edge["node"]["edge_liked_by"]["count"]
-              }</span> <br /> <span class="stat-name">LIKES</span></p>
-                  <p class="stat stat-right"><span class="stat-value">${
-                    edge["node"]["edge_media_to_comment"]["count"]
-                  }</span> <br /> <span class="stat-name">COMMENTS</span></p>
-
-              </div>
-              <p class="result-card-caption">${caption}</p>
-            </div>`;
-          }
+        data.forEach(currentElement => {
+          resContainer.innerHTML += currentElement["string"];
         });
       }
     });

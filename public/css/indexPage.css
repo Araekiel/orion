@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+
 @font-face {
   src: url(./../fonts/mont.otf);
   font-family: "Mont";
@@ -170,7 +172,7 @@ body {
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
-#index-result-container .result-card .result-card-image {
+#index-result-container .result-card .result-card-post-image {
   position: relative;
   margin-top: 25px;
   width: 550px;
@@ -180,19 +182,56 @@ body {
   border-radius: 5px;
 }
 
+#index-result-container .result-card .result-card-user-image {
+  position: relative;
+  margin-top: 50px;
+  width: 150px;
+  left: 50%;
+  margin-left: -75px;
+  border-radius: 75px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+#index-result-container .result-card .result-card-user-fullname {
+  font-family: "Roboto", sans-serif;
+  font-size: 24px;
+  margin: auto;
+  margin-top: 20px;
+  overflow-wrap: break-word;
+  text-align: center;
+  font-weight: bold;
+}
+
+#index-result-container .result-card .result-card-user-username {
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  margin: auto;
+  overflow-wrap: break-word;
+  text-align: center;
+  color: grey;
+  margin-top: 10px;
+}
+
 #index-result-container .result-card .stat-container {
+  position: relative;
   display: flex;
   flex-direction: row;
   text-align: center;
   position: relative;
-  font-family: sans-serif;
-  width: 600px;
+  font-family: "Roboto", sans-serif;
+  width: 550px;
+  margin-left: 25px;
+}
+
+#index-result-container .result-card .user-stat-container {
+  margin-top: 30px;
+  margin-bottom: 50px;
 }
 
 #index-result-container .result-card .stat-container .stat {
-  height: 50px;
-  width: 200px;
-  border-right: 0.5px solid grey;
+  height: auto;
+  width: 183px;
+  border-right: 1px solid #d3d3d3;
 }
 
 #index-result-container .result-card .stat-container .stat-right {
@@ -200,7 +239,10 @@ body {
 }
 
 #index-result-container .result-card .stat-container .stat-value {
+  height: 30px;
+  width: 30px;
   font-size: 24px;
+  color: #f93a29;
 }
 
 #index-result-container .result-card .stat-container .stat-name {
@@ -209,20 +251,16 @@ body {
   color: grey;
 }
 
-#index-result-container .result-card .stat-container .stat-logo {
-  margin: auto;
-}
-
-#index-result-container .result-card .stat-container .stat-logo-img {
-  height: 30px;
-  width: 30px;
-  margin-top: 10px;
+#index-result-container .result-card .stat-container .stat-img {
+  height: 24px;
+  width: 24px;
+  margin-top: 1.5px;
 }
 
 #index-result-container .result-card .result-card-caption {
-  font-family: sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 18px;
-  margin: 0px 0px 25px 25px;
+  margin: 10px 0px 25px 25px;
   width: 91.5%;
   overflow-wrap: break-word;
   text-align: center;
@@ -251,7 +289,7 @@ body {
 }
 
 #snackbar p {
-  font-family: sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: bold;
   line-height: 100%;
   font-size: 15px;
@@ -315,11 +353,19 @@ body {
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   }
 
-  #index-result-container .result-card .result-card-image {
+  #index-result-container .result-card .result-card-post-image {
     width: 800px;
     left: 50%;
     margin-left: -400px;
     margin-top: 50px;
+  }
+
+  #index-result-container .result-card .result-card-user-image {
+    margin-top: 75px;
+    width: 300px;
+    left: 50%;
+    margin-left: -150px;
+    border-radius: 150px;
   }
 
   #index-result-container .result-card .stat-container {
@@ -327,7 +373,7 @@ body {
   }
 
   #index-result-container .result-card .stat-container .stat {
-    height: 90px;
+    height: auto;
     width: 300px;
     border-right: 1px solid grey;
   }
@@ -342,19 +388,30 @@ body {
 
   #index-result-container .result-card .stat-container .stat-name {
     font-size: 28px;
+    font-weight: 500;
   }
 
-  #index-result-container .result-card .stat-container .stat-logo-img {
-    height: 70px;
-    width: 70px;
-    margin-top: 10px;
+  #index-result-container .result-card .stat-container .stat-img {
+    height: 48px;
+    width: 48px;
+    margin-top: 3px;
   }
 
   #index-result-container .result-card .result-card-caption {
-    font-size: 15px;
+    font-size: 18px;
     width: 88.5%;
-    margin: 0px 0px 40px 50px;
+    margin: 20px 0px 40px 50px;
     border: 0px;
+  }
+
+  #index-result-container .result-card .result-card-user-fullname {
+    font-size: 45px;
+    margin-top: 40px;
+  }
+
+  #index-result-container .result-card .result-card-user-username {
+    font-size: 28px;
+    margin-top: 20px;
   }
 
   #index-result-container .loader {

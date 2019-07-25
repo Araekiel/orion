@@ -20,6 +20,28 @@ server.get("/", (req, res) => {
   res.status(200).render("indexPage.hbs");
 });
 
+//Shuffle array using Fisher-Yates algorithm
+
+function shuffleArray(array) {
+  var currentIndex = array.length,
+    temporaryValue,
+    randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
 //Use Promises for get-data functions.
 
 function getPostsByTag(tag) {
@@ -27,18 +49,100 @@ function getPostsByTag(tag) {
   return new Promise((resolve, reject) => {
     request(url, { json: true }, async (err, response, body) => {
       if (err) {
-        reject(err);
+        let finalData = [];
+        resolve(finalData);
       } else {
-        resolve(body);
+        let finalData = [];
+        const edges =
+          body["graphql"]["hashtag"]["edge_hashtag_to_media"]["edges"];
+        edges.forEach(function(edge) {
+          if (edge["node"]["edge_liked_by"]["count"] > 10) {
+            let caption = "";
+            try {
+              caption =
+                edge["node"]["edge_media_to_caption"]["edges"][0]["node"][
+                  "text"
+                ];
+            } catch (e) {
+              caption = "";
+            }
+            finalData.push({
+              type: "post",
+              website: "instagram",
+              string: `<div class="result-card">                          
+              <img class="result-card-post-image" src="${
+                edge["node"]["display_url"]
+              }" />
+              <br />
+              <div class="stat-container">
+              <p class = "stat"><img class = "stat-img" src="images/sm/insta.png" type="image/png"/><br/><span class = "stat-name">Instagram</span></p>
+              <p class="stat"><span class="stat-value">${
+                edge["node"]["edge_liked_by"]["count"]
+              }</span> <br /> <span class="stat-name">Likes</span></p>
+                  <p class="stat stat-right"><span class="stat-value">${
+                    edge["node"]["edge_media_to_comment"]["count"]
+                  }</span> <br /> <span class="stat-name">Comments</span></p>
+              </div>
+              <p class="result-card-caption">${caption}</p>
+            </div>`
+            });
+          }
+        });
+        resolve(finalData);
+      }
+    });
+  });
+}
+
+function getUserBySearch(query) {
+  const url = `https://www.instagram.com/web/search/topsearch/?query=${query}`;
+  return new Promise((resolve, reject) => {
+    request(url, { json: true }, async (err, response, body) => {
+      if (err) {
+        let finalData = [];
+        resolve(finalData);
+      } else {
+        let finalData = [];
+        const users = body["users"];
+        users.forEach(user => {
+          let verifiedStatString = "";
+          if (user["user"]["is_verified"] === true) {
+            verifiedStatString = `<p class = "stat stat-right"><img class = "stat-img" src="images/sm/verified.png" type="image/png"/><br/><span class = "stat-name">Verified</span></p>`;
+          } else {
+            verifiedStatString = `<p class = "stat stat-right"><img class = "stat-img" src="images/sm/unverified.png" type="image/png"/><br/><span class = "stat-name">Unverified</span></p>`;
+          }
+          finalData.push({
+            type: "user",
+            website: "instagram",
+            string: `<div class = "result-card"><img src = ${
+              user["user"]["profile_pic_url"]
+            } class = "result-card-user-image" /><p class = "result-card-user-fullname">${
+              user["user"]["full_name"]
+            }</p><p class = "result-card-user-username">@${
+              user["user"]["username"]
+            }</p>
+            <div class="stat-container user-stat-container">
+              <p class = "stat"><img class = "stat-img" src="images/sm/insta.png" type="image/png"/><br/><span class = "stat-name">Instagram</span></p>
+                  <p class="stat"><span class="stat-value">${
+                    user["user"]["follower_count"]
+                  }</span> <br /> <span class="stat-name">Followers</span></p>
+                  ${verifiedStatString}
+              </div>
+            </div>`
+          });
+        });
+        resolve(finalData);
       }
     });
   });
 }
 
 server.get("/feed", async (req, res) => {
-  const tag = req.query.hashtag;
-  const data = await getPostsByTag(tag);
-  res.status(200).send(data);
+  const value = req.query.value;
+  const posts = await getPostsByTag(value);
+  const users = await getUserBySearch(value);
+  const finalData = await shuffleArray(posts.concat(users));
+  res.status(200).send(finalData);
 });
 
 server.listen(port, () => {
