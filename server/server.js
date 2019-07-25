@@ -1,7 +1,6 @@
 const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");
-const morganLogger = require("morgan");
 const request = require("request");
 
 const port = process.env.PORT || 108;
@@ -14,14 +13,12 @@ server.use(
   })
 );
 server.use(bodyParser.json());
-server.use(morganLogger("dev"));
 
 server.get("/", (req, res) => {
   res.status(200).render("indexPage.hbs");
 });
 
 //Shuffle array using Fisher-Yates algorithm
-
 function shuffleArray(array) {
   var currentIndex = array.length,
     temporaryValue,
@@ -43,7 +40,6 @@ function shuffleArray(array) {
 }
 
 //Use Promises for get-data functions.
-
 function getPostsByTag(tag) {
   let editedTag = tag.replace(/\s/g, "");
   const url = `https://www.instagram.com/explore/tags/${editedTag}/?__a=1`;
