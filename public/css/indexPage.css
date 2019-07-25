@@ -368,8 +368,24 @@ body {
     border-radius: 150px;
   }
 
+  #index-result-container .result-card .result-card-user-fullname {
+    font-size: 35px;
+    margin-top: 40px;
+  }
+
+  #index-result-container .result-card .result-card-user-username {
+    font-size: 20px;
+    margin-top: 10px;
+  }
+
   #index-result-container .result-card .stat-container {
-    width: 900px;
+    width: 800px;
+    margin-left: 50px;
+  }
+
+  #index-result-container .result-card .stat-container {
+    margin-top: 80px;
+    margin-bottom: 75px;
   }
 
   #index-result-container .result-card .stat-container .stat {

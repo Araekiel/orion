@@ -45,7 +45,8 @@ function shuffleArray(array) {
 //Use Promises for get-data functions.
 
 function getPostsByTag(tag) {
-  const url = `https://www.instagram.com/explore/tags/${tag}/?__a=1`;
+  let editedTag = tag.replace(/\s/g, "");
+  const url = `https://www.instagram.com/explore/tags/${editedTag}/?__a=1`;
   return new Promise((resolve, reject) => {
     request(url, { json: true }, async (err, response, body) => {
       if (err) {
@@ -94,43 +95,71 @@ function getPostsByTag(tag) {
   });
 }
 
-function getUserBySearch(query) {
+function getUsersBySearch(query) {
   const url = `https://www.instagram.com/web/search/topsearch/?query=${query}`;
   return new Promise((resolve, reject) => {
     request(url, { json: true }, async (err, response, body) => {
       if (err) {
-        let finalData = [];
+        let verifiedUsers = [];
+        let unverifiedUsers = [];
+        let finalData = {
+          verified: verifiedUsers,
+          unverified: unverifiedUsers
+        };
         resolve(finalData);
       } else {
-        let finalData = [];
+        let verifiedUsers = [];
+        let unverifiedUsers = [];
         const users = body["users"];
         users.forEach(user => {
-          let verifiedStatString = "";
           if (user["user"]["is_verified"] === true) {
-            verifiedStatString = `<p class = "stat stat-right"><img class = "stat-img" src="images/sm/verified.png" type="image/png"/><br/><span class = "stat-name">Verified</span></p>`;
+            let verifiedStatString = `<p class = "stat stat-right"><img class = "stat-img" src="images/sm/verified.png" type="image/png"/><br/><span class = "stat-name">Verified</span></p>`;
+            verifiedUsers.push({
+              type: "user",
+              website: "instagram",
+              string: `<div class = "result-card"><img src = ${
+                user["user"]["profile_pic_url"]
+              } class = "result-card-user-image" /><p class = "result-card-user-fullname">${
+                user["user"]["full_name"]
+              }</p><p class = "result-card-user-username">@${
+                user["user"]["username"]
+              }</p>
+              <div class="stat-container user-stat-container">
+                <p class = "stat"><img class = "stat-img" src="images/sm/insta.png" type="image/png"/><br/><span class = "stat-name">Instagram</span></p>
+                    <p class="stat"><span class="stat-value">${
+                      user["user"]["follower_count"]
+                    }</span> <br /> <span class="stat-name">Followers</span></p>
+                    ${verifiedStatString}
+                </div>
+              </div>`
+            });
           } else {
-            verifiedStatString = `<p class = "stat stat-right"><img class = "stat-img" src="images/sm/unverified.png" type="image/png"/><br/><span class = "stat-name">Unverified</span></p>`;
+            let verifiedStatString = `<p class = "stat stat-right"><img class = "stat-img" src="images/sm/unverified.png" type="image/png"/><br/><span class = "stat-name">Unverified</span></p>`;
+            unverifiedUsers.push({
+              type: "user",
+              website: "instagram",
+              string: `<div class = "result-card"><img src = ${
+                user["user"]["profile_pic_url"]
+              } class = "result-card-user-image" /><p class = "result-card-user-fullname">${
+                user["user"]["full_name"]
+              }</p><p class = "result-card-user-username">@${
+                user["user"]["username"]
+              }</p>
+              <div class="stat-container user-stat-container">
+                <p class = "stat"><img class = "stat-img" src="images/sm/insta.png" type="image/png"/><br/><span class = "stat-name">Instagram</span></p>
+                    <p class="stat"><span class="stat-value">${
+                      user["user"]["follower_count"]
+                    }</span> <br /> <span class="stat-name">Followers</span></p>
+                    ${verifiedStatString}
+                </div>
+              </div>`
+            });
           }
-          finalData.push({
-            type: "user",
-            website: "instagram",
-            string: `<div class = "result-card"><img src = ${
-              user["user"]["profile_pic_url"]
-            } class = "result-card-user-image" /><p class = "result-card-user-fullname">${
-              user["user"]["full_name"]
-            }</p><p class = "result-card-user-username">@${
-              user["user"]["username"]
-            }</p>
-            <div class="stat-container user-stat-container">
-              <p class = "stat"><img class = "stat-img" src="images/sm/insta.png" type="image/png"/><br/><span class = "stat-name">Instagram</span></p>
-                  <p class="stat"><span class="stat-value">${
-                    user["user"]["follower_count"]
-                  }</span> <br /> <span class="stat-name">Followers</span></p>
-                  ${verifiedStatString}
-              </div>
-            </div>`
-          });
         });
+        const finalData = {
+          verified: verifiedUsers,
+          unverified: unverifiedUsers
+        };
         resolve(finalData);
       }
     });
@@ -140,8 +169,10 @@ function getUserBySearch(query) {
 server.get("/feed", async (req, res) => {
   const value = req.query.value;
   const posts = await getPostsByTag(value);
-  const users = await getUserBySearch(value);
-  const finalData = await shuffleArray(posts.concat(users));
+  const usersObj = await getUsersBySearch(value);
+  const finalData = usersObj["verified"].concat(
+    shuffleArray(posts.concat(usersObj["unverified"]))
+  );
   res.status(200).send(finalData);
 });
 
