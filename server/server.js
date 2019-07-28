@@ -115,6 +115,12 @@ function getUsersBySearch(query) {
         users.forEach(user => {
           if (user["user"]["is_verified"] === true) {
             let verifiedStatString = `<p class = "stat stat-right"><img class = "stat-img" src="images/sm/verified.png" type="image/png"/><br/><span class = "stat-name">Verified</span></p>`;
+            let followerCount;
+            if(user["user"]["follower_count"] >= 1000000) {
+               followerCount = user["user"]["byline"].substr(user["user"]["byline"].indexOf(' ')+1).trim();
+            } else {
+               followerCount = user["user"]["follower_count"];
+            }
             verifiedUsers.push({
               type: "user",
               website: "instagram",
@@ -128,7 +134,7 @@ function getUsersBySearch(query) {
                 <div class="stat-container user-stat-container">
                   <p class = "stat"><img class = "stat-img" src="images/sm/insta.png" type="image/png"/><br/><span class = "stat-name">Instagram</span></p>
                       <p class="stat"><span class="stat-value">${
-                        user["user"]["follower_count"]
+                        followerCount
                       }</span> <br /> <span class="stat-name">Followers</span></p>
                       ${verifiedStatString}
                 </div>
@@ -139,6 +145,12 @@ function getUsersBySearch(query) {
             });
           } else {
             let verifiedStatString = `<p class = "stat stat-right"><img class = "stat-img" src="images/sm/unverified.png" type="image/png"/><br/><span class = "stat-name">Unverified</span></p>`;
+            let followerCount;
+            if(user["user"]["follower_count"] >= 1000000) {
+               followerCount = user["user"]["byline"].substr(user["user"]["byline"].indexOf(' ')+1).trim();
+            } else {
+               followerCount = user["user"]["follower_count"];
+            }
             unverifiedUsers.push({
               type: "user",
               website: "instagram",
@@ -152,7 +164,7 @@ function getUsersBySearch(query) {
               <div class="stat-container user-stat-container">
                 <p class = "stat"><img class = "stat-img" src="images/sm/insta.png" type="image/png"/><br/><span class = "stat-name">Instagram</span></p>
                     <p class="stat"><span class="stat-value">${
-                      user["user"]["follower_count"]
+                      followerCount
                     }</span> <br /> <span class="stat-name">Followers</span></p>
                     ${verifiedStatString}
                 </div>
