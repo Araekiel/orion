@@ -114,7 +114,7 @@ function getUsersBySearch(query) {
           if (user["user"]["is_verified"] === true) {
             let verifiedStatString = `<p class = "stat stat-right"><img class = "stat-img" src="images/sm/verified.png" type="image/png"/><br/><span class = "stat-name">Verified</span></p>`;
             let followerCount;
-            if(user["user"]["follower_count"] >= 1000000) {
+            if(user["user"]["follower_count"] >= 100000) {
                followerCount = user["user"]["byline"].substr(0, user["user"]["byline"].indexOf(' ')+1).trim();
             } else {
                followerCount = user["user"]["follower_count"];
@@ -144,7 +144,7 @@ function getUsersBySearch(query) {
           } else {
             let verifiedStatString = `<p class = "stat stat-right"><img class = "stat-img" src="images/sm/unverified.png" type="image/png"/><br/><span class = "stat-name">Unverified</span></p>`;
             let followerCount;
-            if(user["user"]["follower_count"] >= 1000000) {
+            if(user["user"]["follower_count"] >= 100000) {
                followerCount = user["user"]["byline"].substr(0, user["user"]["byline"].indexOf(' ')+1).trim();
             } else {
                followerCount = user["user"]["follower_count"];
