@@ -19,5 +19,5 @@ Extra:
 [] 1. Ability to play videos.
 
 Problems:
-[] 1. Follower count problem
+[✓] 1. Follower count problem
 [] 2. Firefox search bar problem
