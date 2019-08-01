@@ -83,7 +83,7 @@ function getPostsByTag(tag) {
               <p class="result-card-caption">${caption}</p>
               <a href = "https://www.instagram.com/p/${
                 edge["node"]["shortcode"]
-              }"><input type = "button" class = "view-post-btn" value = "View Post"></input></a>
+              }"><input type = "button" class = "view-post-btn" value = "VIEW POST"></input></a>
             </div>`
             });
           }
@@ -138,7 +138,7 @@ function getUsersBySearch(query) {
                 </div>
                 <a href = "https://www.instagram.com/${
                   user["user"]["username"]
-                }"><input type = "button" class = "view-profile-btn" value = "View Profile"></input></a> 
+                }"><input type = "button" class = "view-profile-btn" value = "VIEW PROFILE"></input></a> 
               </div>`
             });
           } else {
@@ -168,7 +168,7 @@ function getUsersBySearch(query) {
                 </div>
                 <a href = "https://www.instagram.com/${
                   user["user"]["username"]
-                }"><input type = "button" class = "view-profile-btn" value = "View Profile"></input></a>
+                }"><input type = "button" class = "view-profile-btn" value = "VIEW PROFILE"></input></a>
               </div>`
             });
           }
