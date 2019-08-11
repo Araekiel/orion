@@ -29,6 +29,7 @@ Extra:
 Problems:
 [✓] 1. Follower count problem
 [✓] 2. Search bar problem on certain devices and browsers
+[] 3. Stop using async/await for every funtion call in /feed endpoint - Load time increases because of this
 
 
 Current Version Deployed(Heroku): v30
