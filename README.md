@@ -50,7 +50,7 @@ Open a browser and type **localhost:_port_**
 ## Contributing
 
 Fork the repository and open a pull request to contribute.
-Pull requests are welcome.<br/>For major changes, please open an issue first to discuss what you would like to change.<br/>Look at **_checklist.txt_**.
+Pull requests are welcome.<br/>For major changes, please open an issue first to discuss what you would like to change.<br/>Look at **_checklist.txt_** for things that need to be added or changed.
 
 ## Authors
 
