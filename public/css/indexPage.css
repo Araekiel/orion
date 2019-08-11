@@ -97,6 +97,8 @@ body {
 }
 
 #index-search-container #search-form {
+  display: flex;
+  flex-direction: row;
   text-align: center;
   position: relative;
   margin: auto;
@@ -112,8 +114,6 @@ body {
 }
 
 #index-search-container #search-form #search-field {
-  display: inline-block;
-  float: left;
   height: 48px;
   width: 480px;
   background-color: white;
@@ -131,8 +131,6 @@ body {
 }
 
 #index-search-container #search-form #search-btn {
-  display: inline-block;
-  float: left;
   height: 50px;
   width: 100px;
   font-size: 18px;
