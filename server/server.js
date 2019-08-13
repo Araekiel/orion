@@ -66,7 +66,7 @@ function getPostsByTag(tag) {
             finalData.push({
               type: "post",
               website: "instagram",
-              string: `<div class="result-card">                          
+              string: `<div class="result-card">
               <img class="result-card-post-image" src="${
                 edge["node"]["display_url"]
               }" />
@@ -138,7 +138,7 @@ function getUsersBySearch(query) {
                 </div>
                 <a href = "https://www.instagram.com/${
                   user["user"]["username"]
-                }"><input type = "button" class = "view-profile-btn" value = "VIEW PROFILE"></input></a> 
+                }"><input type = "button" class = "view-profile-btn" value = "VIEW PROFILE"></input></a>
               </div>`
             });
           } else {
