@@ -15,8 +15,8 @@ TO-DO:
 [] 3. Write functions on server side to fetch data from websites
     [] 1. Write API calls for Instagram
     [] 2. Find endpoints for other websites and write API calls
-    [] 3. Turn the functions into modules
-[] 4. Call the functions to finish the /feed endpoint 
+    [] 3. Turn the functions into modules and place them in /modules folder
+[] 4. Call the functions from the modules to finish the /feed endpoint 
 
 
 Extra: 
@@ -25,6 +25,7 @@ Extra:
         Example URL: https://scontent.cdninstagram.com/vp/*video_name.mp4*?_nc_ht=scontent.cdninstagram.com
         Look for URL in p/shortcode/?__a=1
 [] 2. Add Pagination.
+    Filter data with pages
 
 Problems:
 [✓] 1. Follower count problem
