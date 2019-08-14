@@ -114,10 +114,12 @@ function getUsersBySearch(query) {
           if (user["user"]["is_verified"] === true) {
             let verifiedStatString = `<p class = "stat stat-right"><img class = "stat-img" src="images/sm/verified.png" type="image/png"/><br/><span class = "stat-name">Verified</span></p>`;
             let followerCount;
-            if(user["user"]["follower_count"] >= 100000) {
-               followerCount = user["user"]["byline"].substr(0, user["user"]["byline"].indexOf(' ')+1).trim();
+            if (user["user"]["follower_count"] >= 100000) {
+              followerCount = user["user"]["byline"]
+                .substr(0, user["user"]["byline"].indexOf(" ") + 1)
+                .trim();
             } else {
-               followerCount = user["user"]["follower_count"];
+              followerCount = user["user"]["follower_count"];
             }
             verifiedUsers.push({
               type: "user",
@@ -131,9 +133,7 @@ function getUsersBySearch(query) {
               }</p>
                 <div class="stat-container user-stat-container">
                   <p class = "stat"><img class = "stat-img" src="images/sm/insta.png" type="image/png"/><br/><span class = "stat-name">Instagram</span></p>
-                      <p class="stat"><span class="stat-value">${
-                        followerCount
-                      }</span> <br /> <span class="stat-name">Followers</span></p>
+                      <p class="stat"><span class="stat-value">${followerCount}</span> <br /> <span class="stat-name">Followers</span></p>
                       ${verifiedStatString}
                 </div>
                 <a href = "https://www.instagram.com/${
@@ -144,10 +144,12 @@ function getUsersBySearch(query) {
           } else {
             let verifiedStatString = `<p class = "stat stat-right"><img class = "stat-img" src="images/sm/unverified.png" type="image/png"/><br/><span class = "stat-name">Unverified</span></p>`;
             let followerCount;
-            if(user["user"]["follower_count"] >= 100000) {
-               followerCount = user["user"]["byline"].substr(0, user["user"]["byline"].indexOf(' ')+1).trim();
+            if (user["user"]["follower_count"] >= 100000) {
+              followerCount = user["user"]["byline"]
+                .substr(0, user["user"]["byline"].indexOf(" ") + 1)
+                .trim();
             } else {
-               followerCount = user["user"]["follower_count"];
+              followerCount = user["user"]["follower_count"];
             }
             unverifiedUsers.push({
               type: "user",
@@ -161,9 +163,7 @@ function getUsersBySearch(query) {
               }</p>
               <div class="stat-container user-stat-container">
                 <p class = "stat"><img class = "stat-img" src="images/sm/insta.png" type="image/png"/><br/><span class = "stat-name">Instagram</span></p>
-                    <p class="stat"><span class="stat-value">${
-                      followerCount
-                    }</span> <br /> <span class="stat-name">Followers</span></p>
+                    <p class="stat"><span class="stat-value">${followerCount}</span> <br /> <span class="stat-name">Followers</span></p>
                     ${verifiedStatString}
                 </div>
                 <a href = "https://www.instagram.com/${
@@ -196,3 +196,7 @@ server.get("/feed", async (req, res) => {
 server.listen(port, () => {
   console.log(`App is running on port ${port}`);
 });
+
+function testingCodeSandBox() {
+  console.log("Testing CodeSandBox");
+}
