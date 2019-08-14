@@ -196,7 +196,3 @@ server.get("/feed", async (req, res) => {
 server.listen(port, () => {
   console.log(`App is running on port ${port}`);
 });
-
-function testingCodeSandBox() {
-  console.log("Testing CodeSandBox");
-}
