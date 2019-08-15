@@ -13,6 +13,7 @@ TO-DO:
         [] 4. Keep looking for more messages
     [✓] 5. Fix the height of the search container
 [] 3. Write functions on server side to fetch data from websites
+    * Use promises for functions that fetch data
     [] 1. Write API calls for Instagram
     [] 2. Find endpoints for other websites and write API calls
     [] 3. Turn the functions into modules and place them in /modules folder
