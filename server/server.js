@@ -26,8 +26,8 @@ server.get("/", (req, res) => {
 
 server.get("/feed", async (req, res) => {
   const value = req.query.value;
-  const posts = await fetchInstagramData.getPostsByTag(value);
-  const usersObj = await fetchInstagramData.getUsersBySearch(value);
+  const posts = await fetchInstagramData.fetchPosts(value);
+  const usersObj = await fetchInstagramData.fetchUsers(value);
   const finalData = usersObj["verified"].concat(
     shuffleArray(usersObj["unverified"].concat(posts))
   );
