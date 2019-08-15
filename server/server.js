@@ -7,10 +7,10 @@ const port = process.env.PORT || 108;
 const server = express();
 
 // Modules
-const { fetchInstagramData } = require("./modules/fetchInstagramData");
+const { fetchInstagramData } = require("./modules/fetchInstagramData.js");
 
 // Utils
-const { shuffleArray } = require("./utils/shuffleArray");
+const { shuffleArray } = require("./utils/shuffleArray.js");
 
 server.use(express.static(path.join(__dirname, "../public")));
 server.use(
