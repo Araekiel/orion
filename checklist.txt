@@ -38,6 +38,6 @@ Problems:
     *Call async functions in parallel to solve this problem (Promise.all)
 [] 4. CSS code for stats and stat container is messy, inflexible. Only deals with 3 stats from one website(Instagram)
     *Use JS along with CSS to fix this issue
-
+[] 5. Fix this error: 'UnhandledPromiseRejectionWarning: TypeError: Cannot read property 'hashtag' of undefined'
 
 Current Version Deployed(Heroku): v40
