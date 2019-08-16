@@ -18,7 +18,7 @@ TO-DO:
         [] 1. Add video player (Extra #1)
     [] 2. Find endpoints for other websites and write API calls
     [] 3. Turn the functions into modules and place them in /modules folder
-    [] 4. Solve Problem #3
+    [✓] 4. Solve Problem #3
 [] 4. Call the functions from the modules to finish the /feed endpoint 
 
 
@@ -33,8 +33,8 @@ Extra:
 Problems:
 [✓] 1. Follower count problem
 [✓] 2. Search bar problem on certain devices and browsers
-[] 3. Stop using async/await for every funtion call in /feed endpoint - Load time increases because of this
+[✓] 3. Stop using async/await for every funtion call in /feed endpoint - Load time increases because of this
     *Call async functions in parallel to solve this problem (Promise.all)
 
 
-Current Version Deployed(Heroku): v38
+Current Version Deployed(Heroku): v39
