@@ -1,15 +1,13 @@
-import "request";
-
 const fetchInstagramData = {
   fetchPosts: tag => {
     let editedTag = tag.replace(/\s/g, "");
     const url = `https://www.instagram.com/explore/tags/${editedTag}/?__a=1`;
     return new Promise((resolve, reject) => {
-      request(url, { json: true }, async (err, response, body) => {
-        if (err) {
-          let finalData = [];
-          resolve(finalData);
-        } else {
+      fetch(url)
+        .then(response => {
+          return response.json();
+        })
+        .then(body => {
           let finalData = [];
           const edges =
             body["graphql"]["hashtag"]["edge_hashtag_to_media"]["edges"];
@@ -50,23 +48,23 @@ const fetchInstagramData = {
             }
           });
           resolve(finalData);
-        }
-      });
+        })
+        .catch(err => {
+          if (err) {
+            let finalData = [];
+            resolve(finalData);
+          }
+        });
     });
   },
   fetchUsers: query => {
     const url = `https://www.instagram.com/web/search/topsearch/?query=${query}`;
     return new Promise((resolve, reject) => {
-      request(url, { json: true }, async (err, response, body) => {
-        if (err) {
-          let verifiedUsers = [];
-          let unverifiedUsers = [];
-          let finalData = {
-            verified: verifiedUsers,
-            unverified: unverifiedUsers
-          };
-          resolve(finalData);
-        } else {
+      fetch(url)
+        .then(response => {
+          return response.json();
+        })
+        .then(body => {
           let verifiedUsers = [];
           let unverifiedUsers = [];
           const users = body["users"];
@@ -138,12 +136,22 @@ const fetchInstagramData = {
             unverified: unverifiedUsers
           };
           resolve(finalData);
-        }
-      });
+        })
+        .catch(err => {
+          if (err) {
+            let verifiedUsers = [];
+            let unverifiedUsers = [];
+            let finalData = {
+              verified: verifiedUsers,
+              unverified: unverifiedUsers
+            };
+            resolve(finalData);
+          }
+        });
     });
   }
 };
 
-export default {
+module.exports = {
   fetchInstagramData
 };
