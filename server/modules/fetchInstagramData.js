@@ -152,6 +152,6 @@ const fetchInstagramData = {
   }
 };
 
-export default {
+module.exports = {
   fetchInstagramData
 };
