@@ -13,8 +13,9 @@ TO-DO:
         [] 4. Keep looking for more messages
     [✓] 5. Fix the height of the search container
 [] 3. Write functions on server side to fetch data from websites
-    * Use promises for functions that fetch data
-    [] 1. Write API calls for Instagram
+    * Use promises
+    [✓] 1. Write API calls for Instagram
+        [] 1. Add video player (Extra #1)
     [] 2. Find endpoints for other websites and write API calls
     [] 3. Turn the functions into modules and place them in /modules folder
 [] 4. Call the functions from the modules to finish the /feed endpoint 
@@ -34,4 +35,4 @@ Problems:
 [] 3. Stop using async/await for every funtion call in /feed endpoint - Load time increases because of this
 
 
-Current Version Deployed(Heroku): v30
+Current Version Deployed(Heroku): v38
