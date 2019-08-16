@@ -5,6 +5,7 @@ TO-DO:
     [✓] 2. Decide the information that needs to be shown and design the UI accordingly
         [] 1. Add more stats
             Posts can have unique stats based on the websites they are from
+        [] 2. Solve Problem 4
     [✓] 3. Display differences between posts from different websites, and other common data available
     [] 4. Display messages
         [✓] 1. Add Snackbar(from Wiscro)
@@ -35,6 +36,8 @@ Problems:
 [✓] 2. Search bar problem on certain devices and browsers
 [✓] 3. Stop using async/await for every funtion call in /feed endpoint - Load time increases because of this
     *Call async functions in parallel to solve this problem (Promise.all)
+[] 4. CSS code for stats and stat container is messy, inflexible. Only deals with 3 stats from one website(Instagram)
+    *Use JS along with CSS to fix this issue
 
 
-Current Version Deployed(Heroku): v39
+Current Version Deployed(Heroku): v40

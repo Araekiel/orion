@@ -6,7 +6,7 @@ const fetchInstagramData = {
     const url = `https://www.instagram.com/explore/tags/${editedTag}/?__a=1`;
     return new Promise((resolve, reject) => {
       request(url, { json: true }, async (err, response, body) => {
-        if (err) {
+        if (err || !body["graphql"]["hashtag"]) {
           let finalData = [];
           resolve(finalData);
         } else {
