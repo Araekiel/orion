@@ -3,10 +3,17 @@ const request = require("request");
 const fetchInstagramData = {
   fetchPosts: tag => {
     let editedTag = tag.replace(/\s/g, "");
+    const specialChars = "!@#$%&*^()_-=+?/>.<,~`[]{}|";
+    let specialCharErr = false;
+    for (let char of editedTag) {
+      if (specialChars.indexOf(char) > -1 || specialCharErr === true) {
+        specialCharErr = true;
+      }
+    }
     const url = `https://www.instagram.com/explore/tags/${editedTag}/?__a=1`;
     return new Promise((resolve, reject) => {
       request(url, { json: true }, async (err, response, body) => {
-        if (err || !body) {
+        if (err || specialCharErr) {
           let finalData = [];
           resolve(finalData);
         } else {
