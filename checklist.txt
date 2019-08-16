@@ -9,9 +9,11 @@ TO-DO:
     [✓] 3. Display differences between posts from different websites, and other common data available
     [] 4. Display messages
         [✓] 1. Add Snackbar(from Wiscro)
-        [✓] 2. Error messages: No text input
+        [] 2. Error messages
+            [✓] 1. No text input
+            [] 2. No results found
         [✓] 3. Success messages: none    
-        [] 4. Keep looking for more messages
+        *Keep looking for more messages
     [✓] 5. Fix the height of the search container
 [] 3. Write functions on server side to fetch data from websites
     * Use promises
@@ -38,6 +40,6 @@ Problems:
     *Call async functions in parallel to solve this problem (Promise.all)
 [] 4. CSS code for stats and stat container is messy, inflexible. Only deals with 3 stats from one website(Instagram)
     *Use JS along with CSS to fix this issue
-[] 5. Fix this error: 'UnhandledPromiseRejectionWarning: TypeError: Cannot read property 'hashtag' of undefined'
+[✓] 5. Fix this error: 'UnhandledPromiseRejectionWarning: TypeError: Cannot read property 'hashtag' of undefined'
 
-Current Version Deployed(Heroku): v40
+Current Version Deployed(Heroku): v42
