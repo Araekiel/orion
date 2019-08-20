@@ -6,6 +6,7 @@ TO-DO:
         [] 1. Add more stats
             Posts can have unique stats based on the websites they are from
         [] 2. Solve Problem 4
+        [] 3. Solve Problem 6
     [✓] 3. Display differences between posts from different websites, and other common data available
     [] 4. Display messages
         [✓] 1. Add Snackbar(from Wiscro)
@@ -41,5 +42,6 @@ Problems:
 [] 4. CSS code for stats and stat container is messy, inflexible. Only deals with 3 stats from one website(Instagram)
     *Use JS along with CSS to fix this issue
 [✓] 5. Fix this error: 'UnhandledPromiseRejectionWarning: TypeError: Cannot read property 'hashtag' of undefined'
+[] 6. Username, Fullname and Caption don't get displayed in the right font size sometimes
 
 Current Version Deployed(Heroku): v42
