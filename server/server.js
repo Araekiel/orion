@@ -33,7 +33,12 @@ server.get("/feed", async (req, res) => {
   const finalData = usersObj["verified"].concat(
     shuffleArray(usersObj["unverified"].concat(posts))
   );
-  res.status(200).send(finalData);
+  if(finalData.length > 0) {
+    res.status(200).send(finalData);
+  } else {
+    res.status(500).send("error: no data found");
+  }
+  
 });
 
 server.listen(port, () => {

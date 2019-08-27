@@ -39,6 +39,10 @@ function search() {
         data.forEach(currentElement => {
           resContainer.innerHTML += currentElement["string"];
         });
+      },
+      error: function() {
+        resContainer.innerHTML = "";
+        snackbarController("An error was encountered while looking for what you entered");
       }
     });
   } else {
