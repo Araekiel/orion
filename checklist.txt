@@ -12,7 +12,7 @@ TO-DO:
         [✓] 1. Add Snackbar(from Wiscro)
         [] 2. Error messages
             [✓] 1. No text input
-            [] 2. No results found
+            [✓] 2. No results found
         [✓] 3. Success messages: none    
         *Keep looking for more messages
     [✓] 5. Fix the height of the search container
@@ -24,6 +24,7 @@ TO-DO:
     [] 3. Turn the functions into modules and place them in /modules folder
     [✓] 4. Solve Problem #3
 [] 4. Call the functions from the modules to finish the /feed endpoint 
+[] 5. Add data filter and sequence algorithms
 
 
 Extra: 
