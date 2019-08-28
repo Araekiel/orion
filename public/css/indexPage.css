@@ -230,8 +230,11 @@ body {
 
 #index-result-container .result-card .stat-container .stat {
   height: auto;
-  width: 183px;
   border-right: 1px solid #d3d3d3;
+}
+
+#index-result-container .result-card .stat-container .instagram-stat {
+  width: 183px;
 }
 
 #index-result-container .result-card .stat-container .stat-right {
@@ -426,8 +429,11 @@ body {
 
   #index-result-container .result-card .stat-container .stat {
     height: auto;
-    width: 300px;
     border-right: 1px solid grey;
+  }
+
+  #index-result-container .result-card .stat-container .instagram-stat {
+    width: 300px;
   }
 
   #index-result-container .result-card .stat-container .stat-right {

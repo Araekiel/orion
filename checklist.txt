@@ -24,6 +24,7 @@ TO-DO:
     [] 3. Turn the functions into modules and place them in /modules folder
     [✓] 4. Solve Problem #3
 [] 4. Call the functions from the modules to finish the /feed endpoint 
+[] 5. Refactor fetchUsers in fetchInstagramData
 [] 5. Add data filter and sequence algorithms
 
 

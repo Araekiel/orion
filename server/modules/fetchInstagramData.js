@@ -40,11 +40,11 @@ const fetchInstagramData = {
               }" />
               <br />
               <div class="stat-container">
-              <p class = "stat"><img class = "stat-img" src="images/sm/insta.png" type="image/png"/><br/><span class = "stat-name">Instagram</span></p>
-              <p class="stat"><span class="stat-value">${
+              <p class = "stat instagram-stat"><img class = "stat-img" src="images/sm/insta.png" type="image/png"/><br/><span class = "stat-name">Instagram</span></p>
+              <p class="stat instagram-stat"><span class="stat-value">${
                 edge["node"]["edge_liked_by"]["count"]
               }</span> <br /> <span class="stat-name">Likes</span></p>
-                  <p class="stat stat-right"><span class="stat-value">${
+                  <p class="stat instagram-stat stat-right"><span class="stat-value">${
                     edge["node"]["edge_media_to_comment"]["count"]
                   }</span> <br /> <span class="stat-name">Comments</span></p>
               </div>
@@ -79,7 +79,7 @@ const fetchInstagramData = {
           const users = body["users"];
           users.forEach(user => {
             if (user["user"]["is_verified"] === true) {
-              let verifiedStatString = `<p class = "stat stat-right"><img class = "stat-img" src="images/sm/verified.png" type="image/png"/><br/><span class = "stat-name">Verified</span></p>`;
+              let verifiedStatString = `<p class = "stat instagram-stat stat-right"><img class = "stat-img" src="images/sm/verified.png" type="image/png"/><br/><span class = "stat-name">Verified</span></p>`;
               let followerCount;
               if (user["user"]["follower_count"] >= 100000) {
                 followerCount = user["user"]["byline"]
@@ -99,8 +99,8 @@ const fetchInstagramData = {
                   user["user"]["username"]
                 }</p>
                 <div class="stat-container user-stat-container">
-                  <p class = "stat"><img class = "stat-img" src="images/sm/insta.png" type="image/png"/><br/><span class = "stat-name">Instagram</span></p>
-                      <p class="stat"><span class="stat-value">${followerCount}</span> <br /> <span class="stat-name">Followers</span></p>
+                  <p class = "stat instagram-stat"><img class = "stat-img" src="images/sm/insta.png" type="image/png"/><br/><span class = "stat-name">Instagram</span></p>
+                      <p class="stat instagram-stat"><span class="stat-value">${followerCount}</span> <br /> <span class="stat-name">Followers</span></p>
                       ${verifiedStatString}
                 </div>
                 <a href = "https://www.instagram.com/${
@@ -109,7 +109,7 @@ const fetchInstagramData = {
               </div>`
               });
             } else {
-              let verifiedStatString = `<p class = "stat stat-right"><img class = "stat-img" src="images/sm/unverified.png" type="image/png"/><br/><span class = "stat-name">Unverified</span></p>`;
+              let verifiedStatString = `<p class = "stat instagram-stat stat-right"><img class = "stat-img" src="images/sm/unverified.png" type="image/png"/><br/><span class = "stat-name">Unverified</span></p>`;
               let followerCount;
               if (user["user"]["follower_count"] >= 100000) {
                 followerCount = user["user"]["byline"]
@@ -129,8 +129,8 @@ const fetchInstagramData = {
                   user["user"]["username"]
                 }</p>
               <div class="stat-container user-stat-container">
-                <p class = "stat"><img class = "stat-img" src="images/sm/insta.png" type="image/png"/><br/><span class = "stat-name">Instagram</span></p>
-                    <p class="stat"><span class="stat-value">${followerCount}</span> <br /> <span class="stat-name">Followers</span></p>
+                <p class = "stat instagram-stat"><img class = "stat-img" src="images/sm/insta.png" type="image/png"/><br/><span class = "stat-name">Instagram</span></p>
+                    <p class = "stat instagram-stat"><span class="stat-value">${followerCount}</span> <br /> <span class="stat-name">Followers</span></p>
                     ${verifiedStatString}
                 </div>
                 <a href = "https://www.instagram.com/${
