@@ -78,66 +78,44 @@ const fetchInstagramData = {
           let unverifiedUsers = [];
           const users = body["users"];
           users.forEach(user => {
+            let verifiedStatString;
             if (user["user"]["is_verified"] === true) {
-              let verifiedStatString = `<p class = "stat instagram-stat stat-right"><img class = "stat-img" src="images/sm/verified.png" type="image/png"/><br/><span class = "stat-name">Verified</span></p>`;
-              let followerCount;
-              if (user["user"]["follower_count"] >= 100000) {
-                followerCount = user["user"]["byline"]
-                  .substr(0, user["user"]["byline"].indexOf(" ") + 1)
-                  .trim();
-              } else {
-                followerCount = user["user"]["follower_count"];
-              }
-              verifiedUsers.push({
-                type: "user",
-                website: "instagram",
-                string: `<div class = "result-card"><img src = ${
-                  user["user"]["profile_pic_url"]
-                } class = "result-card-user-image" /><p class = "result-card-user-fullname">${
-                  user["user"]["full_name"]
-                }</p><p class = "result-card-user-username">@${
-                  user["user"]["username"]
-                }</p>
-                <div class="stat-container user-stat-container">
-                  <p class = "stat instagram-stat"><img class = "stat-img" src="images/sm/insta.png" type="image/png"/><br/><span class = "stat-name">Instagram</span></p>
-                      <p class="stat instagram-stat"><span class="stat-value">${followerCount}</span> <br /> <span class="stat-name">Followers</span></p>
-                      ${verifiedStatString}
-                </div>
-                <a href = "https://www.instagram.com/${
-                  user["user"]["username"]
-                }"><input type = "button" class = "view-profile-btn" value = "VIEW PROFILE"></input></a>
-              </div>`
-              });
+              verifiedStatString = `<p class = "stat instagram-stat stat-right"><img class = "stat-img" src="images/sm/verified.png" type="image/png"/><br/><span class = "stat-name">Verified</span></p>`;
             } else {
-              let verifiedStatString = `<p class = "stat instagram-stat stat-right"><img class = "stat-img" src="images/sm/unverified.png" type="image/png"/><br/><span class = "stat-name">Unverified</span></p>`;
-              let followerCount;
-              if (user["user"]["follower_count"] >= 100000) {
-                followerCount = user["user"]["byline"]
-                  .substr(0, user["user"]["byline"].indexOf(" ") + 1)
-                  .trim();
-              } else {
-                followerCount = user["user"]["follower_count"];
-              }
-              unverifiedUsers.push({
-                type: "user",
-                website: "instagram",
-                string: `<div class = "result-card"><img src = ${
-                  user["user"]["profile_pic_url"]
-                } class = "result-card-user-image" /><p class = "result-card-user-fullname">${
-                  user["user"]["full_name"]
-                }</p><p class = "result-card-user-username">@${
-                  user["user"]["username"]
-                }</p>
+              verifiedStatString = `<p class = "stat instagram-stat stat-right"><img class = "stat-img" src="images/sm/unverified.png" type="image/png"/><br/><span class = "stat-name">Unverified</span></p>`;
+            }
+            let followerCount;
+            if (user["user"]["follower_count"] >= 100000) {
+              followerCount = user["user"]["byline"]
+                .substr(0, user["user"]["byline"].indexOf(" ") + 1)
+                .trim();
+            } else {
+              followerCount = user["user"]["follower_count"];
+            }
+            let userData = {
+              type: "user",
+              website: "instagram",
+              string: `<div class = "result-card"><img src = ${
+                user["user"]["profile_pic_url"]
+              } class = "result-card-user-image" /><p class = "result-card-user-fullname">${
+                user["user"]["full_name"]
+              }</p><p class = "result-card-user-username">@${
+                user["user"]["username"]
+              }</p>
               <div class="stat-container user-stat-container">
                 <p class = "stat instagram-stat"><img class = "stat-img" src="images/sm/insta.png" type="image/png"/><br/><span class = "stat-name">Instagram</span></p>
-                    <p class = "stat instagram-stat"><span class="stat-value">${followerCount}</span> <br /> <span class="stat-name">Followers</span></p>
+                    <p class="stat instagram-stat"><span class="stat-value">${followerCount}</span> <br /> <span class="stat-name">Followers</span></p>
                     ${verifiedStatString}
-                </div>
-                <a href = "https://www.instagram.com/${
-                  user["user"]["username"]
-                }"><input type = "button" class = "view-profile-btn" value = "VIEW PROFILE"></input></a>
-              </div>`
-              });
+              </div>
+              <a href = "https://www.instagram.com/${
+                user["user"]["username"]
+              }"><input type = "button" class = "view-profile-btn" value = "VIEW PROFILE"></input></a>
+            </div>`
+            }
+            if(user["user"]["is_verified"] === true) {
+              verifiedUsers.push(userData);
+            } else {
+              unverifiedUsers.push(userData);
             }
           });
           const finalData = {
