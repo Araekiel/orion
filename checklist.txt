@@ -24,7 +24,7 @@ TO-DO:
     [] 3. Turn the functions into modules and place them in /modules folder
     [✓] 4. Solve Problem #3
 [] 4. Call the functions from the modules to finish the /feed endpoint 
-[] 5. Refactor fetchUsers in fetchInstagramData
+[✓] 5. Refactor fetchUsers in fetchInstagramData
 [] 5. Add data filter and sequence algorithms
 
 
@@ -43,6 +43,7 @@ Problems:
     *Call async functions in parallel to solve this problem (Promise.all)
 [] 4. CSS code for stats and stat container is messy, inflexible. Only deals with 3 stats from one website(Instagram)
     *Use JS along with CSS to fix this issue
+    *Almost done fixing this issue
 [✓] 5. Fix this error: 'UnhandledPromiseRejectionWarning: TypeError: Cannot read property 'hashtag' of undefined'
 [] 6. Username, Fullname and Caption don't get displayed in the right font size sometimes
 
