@@ -85,12 +85,12 @@ const fetchInstagramData = {
               verifiedStatString = `<p class = "stat instagram-stat stat-right"><img class = "stat-img" src="images/sm/unverified.png" type="image/png"/><br/><span class = "stat-name">Unverified</span></p>`;
             }
             let followerCount;
-            if (user["user"]["follower_count"] >= 100000) {
+            if (user["user"]["mutual_followers_count"] >= 100000) {
               followerCount = user["user"]["byline"]
                 .substr(0, user["user"]["byline"].indexOf(" ") + 1)
                 .trim();
             } else {
-              followerCount = user["user"]["follower_count"];
+              followerCount = user["user"]["mutual_followers_count"];
             }
             let userData = {
               type: "user",
