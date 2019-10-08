@@ -46,5 +46,6 @@ Problems:
     *Almost done fixing this issue
 [✓] 5. Fix this error: 'UnhandledPromiseRejectionWarning: TypeError: Cannot read property 'hashtag' of undefined'
 [] 6. Username, Fullname and Caption don't get displayed in the right font size sometimes
+[] 7. Search API has been changed, follower count shows undefined
 
 Current Version Deployed(Heroku): v42
