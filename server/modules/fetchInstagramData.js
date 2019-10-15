@@ -80,17 +80,15 @@ const fetchInstagramData = {
           users.forEach(user => {
             let verifiedStatString;
             if (user["user"]["is_verified"] === true) {
-              verifiedStatString = `<p class = "stat instagram-stat stat-right"><img class = "stat-img" src="images/sm/verified.png" type="image/png"/><br/><span class = "stat-name">Verified</span></p>`;
+              verifiedStatString = `<p class = "stat instagram-stat"><img class = "stat-img" src="images/sm/verified.png" type="image/png"/><br/><span class = "stat-name">Verified</span></p>`;
             } else {
-              verifiedStatString = `<p class = "stat instagram-stat stat-right"><img class = "stat-img" src="images/sm/unverified.png" type="image/png"/><br/><span class = "stat-name">Unverified</span></p>`;
+              verifiedStatString = `<p class = "stat instagram-stat"><img class = "stat-img" src="images/sm/unverified.png" type="image/png"/><br/><span class = "stat-name">Unverified</span></p>`;
             }
-            let followerCount;
-            if (user["user"]["mutual_followers_count"] >= 100000) {
-              followerCount = user["user"]["byline"]
-                .substr(0, user["user"]["byline"].indexOf(" ") + 1)
-                .trim();
+            let privPubStatString;
+            if(user["user"]["is_private"] === true) {
+              privPubStatString = `<p class = "stat instagram-stat stat-right"><img class = "stat-img" src = "images/sm/private.png" type = "image/png"/><br/><span class = "stat-name">Private</span></p>`;
             } else {
-              followerCount = user["user"]["mutual_followers_count"];
+              privPubStatString = `<p class = "stat instagram-stat stat-right"><img class = "stat-img" src = "images/sm/public.png" type = "image/png"/><br/><span class = "stat-name">Public</span></p>`
             }
             let userData = {
               type: "user",
@@ -103,9 +101,9 @@ const fetchInstagramData = {
                 user["user"]["username"]
               }</p>
               <div class="stat-container user-stat-container">
-                <p class = "stat instagram-stat"><img class = "stat-img" src="images/sm/insta.png" type="image/png"/><br/><span class = "stat-name">Instagram</span></p>
-                    <p class="stat instagram-stat"><span class="stat-value">${followerCount}</span> <br /> <span class="stat-name">Followers</span></p>
+                <p class = "stat instagram-stat"><img class = "stat-img" src="images/sm/insta.png" type="image/png"/><br/><span class = "stat-name">Instagram</span></p>                
                     ${verifiedStatString}
+                    ${privPubStatString}
               </div>
               <a href = "https://www.instagram.com/${
                 user["user"]["username"]
