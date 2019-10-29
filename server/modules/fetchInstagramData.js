@@ -1,6 +1,15 @@
 const request = require("request");
 
 const fetchInstagramData = {
+  fetchVideoUrl: shortcode => {
+    const url = `https://www.instagram.com/p/${shortcode}/?__a=1`;
+    return new Promise(async (resolve, reject) => {
+      request(url, { json: true}, async (err, response, body) => {
+        let videoUrl = await body["graphql"]["shortcode_media"]["video_url"];
+        resolve(videoUrl);
+      });
+    });
+  },
   fetchPosts: tag => {
     let editedTag = tag.replace(/\s/g, "");
     const specialChars = "!@#$%&*^()_-=+?/>.<,~`[]{}|";
@@ -20,7 +29,10 @@ const fetchInstagramData = {
           let finalData = [];
           const edges =
             body["graphql"]["hashtag"]["edge_hashtag_to_media"]["edges"];
-          edges.forEach(function(edge) {
+            let videoCounter = 0;
+
+          edges.forEach(async function(edge) {
+            let postContentString;
             if (edge["node"]["edge_liked_by"]["count"] > 10) {
               let caption = "";
               try {
@@ -31,13 +43,23 @@ const fetchInstagramData = {
               } catch (e) {
                 caption = "";
               }
+              if(edge["node"]["is_video"] == true) {
+                let videoUrl = await fetchInstagramData.fetchVideoUrl(edge["node"]["shortcode"]);
+                console.log(videoUrl);
+                postContentString = `<video class = "result card-post-content" controls><source src = "${videoUrl}"></video><p>video</p>`;
+                videoCounter++;
+              } else {
+                postContentString = `<img class = "result-card-post-content" src = "${edge["node"]["display_url"]}"/>`
+              }
+                
+              // } else {
+                // postContentString = `<img class = "result-card-post-content" src = "${edge["node"]["display_url"]}"/>`
+              // }
               finalData.push({
                 type: "post",
                 website: "instagram",
                 string: `<div class="result-card">
-              <img class="result-card-post-image" src="${
-                edge["node"]["display_url"]
-              }" />
+              ${postContentString}
               <br />
               <div class="stat-container">
               <p class = "stat instagram-stat"><img class = "stat-img" src="images/sm/insta.png" type="image/png"/><br/><span class = "stat-name">Instagram</span></p>
@@ -56,6 +78,7 @@ const fetchInstagramData = {
               });
             }
           });
+          console.log(videoCounter)
           resolve(finalData);
         }
       });

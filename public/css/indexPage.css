@@ -172,7 +172,7 @@ body {
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
-#index-result-container .result-card .result-card-post-image {
+#index-result-container .result-card .result-card-post-content {
   position: relative;
   margin-top: 25px;
   width: 550px;
@@ -392,7 +392,7 @@ body {
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   }
 
-  #index-result-container .result-card .result-card-post-image {
+  #index-result-container .result-card .result-card-post-content {
     width: 800px;
     left: 50%;
     margin-left: -400px;
