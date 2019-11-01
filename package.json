@@ -23,7 +23,7 @@
     "hbs": "^4.0.5",
     "mongodb": "^3.2.7",
     "mongoose": "^5.5.15",
-    "npm": "^6.10.0",
+    "npm": "^6.12.1",
     "request": "^2.88.0"
   },
   "devDependencies": {
