@@ -5,7 +5,7 @@ const fetchInstagramData = {
     const url = `https://www.instagram.com/p/${shortcode}/?__a=1`;
     return new Promise(async (resolve, reject) => {
       request(url, { json: true}, async (err, response, body) => {
-        let videoUrl = await body["graphql"]["shortcode_media"]["video_url"];
+        let videoUrl = body["graphql"]["shortcode_media"]["video_url"];
         resolve(videoUrl);
       });
     });
@@ -28,55 +28,41 @@ const fetchInstagramData = {
         } else {
           let finalData = [];
           const edges =
-            body["graphql"]["hashtag"]["edge_hashtag_to_media"]["edges"];
+            body["graphql"]["hashtag"]["edge_hashtag_to_top_posts"]["edges"];
             let videoCounter = 0;
 
           edges.forEach(async function(edge) {
-            let postContentString;
-            if (edge["node"]["edge_liked_by"]["count"] > 10) {
-              let caption = "";
-              try {
-                caption =
-                  edge["node"]["edge_media_to_caption"]["edges"][0]["node"][
-                    "text"
-                  ];
-              } catch (e) {
-                caption = "";
-              }
-              if(edge["node"]["is_video"] == true) {
-                let videoUrl = await fetchInstagramData.fetchVideoUrl(edge["node"]["shortcode"]);
-                console.log(videoUrl);
-                postContentString = `<video class = "result card-post-content" controls><source src = "${videoUrl}"></video><p>video</p>`;
-                videoCounter++;
-              } else {
-                postContentString = `<img class = "result-card-post-content" src = "${edge["node"]["display_url"]}"/>`
-              }
-                
-              // } else {
-                // postContentString = `<img class = "result-card-post-content" src = "${edge["node"]["display_url"]}"/>`
-              // }
-              finalData.push({
-                type: "post",
-                website: "instagram",
-                string: `<div class="result-card">
-              ${postContentString}
-              <br />
-              <div class="stat-container">
-              <p class = "stat instagram-stat"><img class = "stat-img" src="images/sm/insta.png" type="image/png"/><br/><span class = "stat-name">Instagram</span></p>
-              <p class="stat instagram-stat"><span class="stat-value">${
-                edge["node"]["edge_liked_by"]["count"]
-              }</span> <br /> <span class="stat-name">Likes</span></p>
-                  <p class="stat instagram-stat stat-right"><span class="stat-value">${
-                    edge["node"]["edge_media_to_comment"]["count"]
-                  }</span> <br /> <span class="stat-name">Comments</span></p>
-              </div>
-              <p class="result-card-caption">${caption}</p>
-              <a href = "https://www.instagram.com/p/${
-                edge["node"]["shortcode"]
-              }"><input type = "button" class = "view-post-btn" value = "VIEW POST"></input></a>
-            </div>`
-              });
+            let caption = "";
+            try {
+              caption =
+                edge["node"]["edge_media_to_caption"]["edges"][0]["node"][
+                  "text"
+                ];
+            } catch (e) {
+              caption = "";
             }
+
+            finalData.push({
+              type: "post",
+              website: "instagram",
+              string: `<div class="result-card">
+              <img class = "result-card-post-content" src = "${edge["node"]["display_url"]}"/>
+            <br />
+            <div class="stat-container">
+            <p class = "stat instagram-stat"><img class = "stat-img" src="images/sm/insta.png" type="image/png"/><br/><span class = "stat-name">Instagram</span></p>
+            <p class="stat instagram-stat"><span class="stat-value">${
+              edge["node"]["edge_liked_by"]["count"]
+            }</span> <br /> <span class="stat-name">Likes</span></p>
+                <p class="stat instagram-stat stat-right"><span class="stat-value">${
+                  edge["node"]["edge_media_to_comment"]["count"]
+                }</span> <br /> <span class="stat-name">Comments</span></p>
+            </div>
+            <p class="result-card-caption">${caption}</p>
+            <a href = "https://www.instagram.com/p/${
+              edge["node"]["shortcode"]
+            }"><input type = "button" class = "view-post-btn" value = "VIEW POST"></input></a>
+          </div>`
+            });
           });
           console.log(videoCounter)
           resolve(finalData);
