@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server/server.js"
+    "start": "nodemon server/server.js"
   },
   "repository": {
     "type": "git",
@@ -23,7 +23,7 @@
     "hbs": "^4.0.5",
     "mongodb": "^3.2.7",
     "mongoose": "^5.5.15",
-    "npm": "^6.12.1",
+    "npm": "^6.10.0",
     "request": "^2.88.0"
   },
   "devDependencies": {
