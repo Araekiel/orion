@@ -233,7 +233,11 @@ body {
   border-right: 1px solid #d3d3d3;
 }
 
-#index-result-container .result-card .stat-container .instagram-stat {
+#index-result-container .result-card .stat-container .instagram-post-stat{
+  width: 137.5px;
+}
+
+#index-result-container .result-card .stat-container .instagram-user-stat {
   width: 183px;
 }
 
@@ -432,7 +436,11 @@ body {
     border-right: 1px solid grey;
   }
 
-  #index-result-container .result-card .stat-container .instagram-stat {
+  #index-result-container .result-card .stat-container .instagram-post-stat {
+    width: 225px;
+  }
+
+  #index-result-container .result-card .stat-container .instagram-user-stat {
     width: 300px;
   }
 

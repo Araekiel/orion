@@ -32,6 +32,7 @@ const fetchInstagramData = {
             let videoCounter = 0;
 
           edges.forEach(async function(edge) {
+            let mediaTypeStatString;
             let caption = "";
             try {
               caption =
@@ -42,6 +43,12 @@ const fetchInstagramData = {
               caption = "";
             }
 
+            if(edge["node"]["is_video"] == true) {
+              mediaTypeStatString = `<p class = "stat instagram-post-stat stat-right"><img class = "stat-img" src = "images/sm/video.png" type = "image/png"/><br/><span class = "stat-name">Video</span></p>`;
+            } else {
+              mediaTypeStatString = `<p class = "stat instagram-post-stat stat-right"><img class = "stat-img" src = "images/sm/photo.png" type = "image/png"/><br/><span class = "stat-name">Photo</span></p>`;
+            }
+
             finalData.push({
               type: "post",
               website: "instagram",
@@ -49,13 +56,14 @@ const fetchInstagramData = {
               <img class = "result-card-post-content" src = "${edge["node"]["display_url"]}"/>
             <br />
             <div class="stat-container">
-            <p class = "stat instagram-stat"><img class = "stat-img" src="images/sm/insta.png" type="image/png"/><br/><span class = "stat-name">Instagram</span></p>
-            <p class="stat instagram-stat"><span class="stat-value">${
+            <p class = "stat instagram-post-stat"><img class = "stat-img" src = "images/sm/insta.png" type="image/png"/><br/><span class = "stat-name">Instagram</span></p>
+            <p class="stat instagram-post-stat"><span class="stat-value">${
               edge["node"]["edge_liked_by"]["count"]
             }</span> <br /> <span class="stat-name">Likes</span></p>
-                <p class="stat instagram-stat stat-right"><span class="stat-value">${
+                <p class="stat instagram-post-stat"><span class="stat-value">${
                   edge["node"]["edge_media_to_comment"]["count"]
                 }</span> <br /> <span class="stat-name">Comments</span></p>
+                ${mediaTypeStatString}
             </div>
             <p class="result-card-caption">${caption}</p>
             <a href = "https://www.instagram.com/p/${
@@ -89,15 +97,15 @@ const fetchInstagramData = {
           users.forEach(user => {
             let verifiedStatString;
             if (user["user"]["is_verified"] === true) {
-              verifiedStatString = `<p class = "stat instagram-stat"><img class = "stat-img" src="images/sm/verified.png" type="image/png"/><br/><span class = "stat-name">Verified</span></p>`;
+              verifiedStatString = `<p class = "stat instagram-user-stat"><img class = "stat-img" src="images/sm/verified.png" type="image/png"/><br/><span class = "stat-name">Verified</span></p>`;
             } else {
-              verifiedStatString = `<p class = "stat instagram-stat"><img class = "stat-img" src="images/sm/unverified.png" type="image/png"/><br/><span class = "stat-name">Unverified</span></p>`;
+              verifiedStatString = `<p class = "stat instagram-user-stat"><img class = "stat-img" src="images/sm/unverified.png" type="image/png"/><br/><span class = "stat-name">Unverified</span></p>`;
             }
             let privPubStatString;
             if(user["user"]["is_private"] === true) {
-              privPubStatString = `<p class = "stat instagram-stat stat-right"><img class = "stat-img" src = "images/sm/private.png" type = "image/png"/><br/><span class = "stat-name">Private</span></p>`;
+              privPubStatString = `<p class = "stat instagram-user-stat stat-right"><img class = "stat-img" src = "images/sm/private.png" type = "image/png"/><br/><span class = "stat-name">Private</span></p>`;
             } else {
-              privPubStatString = `<p class = "stat instagram-stat stat-right"><img class = "stat-img" src = "images/sm/public.png" type = "image/png"/><br/><span class = "stat-name">Public</span></p>`
+              privPubStatString = `<p class = "stat instagram-user-stat stat-right"><img class = "stat-img" src = "images/sm/public.png" type = "image/png"/><br/><span class = "stat-name">Public</span></p>`
             }
             let userData = {
               type: "user",
@@ -110,7 +118,7 @@ const fetchInstagramData = {
                 user["user"]["username"]
               }</p>
               <div class="stat-container user-stat-container">
-                <p class = "stat instagram-stat"><img class = "stat-img" src="images/sm/insta.png" type="image/png"/><br/><span class = "stat-name">Instagram</span></p>                
+                <p class = "stat instagram-user-stat"><img class = "stat-img" src="images/sm/insta.png" type="image/png"/><br/><span class = "stat-name">Instagram</span></p>                
                     ${verifiedStatString}
                     ${privPubStatString}
               </div>
