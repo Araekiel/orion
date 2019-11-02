@@ -28,8 +28,7 @@ const fetchInstagramData = {
         } else {
           let finalData = [];
           const edges =
-            body["graphql"]["hashtag"]["edge_hashtag_to_top_posts"]["edges"];
-            let videoCounter = 0;
+            body["graphql"]["hashtag"]["edge_hashtag_to_top_posts"]["edges"]; 
 
           edges.forEach(async function(edge) {
             let mediaTypeStatString;
@@ -43,7 +42,7 @@ const fetchInstagramData = {
               caption = "";
             }
 
-            if(edge["node"]["is_video"] == true) {
+            if(edge["node"]["is_video"] === true) {
               mediaTypeStatString = `<p class = "stat instagram-post-stat stat-right"><img class = "stat-img" src = "images/sm/video.png" type = "image/png"/><br/><span class = "stat-name">Video</span></p>`;
             } else {
               mediaTypeStatString = `<p class = "stat instagram-post-stat stat-right"><img class = "stat-img" src = "images/sm/photo.png" type = "image/png"/><br/><span class = "stat-name">Photo</span></p>`;
@@ -52,7 +51,7 @@ const fetchInstagramData = {
             finalData.push({
               type: "post",
               website: "instagram",
-              string: `<div class="result-card">
+              htmlString: `<div class="result-card">
               <img class = "result-card-post-content" src = "${edge["node"]["display_url"]}"/>
             <br />
             <div class="stat-container">
@@ -72,7 +71,6 @@ const fetchInstagramData = {
           </div>`
             });
           });
-          console.log(videoCounter)
           resolve(finalData);
         }
       });
@@ -110,7 +108,7 @@ const fetchInstagramData = {
             let userData = {
               type: "user",
               website: "instagram",
-              string: `<div class = "result-card"><img src = ${
+              htmlString: `<div class = "result-card"><img src = ${
                 user["user"]["profile_pic_url"]
               } class = "result-card-user-image" /><p class = "result-card-user-fullname">${
                 user["user"]["full_name"]

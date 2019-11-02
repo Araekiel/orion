@@ -36,8 +36,8 @@ function search() {
       },
       success: function(data) {
         resContainer.innerHTML = "";
-        data.forEach(currentElement => {
-          resContainer.innerHTML += currentElement["string"];
+        data.mainData.forEach(currentElement => {
+          resContainer.innerHTML += currentElement["htmlString"];
         });
       },
       error: function() {

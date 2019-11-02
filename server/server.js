@@ -9,6 +9,7 @@ const server = express();
 
 // Modules
 const { fetchInstagramData } = require("./modules/fetchInstagramData.js");
+const { fetchTwitterData } = require("./modules/fetchTwitterData.js");
 
 // Utils
 const { shuffleArray } = require("./utils/shuffleArray.js");
@@ -32,15 +33,22 @@ server.get("/feed", async (req, res) => {
     fetchInstagramData.fetchPosts(value),
     fetchInstagramData.fetchUsers(value)
   ]);
-  const finalData = usersObj["verified"].concat(
-    shuffleArray(usersObj["unverified"].concat(posts))
-  );
-  if(finalData.length > 0) {
+  const finalData = {
+    mainData: usersObj.verified.concat(posts),
+    unverifiedUsers: usersObj.unverified
+  };
+
+  //Following piece of code will change over time
+  if(finalData.mainData.length > 0) {
     res.status(200).send(finalData);
   } else {
-    res.status(500).send("error: no data found");
+    if(finalData.unverifiedUsers.length > 0) {
+      finalData.mainData = finalData.unverifiedUsers;
+      res.status(200).send(finalData);
+    } else {
+      res.status(500).send("error: no data found");
+    }
   }
-  
 });
 
 server.listen(port, () => {

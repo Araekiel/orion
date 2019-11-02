@@ -23,9 +23,11 @@ TO-DO:
     [] 2. Find endpoints for other websites and write API calls
     [] 3. Turn the functions into modules and place them in /modules folder
     [✓] 4. Solve Problem #3
+    [] 5. Write API calls for Twitter
 [] 4. Call the functions from the modules to finish the /feed endpoint 
-[✓] 5. Refactor fetchUsers in fetchInstagramData
 [] 5. Add data filter and sequence algorithms
+[] 6. Add filter menu on the frontend
+    *Change server.js, indexPage.js, indexPage.css
 
 
 Extra: 
@@ -33,6 +35,7 @@ Extra:
      Instagram CDN for videos: 
         Example URL: https://scontent.cdninstagram.com/vp/*video_name.mp4*?_nc_ht=scontent.cdninstagram.com
         Look for URL in p/shortcode/?__a=1
+    *Video player could not be added, still working on it - Made a new stat - media type as an alternative
 [] 2. Add Pagination.
     Filter data with pages
 
@@ -49,4 +52,9 @@ Problems:
 [✓] 7. Search API has been changed, follower count shows undefined
     Follower count stat has been replaced with public/private id stat
 
-Current Version Deployed(Heroku): v45
+Current Version Deployed(Heroku): v48
+
+
+
+
+Work on twitter api now.
