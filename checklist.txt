@@ -28,7 +28,7 @@ TO-DO:
 [] 5. Add data filter and sequence algorithms
 [] 6. Add filter menu on the frontend
     *Change server.js, indexPage.js, indexPage.css
-
+[] 7. Use proxies while scraping data from websites
 
 Extra: 
 [] 1. Add video player.
