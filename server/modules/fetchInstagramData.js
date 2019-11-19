@@ -4,10 +4,20 @@ const fetchInstagramData = {
   fetchVideoUrl: shortcode => {
     const url = `https://www.instagram.com/p/${shortcode}/?__a=1`;
     return new Promise(async (resolve, reject) => {
-      request(url, { json: true}, async (err, response, body) => {
+      request(url, { json: true }, async (err, response, body) => {
         let videoUrl = body["graphql"]["shortcode_media"]["video_url"];
         resolve(videoUrl);
       });
+    });
+  },
+  fetchFollowerCount: username => {
+    const url = `https://www.instagram.com/${username}/?__a=1`;
+    return new Promise(async (resolve, reject) => {
+      request(url, { json: true }, async (err, response, body) => {
+        //console.log(body["graphql"]);
+        let followerCount = body["graphql"]["user"]["edge_followed_by"]["count"];
+        resolve(followerCount);
+      }); 
     });
   },
   fetchPosts: tag => {
@@ -92,14 +102,13 @@ const fetchInstagramData = {
           let verifiedUsers = [];
           let unverifiedUsers = [];
           const users = body["users"];
-          users.forEach(user => {
-            let verifiedStatString;
+          users.forEach(async user => {
+            let verifiedStatString, privPubStatString;
             if (user["user"]["is_verified"] === true) {
               verifiedStatString = `<p class = "stat instagram-user-stat"><img class = "stat-img" src="images/sm/verified.png" type="image/png"/><br/><span class = "stat-name">Verified</span></p>`;
             } else {
               verifiedStatString = `<p class = "stat instagram-user-stat"><img class = "stat-img" src="images/sm/unverified.png" type="image/png"/><br/><span class = "stat-name">Unverified</span></p>`;
             }
-            let privPubStatString;
             if(user["user"]["is_private"] === true) {
               privPubStatString = `<p class = "stat instagram-user-stat stat-right"><img class = "stat-img" src = "images/sm/private.png" type = "image/png"/><br/><span class = "stat-name">Private</span></p>`;
             } else {

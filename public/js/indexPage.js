@@ -1,5 +1,3 @@
-const request = new XMLHttpRequest();
-
 const searchContainer = document.getElementById("index-search-container");
 const mainLogo = document.getElementById("socialhunter-logo");
 const searchForm = document.getElementById("search-form");
@@ -49,3 +47,5 @@ function search() {
     snackbarController("Enter something in the search field");
   }
 }
+
+

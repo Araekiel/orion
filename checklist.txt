@@ -38,6 +38,7 @@ Extra:
     *Video player could not be added, still working on it - Made a new stat - media type as an alternative
 [] 2. Add Pagination.
     Filter data with pages
+[] 3. Use fetchFollowerCount() in fetchInstagramData.js to get follower count with the help of proxies
 
 Problems:
 [✓] 1. Follower count problem
@@ -53,8 +54,3 @@ Problems:
     Follower count stat has been replaced with public/private id stat
 
 Current Version Deployed(Heroku): v48
-
-
-
-
-Work on twitter api now.
