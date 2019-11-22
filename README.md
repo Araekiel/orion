@@ -54,8 +54,7 @@ Pull requests are welcome.<br/>For major changes, please open an issue first to 
 
 ## Foundry
 
-https://kssbro.github.io/foundry/tweet-design
-https://kssbro.github.io/foundry/instagram
+[Tweet Design](https://kssbro.github.io/foundry/tweet-design)<br/>[Instagram (alpha)](https://kssbro.github.io/foundry/instagram)
 
 ## Authors
 
