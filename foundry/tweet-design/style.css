@@ -1,0 +1,109 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+
+body {
+    margin: 0px;
+    padding: 0px;
+    background-color: #e0e3e8;
+    font-family: "Roboto", sans-serif;
+}
+
+.result-card {
+    position: relative;
+    display: block;
+    margin: auto;
+    min-height: 250px;
+    height: auto;
+    width: 600px;
+    margin-top: 20px;
+    background-color: #fafafa;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: 0.1s ease-in;
+    overflow: hidden;
+}
+
+.stat-container {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    position: relative;
+    font-family: "Roboto", sans-serif;
+    width: 550px;
+    margin-left: 25px;
+}
+
+.stat {
+    height: auto;
+    border-right: 1px solid #d3d3d3;
+}
+
+.twitter-tweet-stat{
+    width: 183px;
+}
+
+.stat-right {
+    border: 0px;
+}
+
+.stat-value {
+    height: 30px;
+    width: 30px;
+    font-size: 24px;
+    color: #f93a29;
+}
+
+.stat-name {
+    font-size: 14px;
+    font-weight: bold;
+    color: grey;
+}
+
+.stat-img {
+    height: 24px;
+    width: 24px;
+    margin-top: 1.5px;
+}
+
+.result-card-post-content {
+    position: relative;
+    margin-top: 25px;
+    width: 550px;
+    left: 50%;
+    margin-left: -275px;
+}
+
+.result-card-twitter-username {
+    font-size: 18px;
+    font-weight: bold;
+    color: #f93a29;
+}
+
+/* .result-card-twitter-tweet {
+    margin-top: -10px;
+} */
+
+.tweet-img {
+    width: 550px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    border-radius: 5px;
+}
+
+.view-tweet-btn {
+    position: relative;
+    font-family: "Roboto", sans-serif;
+    height: 45px;
+    width: 150px;
+    color: white;
+    border: 0px;
+    background-color: #f93a29;
+    border-radius: 10px;
+    font-size: 14px;
+    left: 50%;
+    margin-left: -75px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    cursor: pointer;
+    margin-bottom: 50px;
+    font-weight: 700;
+    margin-top: 50px;
+}

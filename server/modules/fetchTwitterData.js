@@ -8,7 +8,9 @@ const fetchTwitterData = {
                 finalData.push({
                     type: "tweet",
                     website: "twitter",
-                    htmlString: `<div></div>`
+                    htmlString: `<div class="result-card">
+                    <p>Tweet</p>
+                    </div>`
                 });
             }
             resolve(finalData);
