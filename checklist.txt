@@ -39,6 +39,7 @@ Extra:
 [] 2. Add Pagination.
     Filter data with pages
 [] 3. Use fetchFollowerCount() in fetchInstagramData.js to get follower count with the help of proxies
+[] 4. Infinite Scrolling
 
 Problems:
 [✓] 1. Follower count problem

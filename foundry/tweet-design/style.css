@@ -129,3 +129,12 @@ body {
     height: 25px;
     width: 25px;
 }
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 1024px) {
+    .link {
+        float: none;
+        bottom: -25px;
+        right: 0px;
+        left: 278px;
+    }
+}

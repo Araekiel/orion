@@ -35,7 +35,7 @@ server.get("/feed", async (req, res) => {
     fetchTwitterData.fetchTweets()
   ]);
   const finalData = {
-    mainData: tweets.concat(usersObj.verified.concat(posts)),
+    mainData: usersObj.verified.concat(posts),
     unverifiedUsers: usersObj.unverified
   };
 
