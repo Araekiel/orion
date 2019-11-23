@@ -53,5 +53,6 @@ Problems:
 [] 6. Username, Fullname and Caption don't get displayed in the right font size sometimes
 [✓] 7. Search API has been changed, follower count shows undefined
     Follower count stat has been replaced with public/private id stat
+[] 8. Remove hbs package and use express-handlebars
 
-Current Version Deployed(Heroku): v51
+Current Version Deployed(Heroku): v52
