@@ -1,0 +1,108 @@
+@media only screen and (min-device-width: 320px) and (max-device-width: 1024px) {
+  #index-result-container .result-card {
+    min-height: 375px;
+    height: auto;
+    width: 900px;
+    margin-top: 60px;
+    border-radius: 15px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  }
+
+  #index-result-container .result-card .result-card-main-content {
+    width: 800px;
+    left: 50%;
+    margin-left: -400px;
+    margin-top: 50px;
+  }
+
+  #index-result-container .result-card .result-card-main-content .result-card-img {
+    border-radius: 10px;
+  }
+  
+  #index-result-container .result-card .result-card-main-content .result-card-text {
+    font-size: 18px;
+    margin: 20px 0px 20px 0px;
+  }
+
+  #index-result-container .result-card .result-card-main-content .result-card-twitter-tweet-username {
+    font-size: 24px;
+    font-weight: 500;
+  }
+  
+  #index-result-container .result-card .result-card-stat-container {
+    width: 800px;
+    margin-left: 50px;
+    margin-bottom: 50px;
+  }
+
+  #index-result-container .result-card .result-card-stat-container .result-card-stat {
+    height: auto;
+    border-right: 1px solid grey;
+  }
+
+  #index-result-container .result-card .result-card-stat-container .result-card-stat-4col {
+    width: 225px;
+  }
+
+  #index-result-container .result-card .result-card-stat-container .result-card-stat-3col {
+    width: 300px;
+  }
+
+  #index-result-container .result-card .result-card-stat-container .result-card-stat-right {
+    border: 0px;
+  }
+
+  #index-result-container .result-card .result-card-stat-container .result-card-stat-value {
+    font-size: 48px;
+  }
+
+  #index-result-container .result-card .result-card-stat-container .result-card-stat-name {
+    font-size: 28px;
+    font-weight: 500;
+  }
+
+  #index-result-container .result-card .result-card-stat-container .result-card-stat-img {
+    height: 48px;
+    width: 48px;
+    margin-top: 3px;
+  }
+
+  #index-result-container .result-card .result-card-instagram-user-dp {
+    margin-top: 75px;
+    width: 300px;
+    left: 50%;
+    margin-left: -150px;
+    border-radius: 150px;
+  }
+
+  #index-result-container .result-card .result-card-instagram-user-name {
+    font-size: 35px;
+    margin-top: 40px;
+  }
+
+  #index-result-container .result-card .result-card-user-username {
+    font-size: 20px;
+    margin-top: 10px;
+  }
+
+  #index-result-container .result-card .result-card-stat-container-user {
+    margin-top: 60px;
+    margin-bottom: 50px;
+  }
+
+  #index-result-container .result-card .result-card-link {
+    height: 100px;
+    width: 100px;
+    border-radius: 50px;
+    float: right;
+    bottom: -20px;
+    right: -20px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  }
+  
+  #index-result-container .result-card .result-card-link .result-card-link-img {
+    margin-top: 25px;
+    height: 50px;
+    width: 50px;
+  }
+}

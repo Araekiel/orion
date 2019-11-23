@@ -29,12 +29,13 @@ server.get("/", (req, res) => {
 
 server.get("/feed", async (req, res) => {
   const value = req.query.value;
-  const [posts, usersObj] = await Promise.all([
+  const [posts, usersObj, tweets] = await Promise.all([
     fetchInstagramData.fetchPosts(value),
-    fetchInstagramData.fetchUsers(value)
+    fetchInstagramData.fetchUsers(value),
+    fetchTwitterData.fetchTweets()
   ]);
   const finalData = {
-    mainData: usersObj.verified.concat(posts),
+    mainData: tweets.concat(usersObj.verified.concat(posts)),
     unverifiedUsers: usersObj.unverified
   };
 

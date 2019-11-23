@@ -53,32 +53,37 @@ const fetchInstagramData = {
             }
 
             if(edge["node"]["is_video"] === true) {
-              mediaTypeStatString = `<p class = "stat instagram-post-stat stat-right"><img class = "stat-img" src = "images/sm/video.png" type = "image/png"/><br/><span class = "stat-name">Video</span></p>`;
+              mediaTypeStatString = `<p class = "result-card-stat result-card-stat-4col result-card-stat-right"><img class = "result-card-stat-img" src = "images/sm/video.png" type = "image/png"/><br/><span class = "result-card-stat-name">Video</span></p>`;
             } else {
-              mediaTypeStatString = `<p class = "stat instagram-post-stat stat-right"><img class = "stat-img" src = "images/sm/photo.png" type = "image/png"/><br/><span class = "stat-name">Photo</span></p>`;
+              mediaTypeStatString = `<p class = "result-card-stat result-card-stat-4col result-card-stat-right"><img class = "result-card-stat-img" src = "images/sm/photo.png" type = "image/png"/><br/><span class = "result-card-stat-name">Photo</span></p>`;
             }
 
             finalData.push({
               type: "post",
               website: "instagram",
-              htmlString: `<div class="result-card">
-              <img class = "result-card-post-content" src = "${edge["node"]["display_url"]}"/>
-            <br />
-            <div class="stat-container">
-            <p class = "stat instagram-post-stat"><img class = "stat-img" src = "images/sm/insta.png" type="image/png"/><br/><span class = "stat-name">Instagram</span></p>
-            <p class="stat instagram-post-stat"><span class="stat-value">${
-              edge["node"]["edge_liked_by"]["count"]
-            }</span> <br /> <span class="stat-name">Likes</span></p>
-                <p class="stat instagram-post-stat"><span class="stat-value">${
-                  edge["node"]["edge_media_to_comment"]["count"]
-                }</span> <br /> <span class="stat-name">Comments</span></p>
-                ${mediaTypeStatString}
-            </div>
-            <p class="result-card-caption">${caption}</p>
-            <a href = "https://www.instagram.com/p/${
-              edge["node"]["shortcode"]
-            }"><input type = "button" class = "view-post-btn" value = "VIEW POST"></input></a>
-          </div>`
+              htmlString: `<div class="result-card result-card-instagram-post">
+                <div class="result-card-main-content">
+                  <img class = "result-card-img" src = "${edge["node"]["display_url"]}"/>
+                  <br/>
+                  <p class="result-card-text">${caption}</p>
+                </div>
+                <div class="result-card-stat-container">
+                  <p class = "result-card-stat result-card-stat-4col"><img class = "result-card-stat-img" src = "images/sm/insta.png" type="image/png"/><br/><span class = "result-card-stat-name">Instagram</span></p>
+                  <p class="result-card-stat result-card-stat-4col"><span class="result-card-stat-value">${
+                    edge["node"]["edge_liked_by"]["count"]
+                  }</span> <br /> <span class="result-card-stat-name">Likes</span></p>
+                      <p class="result-card-stat result-card-stat-4col"><span class="result-card-stat-value">${
+                        edge["node"]["edge_media_to_comment"]["count"]
+                      }</span> <br /> <span class="result-card-stat-name">Comments</span></p>
+                  ${mediaTypeStatString}
+                </div>
+                <a href = "https://instagram.com/p/${edge["node"]["shortcode"]}">
+                  <div class="result-card-link">
+                      <img src="/images/sm/link.png" type="image/png" class="result-card-link-img"/>
+                  </div>
+                </a>
+              </div>
+            `
             });
           });
           resolve(finalData);
@@ -105,34 +110,37 @@ const fetchInstagramData = {
           users.forEach(async user => {
             let verifiedStatString, privPubStatString;
             if (user["user"]["is_verified"] === true) {
-              verifiedStatString = `<p class = "stat instagram-user-stat"><img class = "stat-img" src="images/sm/verified.png" type="image/png"/><br/><span class = "stat-name">Verified</span></p>`;
+              verifiedStatString = `<p class = "result-card-stat result-card-stat-3col"><img class = "result-card-stat-img" src="images/sm/verified.png" type="image/png"/><br/><span class = "result-card-stat-name">Verified</span></p>`;
             } else {
-              verifiedStatString = `<p class = "stat instagram-user-stat"><img class = "stat-img" src="images/sm/unverified.png" type="image/png"/><br/><span class = "stat-name">Unverified</span></p>`;
+              verifiedStatString = `<p class = "result-card-stat result-card-stat-3col"><img class = "result-card-stat-img" src="images/sm/unverified.png" type="image/png"/><br/><span class = "result-card-stat-name">Unverified</span></p>`;
             }
             if(user["user"]["is_private"] === true) {
-              privPubStatString = `<p class = "stat instagram-user-stat stat-right"><img class = "stat-img" src = "images/sm/private.png" type = "image/png"/><br/><span class = "stat-name">Private</span></p>`;
+              privPubStatString = `<p class = "result-card-stat result-card-stat-3col result-card-stat-right"><img class = "result-card-stat-img" src = "images/sm/private.png" type = "image/png"/><br/><span class = "result-card-stat-name">Private</span></p>`;
             } else {
-              privPubStatString = `<p class = "stat instagram-user-stat stat-right"><img class = "stat-img" src = "images/sm/public.png" type = "image/png"/><br/><span class = "stat-name">Public</span></p>`
+              privPubStatString = `<p class = "result-card-stat result-card-stat-3col result-card-stat-right"><img class = "result-card-stat-img" src = "images/sm/public.png" type = "image/png"/><br/><span class = "result-card-stat-name">Public</span></p>`
             }
             let userData = {
               type: "user",
               website: "instagram",
-              htmlString: `<div class = "result-card"><img src = ${
-                user["user"]["profile_pic_url"]
-              } class = "result-card-user-image" /><p class = "result-card-user-fullname">${
-                user["user"]["full_name"]
-              }</p><p class = "result-card-user-username">@${
-                user["user"]["username"]
-              }</p>
-              <div class="stat-container user-stat-container">
-                <p class = "stat instagram-user-stat"><img class = "stat-img" src="images/sm/insta.png" type="image/png"/><br/><span class = "stat-name">Instagram</span></p>                
-                    ${verifiedStatString}
-                    ${privPubStatString}
+              htmlString: `<div class = "result-card result-card-instagram-user"><img src = ${
+                  user["user"]["profile_pic_url"]
+                } class = "result-card-instagram-user-dp" /><p class = "result-card-instagram-user-name">${
+                  user["user"]["full_name"]
+                }</p><p class = "result-card-instagram-user-username">@${
+                  user["user"]["username"]
+                }</p>
+                <div class="result-card-stat-container result-card-stat-container-user">
+                  <p class = "result-card-stat result-card-stat-3col"><img class = "result-card-stat-img" src="images/sm/insta.png" type="image/png"/><br/><span class = "result-card-stat-name">Instagram</span></p>                
+                  ${verifiedStatString}
+                  ${privPubStatString}
+                </div>
+                <a href = "https://www.instagram.com/${user["user"]["username"]}">
+                  <div class="result-card-link">
+                      <img src="/images/sm/link.png" type="image/png" class="result-card-link-img"/>
+                  </div>
+                </a>
               </div>
-              <a href = "https://www.instagram.com/${
-                user["user"]["username"]
-              }"><input type = "button" class = "view-profile-btn" value = "VIEW PROFILE"></input></a>
-            </div>`
+             `
             }
             if(user["user"]["is_verified"] === true) {
               verifiedUsers.push(userData);
