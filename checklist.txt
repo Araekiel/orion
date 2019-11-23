@@ -54,4 +54,4 @@ Problems:
 [✓] 7. Search API has been changed, follower count shows undefined
     Follower count stat has been replaced with public/private id stat
 
-Current Version Deployed(Heroku): v48
+Current Version Deployed(Heroku): v51

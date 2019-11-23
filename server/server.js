@@ -1,6 +1,7 @@
 const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");
+const morganLogger = require("morgan");
 const request = require("request");
 
 const port = process.env.PORT || 108;
@@ -20,6 +21,7 @@ server.use(
   })
 );
 server.use(bodyParser.json());
+server.use(morganLogger("dev"));
 
 server.get("/", (req, res) => {
   res.status(200).render("indexPage.hbs");
@@ -33,16 +35,16 @@ server.get("/feed", async (req, res) => {
     fetchTwitterData.fetchTweets()
   ]);
   const finalData = {
-    mainData: usersObj.verified.concat(posts),
+    mainData: tweets.concat(usersObj.verified.concat(posts)),
     unverifiedUsers: usersObj.unverified
   };
 
   //Following piece of code will change over time
-  if(finalData.mainData.length > 0) {
+  if(finalData.mainData.length > 1) {
     res.status(200).send(finalData);
   } else {
     if(finalData.unverifiedUsers.length > 0) {
-      finalData.mainData = finalData.unverifiedUsers;
+      finalData.mainData = tweets.concat(finalData.unverifiedUsers);
       res.status(200).send(finalData);
     } else {
       res.status(500).send("error: no data found");
