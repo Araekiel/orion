@@ -16,7 +16,7 @@
   }
 
   #index-search-container #search-form {
-    width: 900px;
+    width: 910px;
     height: 96px;
     border-radius: 20px;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
@@ -24,7 +24,7 @@
 
   #index-search-container #search-form #search-field {
     height: 96px;
-    width: 700px;
+    width: 710px;
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px;
     font-size: 42px;
