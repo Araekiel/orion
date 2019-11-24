@@ -22,6 +22,7 @@ const fetchInstagramData = {
   },
   fetchPosts: tag => {
     let editedTag = tag.replace(/\s/g, "");
+    console.log(editedTag);
     const specialChars = "!@#$%&*^()_-=+?/>.<,~`[]{}|";
     let specialCharErr = false;
     for (let char of editedTag) {
@@ -32,10 +33,11 @@ const fetchInstagramData = {
     const url = `https://www.instagram.com/explore/tags/${editedTag}/?__a=1`;
     return new Promise((resolve, reject) => {
       request(url, { json: true }, async (err, response, body) => {
-        if (err || specialCharErr) {
+        if (err || specialCharErr || response.statusCode != 200) {
           let finalData = [];
           resolve(finalData);
         } else {
+          console.log(response.statusCode);
           let finalData = [];
           const edges =
             body["graphql"]["hashtag"]["edge_hashtag_to_top_posts"]["edges"]; 
