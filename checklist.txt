@@ -31,11 +31,11 @@ TO-DO:
 [] 7. Use proxies while scraping data from websites
 
 Extra: 
-[] 1. Add video player.
+[✓] 1. Add video player.
      Instagram CDN for videos: 
         Example URL: https://scontent.cdninstagram.com/vp/*video_name.mp4*?_nc_ht=scontent.cdninstagram.com
         Look for URL in p/shortcode/?__a=1
-    *Video player could not be added, still working on it - Made a new stat - media type as an alternative
+     *Used for of loop for edges in fetchPosts() instead of forEach() to use await on fetchVideoUrl
 [] 2. Add Pagination.
     Filter data with pages
 [] 3. Use fetchFollowerCount() in fetchInstagramData.js to get follower count with the help of proxies
@@ -55,4 +55,4 @@ Problems:
     Follower count stat has been replaced with public/private id stat
 [] 8. Remove hbs package and use express-handlebars
 
-Current Version Deployed(Heroku): v52
+Current Version Deployed(Heroku): v54
