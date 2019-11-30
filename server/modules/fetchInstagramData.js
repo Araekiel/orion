@@ -30,7 +30,7 @@ const fetchInstagramData = {
       }
     }
     const url = `https://www.instagram.com/explore/tags/${editedTag}/?__a=1`;
-    return new Promise((resolve, reject) => {
+    return new Promise(async (resolve, reject) => {
       request(url, { json: true }, async (err, response, body) => {
         if (err || specialCharErr || response.statusCode != 200) {
           let finalData = [];
@@ -39,8 +39,12 @@ const fetchInstagramData = {
           let finalData = [];
           const edges =
             body["graphql"]["hashtag"]["edge_hashtag_to_top_posts"]["edges"]; 
-
-          edges.forEach(async function(edge) {
+          /* 
+          Using for-of loop instead of forEach because await doesn't work as expected inside
+          forEach. An async call is made to fetchInstagramData.fetchVideoUrl() if a post 
+          contains a video.
+          */
+          for(let edge of edges) {
             let mediaTypeStatString, resultCardMediaString;
             let caption = "";
             try {
@@ -54,12 +58,11 @@ const fetchInstagramData = {
 
             if(edge["node"]["is_video"] === true) {
               await fetchInstagramData.fetchVideoUrl(edge["node"]["shortcode"]).then(videoUrl => {
-                resultCardMediaString = `<video class="result-card-media result-card-vid" src="${videoUrl}" controls></video>`
-              });
-              console.log(resultCardMediaString);           
+                resultCardMediaString = `<video class="result-card-media result-card-media-vid" src="${videoUrl}" controls></video>`
+              });          
               mediaTypeStatString = `<p class = "result-card-stat result-card-stat-4col result-card-stat-right"><img class = "result-card-stat-img" src = "images/sm/video.png" type = "image/png"/><br/><span class = "result-card-stat-name">Video</span></p>`;
             } else {
-              resultCardMediaString = `<img class = "result-card-media result-card-img" src = "${edge["node"]["display_url"]}"/>`;
+              resultCardMediaString = `<img class = "result-card-media result-card-media-img" src = "${edge["node"]["display_url"]}"/>`;
               mediaTypeStatString = `<p class = "result-card-stat result-card-stat-4col result-card-stat-right"><img class = "result-card-stat-img" src = "images/sm/photo.png" type = "image/png"/><br/><span class = "result-card-stat-name">Photo</span></p>`;
             }
 
@@ -90,7 +93,7 @@ const fetchInstagramData = {
               </div>
             `
             });
-          });    
+          }    
           resolve(finalData);
         }
       });
