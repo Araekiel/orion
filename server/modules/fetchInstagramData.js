@@ -22,7 +22,6 @@ const fetchInstagramData = {
   },
   fetchPosts: tag => {
     let editedTag = tag.replace(/\s/g, "");
-    console.log(editedTag);
     const specialChars = "!@#$%&*^()_-=+?/>.<,~`[]{}|";
     let specialCharErr = false;
     for (let char of editedTag) {
@@ -37,13 +36,12 @@ const fetchInstagramData = {
           let finalData = [];
           resolve(finalData);
         } else {
-          console.log(response.statusCode);
           let finalData = [];
           const edges =
             body["graphql"]["hashtag"]["edge_hashtag_to_top_posts"]["edges"]; 
 
           edges.forEach(async function(edge) {
-            let mediaTypeStatString;
+            let mediaTypeStatString, resultCardMediaString;
             let caption = "";
             try {
               caption =
@@ -55,8 +53,13 @@ const fetchInstagramData = {
             }
 
             if(edge["node"]["is_video"] === true) {
+              await fetchInstagramData.fetchVideoUrl(edge["node"]["shortcode"]).then(videoUrl => {
+                resultCardMediaString = `<video class="result-card-media result-card-vid" src="${videoUrl}" controls></video>`
+              });
+              console.log(resultCardMediaString);           
               mediaTypeStatString = `<p class = "result-card-stat result-card-stat-4col result-card-stat-right"><img class = "result-card-stat-img" src = "images/sm/video.png" type = "image/png"/><br/><span class = "result-card-stat-name">Video</span></p>`;
             } else {
+              resultCardMediaString = `<img class = "result-card-media result-card-img" src = "${edge["node"]["display_url"]}"/>`;
               mediaTypeStatString = `<p class = "result-card-stat result-card-stat-4col result-card-stat-right"><img class = "result-card-stat-img" src = "images/sm/photo.png" type = "image/png"/><br/><span class = "result-card-stat-name">Photo</span></p>`;
             }
 
@@ -65,7 +68,7 @@ const fetchInstagramData = {
               website: "instagram",
               htmlString: `<div class="result-card result-card-instagram-post">
                 <div class="result-card-main-content">
-                  <img class = "result-card-img" src = "${edge["node"]["display_url"]}"/>
+                  ${resultCardMediaString}
                   <br/>
                   <p class="result-card-text">${caption}</p>
                 </div>
@@ -87,7 +90,7 @@ const fetchInstagramData = {
               </div>
             `
             });
-          });
+          });    
           resolve(finalData);
         }
       });
