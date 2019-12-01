@@ -3,9 +3,9 @@ TO-DO:
 [] 2. Finish the UI
     [✓] 1. Add a loader
     [✓] 2. Decide the information that needs to be shown and design the UI accordingly
-        [] 1. Add more stats
+        [✓] 1. Add more stats
             Posts can have unique stats based on the websites they are from
-        [] 2. Solve Problem 4
+        [✓] 2. Solve Problem 4
         [] 3. Solve Problem 6
     [✓] 3. Display differences between posts from different websites, and other common data available
     [] 4. Display messages
@@ -19,40 +19,39 @@ TO-DO:
 [] 3. Write functions on server side to fetch data from websites
     * Use promises
     [✓] 1. Write API calls for Instagram
-        [] 1. Add video player (Extra #1)
     [] 2. Find endpoints for other websites and write API calls
     [] 3. Turn the functions into modules and place them in /modules folder
     [✓] 4. Solve Problem #3
     [] 5. Write API calls for Twitter
-[] 4. Call the functions from the modules to finish the /feed endpoint 
-[] 5. Add data filter and sequence algorithms
-[] 6. Add filter menu on the frontend
-    *Change server.js, indexPage.js, indexPage.css
-[] 7. Use proxies while scraping data from websites
-
-Extra: 
-[✓] 1. Add video player.
+[✓] . Add video player.
      Instagram CDN for videos: 
         Example URL: https://scontent.cdninstagram.com/vp/*video_name.mp4*?_nc_ht=scontent.cdninstagram.com
         Look for URL in p/shortcode/?__a=1
      *Used for of loop for edges in fetchPosts() instead of forEach() to use await on fetchVideoUrl
-[] 2. Add Pagination.
-    Filter data with pages
-[] 3. Use fetchFollowerCount() in fetchInstagramData.js to get follower count with the help of proxies
-[] 4. Infinite Scrolling
+[] 5. Call the functions from the modules to finish the /feed endpoint 
+[] 6. Add data filter and sequence algorithms
+[] 7. Add filter menu on the frontend
+    *Change server.js, indexPage.js, indexPage.css
+[] 8. Use proxies while scraping data from websites
 
-Problems:
+Problems/Bugs/Improvements:
 [✓] 1. Follower count problem
 [✓] 2. Search bar problem on certain devices and browsers
 [✓] 3. Stop using async/await for every funtion call in /feed endpoint - Load time increases because of this
     *Call async functions in parallel to solve this problem (Promise.all)
-[] 4. CSS code for stats and stat container is messy, inflexible. Only deals with 3 stats from one website(Instagram)
-    *Use JS along with CSS to fix this issue
+[✓] 4. CSS code for stats and stat container is messy, inflexible. Only deals with 3 stats from one website(Instagram)
     *Almost done fixing this issue
 [✓] 5. Fix this error: 'UnhandledPromiseRejectionWarning: TypeError: Cannot read property 'hashtag' of undefined'
-[] 6. Username, Fullname and Caption don't get displayed in the right font size sometimes
+[] 6. Username, Fullname and Caption don't get displayed in the right font size sometimes on mobile screens
 [✓] 7. Search API has been changed, follower count shows undefined
     Follower count stat has been replaced with public/private id stat
-[] 8. Remove hbs package and use express-handlebars
+[✓] 8. Remove hbs package and use express-handlebars
+[] 9. Try getting follower count back for Instagram users
 
-Current Version Deployed(Heroku): v54
+Extra: 
+[] 1. Add Pagination
+    Filter data with pages
+[] 2. Use fetchFollowerCount() in fetchInstagramData.js to get follower count with the help of proxies
+[] 3. Infinite Scrolling
+
+Current Version Deployed(Heroku): v55

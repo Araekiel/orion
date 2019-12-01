@@ -1,6 +1,7 @@
 const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");
+const hbs = require("express-handlebars");
 const morganLogger = require("morgan");
 const request = require("request");
 
@@ -14,6 +15,9 @@ const { fetchTwitterData } = require("./modules/fetchTwitterData.js");
 // Utils
 const { shuffleArray } = require("./utils/shuffleArray.js");
 
+server.engine("handlebars", hbs());
+server.set("view engine", "handlebars");
+
 server.use(express.static(path.join(__dirname, "../public")));
 server.use(
   bodyParser.urlencoded({
@@ -24,7 +28,9 @@ server.use(bodyParser.json());
 server.use(morganLogger("dev"));
 
 server.get("/", (req, res) => {
-  res.status(200).render("indexPage.hbs");
+  res.status(200).render("indexPage", {
+    layout: false
+  });
 });
 
 server.get("/feed", async (req, res) => {
