@@ -23,6 +23,8 @@ TO-DO:
     [] 3. Turn the functions into modules and place them in /modules folder
     [✓] 4. Solve Problem #3
     [] 5. Write API calls for Twitter
+        Link has been found. Need Multiple bearer tokens to send with the request for authorization,
+        consider register an app.
 [✓] . Add video player.
      Instagram CDN for videos: 
         Example URL: https://scontent.cdninstagram.com/vp/*video_name.mp4*?_nc_ht=scontent.cdninstagram.com
