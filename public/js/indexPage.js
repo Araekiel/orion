@@ -34,7 +34,7 @@ function search() {
       },
       success: function(data) {
         resContainer.innerHTML = "";
-        data.mainData.forEach(currentElement => {
+        data.forEach(currentElement => {
           resContainer.innerHTML += currentElement["htmlString"];
         });
       },

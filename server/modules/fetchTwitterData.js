@@ -3,6 +3,19 @@ const request = require("request");
 const fetchTwitterData = {
     fetchTweets: () => {
         return new Promise((resolve, reject) => {
+            // let url = " https://api.twitter.com/2/search/adaptive.json?simple_quoted_tweets=true&q=india&count=100&query_source=typed_query&pc=1&spelling_corrections=1&ext=mediaStats%2ChighlightedLabel%2CcameraMoment";
+            // let options = {
+            //     url: url,
+            //     headers: {
+            //         'authorization': "Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA",
+            //         // 'x-guest-token': "1205724124275867650"
+            //     },
+            //     json: true
+            // };
+            // request(options, (err, response, body) => {
+            //     console.log(body);
+            //     resolve([]);
+            // });
             let finalData = [];
             finalData.push({
                 type: "tweet",

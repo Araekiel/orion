@@ -46,16 +46,14 @@ server.get("/feed", async (req, res) => {
   };
 
   //Following piece of code will change over time
-  if(finalData.mainData.length > 1) {
-    res.status(200).send(finalData);
-  } else {
+  if(finalData.mainData.length <= 1) {
     if(finalData.unverifiedUsers.length > 0) {
       finalData.mainData = tweets.concat(finalData.unverifiedUsers);
-      res.status(200).send(finalData);
     } else {
       res.status(500).send("error: no data found");
     }
   }
+  res.status(200).send(finalData.mainData);
 });
 
 server.listen(port, () => {
