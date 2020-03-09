@@ -191,3 +191,13 @@ body {
   animation: fadein 0.5s, fadeout 0.5s 2s;
   transform: translateZ(0);
 }   
+
+#copyright {
+  position: fixed;
+  color: #B3BCC7;
+  font-family: "Roboto", sans-serif;
+  transform: rotateZ(90deg);
+  bottom: 75px;
+  left: -20px;
+  font-size: 14px;
+}

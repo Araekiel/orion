@@ -54,4 +54,8 @@
   #snackbar p {
     font-size: 40px;
   }
+  
+  #copyright {
+    display: none;
+  }
 }
