@@ -8,7 +8,7 @@ Socialhunter is an open-source Search Engine for social media websites built wit
 **Currently under development.**
 <br/>
 <br/>
-The latest build is currently deployed on Heroku: [Socialhunter](http://socialhunter.herokuapp.com/)
+
 
 ## Getting Started
 

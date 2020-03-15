@@ -38,17 +38,17 @@ server.get("/feed", async (req, res) => {
   const [posts, usersObj, tweets] = await Promise.all([
     fetchInstagramData.fetchPosts(value),
     fetchInstagramData.fetchUsers(value),
-    fetchTwitterData.fetchTweets()
+    fetchTwitterData.fetchTweets(value)
   ]);
   const finalData = {
-    mainData: tweets.concat(usersObj.verified.concat(posts)),
+    mainData: usersObj.verified.concat(shuffleArray(posts.concat(tweets))),
     unverifiedUsers: usersObj.unverified
   };
 
   //Following piece of code will change over time
-  if(finalData.mainData.length <= 1) {
+  if(finalData.mainData.length < 1) {
     if(finalData.unverifiedUsers.length > 0) {
-      finalData.mainData = tweets.concat(finalData.unverifiedUsers);
+      finalData.mainData = tweets.finalData.unverifiedUsers;
     } else {
       res.status(500).send("error: no data found");
     }
