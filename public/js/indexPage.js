@@ -4,6 +4,7 @@ const searchForm = document.getElementById("search-form");
 const searchField = document.getElementById("search-field");
 const searchBtn = document.getElementById("search-btn");
 const resContainer = document.getElementById("index-result-container");
+const copyright = document.getElementById("copyright");
 
 document.addEventListener("keyup", function(event) {
   if (event.keyCode === 13) {
@@ -30,6 +31,7 @@ function search() {
         value: searchValue
       },
       beforeSend: function() {
+        copyright.style.display = "none";
         resContainer.innerHTML = `<div class="loader"></div>`;
       },
       success: function(data) {

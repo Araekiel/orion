@@ -44,6 +44,7 @@ body {
   margin: 0px;
   padding: 0px;
   background-color: #e0e3e8;
+  text-align: center;
 }
 
 *:focus {
@@ -193,10 +194,9 @@ body {
 }   
 
 #copyright {
-  position: fixed;
+  margin: 20px 0px 10px 0px;
   color: #B3BCC7;
   font-family: "Roboto", sans-serif;
-  transform: rotateZ(90deg);
   bottom: 75px;
   left: -20px;
   font-size: 14px;

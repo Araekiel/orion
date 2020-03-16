@@ -48,7 +48,7 @@ server.get("/feed", async (req, res) => {
   //Following piece of code will change over time
   if(finalData.mainData.length < 1) {
     if(finalData.unverifiedUsers.length > 0) {
-      finalData.mainData = tweets.finalData.unverifiedUsers;
+      finalData.mainData = finalData.unverifiedUsers;
     } else {
       res.status(500).send("error: no data found");
     }
