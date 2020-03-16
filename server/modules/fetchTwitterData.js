@@ -1,5 +1,5 @@
 const request = require("request");
-const { TweetStream } = require("scrape-twitter");
+const { ListStream, TweetStream } = require("scrape-twitter");
 
 const fetchTwitterData = {
     fetchTweets: (value) => {
@@ -7,7 +7,6 @@ const fetchTwitterData = {
             let finalData = [];
             let dataStream = new TweetStream(query=value, type="top", {count:20}); 
             dataStream.on('data', (dataChunk) => {
-                console.log(dataChunk);
                 finalData.push({
                     type: "tweet",
                     website: "twitter",
@@ -23,7 +22,7 @@ const fetchTwitterData = {
                         <p class="result-card-stat result-card-stat-4col result-card-stat-right"><span class="result-card-stat-value">${dataChunk.retweetCount}</span> <br /> <span class="result-card-stat-name">Retweets</span></p>
                         <p class="result-card-stat result-card-stat-4col result-card-stat-right"><span class="result-card-stat-value">${dataChunk.favoriteCount}</span> <br /> <span class="result-card-stat-name">Favourites</span></p>
                     </div>
-                    <a href="https://twitter.com/${dataChunk.screenName}">
+                    <a href="https://twitter.com/${dataChunk.screenName}/status/${dataChunk.id}">
                         <div class="result-card-link">
                             <img src="/images/sm/link.png" type="image/png" class="result-card-link-img"/>
                         </div>
@@ -31,9 +30,21 @@ const fetchTwitterData = {
                     </div>`
                 });
             });
+            // fetchTwitterData.fetchUsers(value);
             resolve(finalData);
         });
-    }
+    },
+    // fetchUsers: (value) => {
+    //     return new Promise((resolve, reject) => {
+    //         let finalData = [];
+    //         let dataStream = new ListStream(username=value, list="", {count: 10});
+    //         dataStream.on('data', dataChunk => {
+    //             console.log(dataChunk);
+    //         }).on("end", () => {
+    //             console.log("end");
+    //         });
+    //     });
+    // }
 };
 
 module.exports = {
