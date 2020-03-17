@@ -70,8 +70,8 @@
   #index-result-container .result-card .result-card-instagram-user-dp {
     margin-top: 75px;
     width: 300px;
-    /* left: 50%;
-    margin-left: -150px; */
+    left: 50%;
+    margin-left: -150px;
     border-radius: 150px;
   }
 

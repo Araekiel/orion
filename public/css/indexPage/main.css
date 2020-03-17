@@ -44,7 +44,7 @@ body {
   margin: 0px;
   padding: 0px;
   background-color: #e0e3e8;
-  text-align: center;
+  /* text-align: center; */
 }
 
 *:focus {
@@ -192,7 +192,7 @@ body {
   animation: fadein 0.5s, fadeout 0.5s 2s;
   transform: translateZ(0);
 }   
-
+/* 
 #copyright {
   margin: 20px 0px 10px 0px;
   color: #B3BCC7;
@@ -200,4 +200,4 @@ body {
   bottom: 75px;
   left: -20px;
   font-size: 14px;
-}
+} */
