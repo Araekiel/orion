@@ -8,12 +8,9 @@ const request = require("request");
 const port = process.env.PORT || 108;
 const server = express();
 
-// Modules
-const { fetchInstagramData } = require("./modules/fetchInstagramData.js");
-const { fetchTwitterData } = require("./modules/fetchTwitterData.js");
-
-// Utils
-const { shuffleArray } = require("./utils/shuffleArray.js");
+//Routes
+const appRoute = require("./routes/appRoute.js");
+const apiRoute = require("./routes/apiRoute");
 
 server.engine("handlebars", hbs());
 server.set("view engine", "handlebars");
@@ -33,29 +30,9 @@ server.get("/", (req, res) => {
   });
 });
 
-server.get("/feed", async (req, res) => {
-  const value = req.query.value;
-  const [posts, usersObj, tweets] = await Promise.all([
-    fetchInstagramData.fetchPosts(value),
-    fetchInstagramData.fetchUsers(value),
-    fetchTwitterData.fetchTweets(value)
-  ]);
-  const finalData = {
-    mainData: usersObj.verified.concat(shuffleArray(posts.concat(tweets))),
-    unverifiedUsers: usersObj.unverified
-  };
-
-  //Following piece of code will change over time
-  if(finalData.mainData.length < 1) {
-    if(finalData.unverifiedUsers.length > 0) {
-      finalData.mainData = finalData.unverifiedUsers;
-    } else {
-      res.status(500).send("error: no data found");
-    }
-  }
-  res.status(200).send(finalData.mainData);
-});
+server.use(appRoute.router);
+server.use(apiRoute.router);
 
 server.listen(port, () => {
-  console.log(`App is running on port ${port}`);
+  console.log(`Server is running on port ${port}`);
 });

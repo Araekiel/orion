@@ -25,7 +25,7 @@ function search() {
       resContainer.classList.add("ind-res-cont-search-active");
     }, 150);
     $.ajax({
-      url: "/feed",
+      url: "/webfeed",
       method: "GET",
       data: {
         value: searchValue
