@@ -68,7 +68,7 @@ const fetchInstagramData = {
 
             finalData.push({
               type: "post",
-              website: "instagram",
+              network: "instagram",
               htmlString: `<div class="result-card result-card-instagram-post">
                 <div class="result-card-main-content">
                   ${resultCardMediaString}
@@ -129,7 +129,7 @@ const fetchInstagramData = {
             }
             let userData = {
               type: "user",
-              website: "instagram",
+              network: "instagram",
               htmlString: `<div class = "result-card result-card-instagram-user"><img src = ${
                   user["user"]["profile_pic_url"]
                 } class = "result-card-instagram-user-dp" /><p class = "result-card-instagram-user-name">${

@@ -6,6 +6,8 @@ const router = express.Router();
 const { fetchInstagramData } = require("./../modules/fetchInstagramData.js");
 const { fetchTwitterData } = require("./../modules/fetchTwitterData.js");
 
+const { dataController } = require("./../modules/dataController.js");
+
 const { shuffleArray } = require("./../utils/shuffleArray.js");
 
 router.use(

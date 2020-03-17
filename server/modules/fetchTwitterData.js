@@ -9,7 +9,7 @@ const fetchTwitterData = {
             dataStream.on('data', (dataChunk) => {
                 finalData.push({
                     type: "tweet",
-                    website: "twitter",
+                    network: "twitter",
                     htmlString: `<div class="result-card result-card-twitter-tweet">
                     <div class="result-card-main-content">
                         <p class="result-card-twitter-tweet-username">@${dataChunk.screenName}</p>
