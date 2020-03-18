@@ -1,6 +1,5 @@
 @media only screen and (min-device-width: 320px) and (max-device-width: 1024px) {
   #index-result-container .result-card {
-    min-height: 375px;
     height: auto;
     width: 900px;
     margin-top: 60px;
