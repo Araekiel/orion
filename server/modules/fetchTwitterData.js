@@ -17,9 +17,9 @@ const fetchTwitterData = {
                     </div>
                     <div class="result-card-stat-container">    
                         <p class="result-card-stat result-card-stat-4col"><img class = "result-card-stat-img" src = "/images/sm/twitter.png" type="image/png"/><br/><span class = "result-card-stat-name">Twitter</span></p>
+                        <p class="result-card-stat result-card-stat-4col"><span class="result-card-stat-value">${dataChunk.favoriteCount}</span> <br /> <span class="result-card-stat-name">Favourites</span></p>
                         <p class="result-card-stat result-card-stat-4col"><span class="result-card-stat-value">${dataChunk.replyCount}</span> <br /> <span class="result-card-stat-name">Replies</span></p>
                         <p class="result-card-stat result-card-stat-4col result-card-stat-right"><span class="result-card-stat-value">${dataChunk.retweetCount}</span> <br /> <span class="result-card-stat-name">Retweets</span></p>
-                        <p class="result-card-stat result-card-stat-4col result-card-stat-right"><span class="result-card-stat-value">${dataChunk.favoriteCount}</span> <br /> <span class="result-card-stat-name">Favourites</span></p>
                     </div>
                     <a href="https://twitter.com/${dataChunk.screenName}/status/${dataChunk.id}">
                         <div class="result-card-link">

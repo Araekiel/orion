@@ -18,7 +18,7 @@ const webFeedProcessor = async (value) => {
     
         //Following piece of code will change over time
         if(processedData.mainData.length < 1) {
-            if(processData.unverifiedUsers.length > 0) {
+            if(processedData.unverifiedUsers.length > 0) {
                 processedData.mainData = processedData.unverifiedUsers;
             } else {
                 reject();
