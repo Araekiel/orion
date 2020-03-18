@@ -9,7 +9,7 @@ const server = express();
 
 //Routes
 const appRoute = require("./routes/appRoute.js");
-const apiRoute = require("./routes/apiRoute");
+const apiRoute = require("./routes/apiRoute.js");
 
 server.engine("handlebars", hbs());
 server.set("view engine", "handlebars");

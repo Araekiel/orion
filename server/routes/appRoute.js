@@ -3,7 +3,7 @@ const bodyParser = require("body-parser");
 
 const router = express.Router();
 
-const { webDataProcessor } = require("../modules/webDataProcessor.js");
+const { webFeedProcessor } = require("../modules/webFeedProcessor.js");
 
 router.use(
   bodyParser.urlencoded({
@@ -15,7 +15,7 @@ router.use(bodyParser.json());
 router.get("/webfeed", async (req, res) => {
   const value = req.query.value;
   
-  webDataProcessor(value).then((processedData) => {
+  webFeedProcessor(value).then((processedData) => {
     res.status(200).send(processedData.mainData);
   }).catch((err) => {
     res.status(500).send("error: no data found");

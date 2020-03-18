@@ -1,4 +1,3 @@
-const request = require("request");
 const { ListStream, TweetStream } = require("scrape-twitter");
 
 const fetchTwitterData = {
@@ -30,7 +29,6 @@ const fetchTwitterData = {
                     </div>`
                 });
             });
-            // fetchTwitterData.fetchUsers(value);
             resolve(finalData);
         });
     },
