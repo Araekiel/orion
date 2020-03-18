@@ -3,7 +3,6 @@ const path = require("path");
 const bodyParser = require("body-parser");
 const hbs = require("express-handlebars");
 const morganLogger = require("morgan");
-const request = require("request");
 
 const port = process.env.PORT || 108;
 const server = express();
