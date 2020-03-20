@@ -18,7 +18,7 @@ router.get("/webfeed", async (req, res) => {
   webFeedProcessor(value).then((processedData) => {
     res.status(200).send(processedData.mainData);
   }).catch((err) => {
-    res.status(500).send("error: no data found");
+    res.status(500).send(err);
   });
 });
 
