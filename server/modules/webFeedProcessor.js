@@ -32,8 +32,59 @@ const webFeedProcessor = async (value) => {
 const processData = {
     processInstagramUsers: (value) => {
         return new Promise(async (resolve, reject) => {
-            let data = await fetchInstagramData.fetchUsers(value);
-            resolve(data);
+            fetchInstagramData.fetchUsers(value).then(fetchedData => {
+                let verifiedUsers = [], unverifiedUsers = [];
+                fetchedData.forEach(currentChunk => {
+                    let verifiedStatString, privPubStatString;
+
+                    if (currentChunk.data.isVerified === true) {
+                        verifiedStatString = `<p class = "result-card-stat result-card-stat-3col"><img class = "result-card-stat-img" src="images/sm/verified.png" type="image/png"/><br/><span class = "result-card-stat-name">Verified</span></p>`;
+                    } else {
+                        verifiedStatString = `<p class = "result-card-stat result-card-stat-3col"><img class = "result-card-stat-img" src="images/sm/unverified.png" type="image/png"/><br/><span class = "result-card-stat-name">Unverified</span></p>`;
+                    }
+
+                    if(currentChunk.data.isPrivate === true) {
+                        privPubStatString = `<p class = "result-card-stat result-card-stat-3col result-card-stat-right"><img class = "result-card-stat-img" src = "images/sm/private.png" type = "image/png"/><br/><span class = "result-card-stat-name">Private</span></p>`;
+                    } else {
+                        privPubStatString = `<p class = "result-card-stat result-card-stat-3col result-card-stat-right"><img class = "result-card-stat-img" src = "images/sm/public.png" type = "image/png"/><br/><span class = "result-card-stat-name">Public</span></p>`
+                    }
+
+                    let userData = {
+                        type: currentChunk.type,
+                        network: currentChunk.network,
+                        htmlString: `<div class = "result-card result-card-instagram-user"><img src = ${
+                            currentChunk.data.profilePic.url
+                          } class = "result-card-instagram-user-dp" /><p class = "result-card-instagram-user-name">${
+                            currentChunk.data.fullName
+                          }</p><p class = "result-card-instagram-user-username">@${
+                            currentChunk.data.username
+                          }</p>
+                          <div class="result-card-stat-container result-card-stat-container-user">
+                            <p class = "result-card-stat result-card-stat-3col"><img class = "result-card-stat-img" src="images/sm/insta.png" type="image/png"/><br/><span class = "result-card-stat-name">Instagram</span></p>                
+                            ${verifiedStatString}
+                            ${privPubStatString}
+                          </div>
+                          <a href = "https://www.instagram.com/${currentChunk.data.username}">
+                            <div class="result-card-link">
+                                <img src="/images/sm/link.png" type="image/png" class="result-card-link-img"/>
+                            </div>
+                          </a>
+                        </div>
+                       `
+                    }
+
+                    if(currentChunk.data.isVerified === true) {
+                        verifiedUsers.push(userData);
+                    } else {
+                        unverifiedUsers.push(userData);
+                    }
+                });
+
+                resolve({
+                    verified: verifiedUsers,
+                    unverified: unverifiedUsers
+                });
+            }); 
         });
     },
     processInstagramPosts: (value) => {
@@ -95,34 +146,3 @@ module.exports = {
 };
 
 
-
-
-
-
-//   finalData.push({
-//     type: "post",
-//     network: "instagram",
-//     htmlString: `<div class="result-card result-card-instagram-post">
-//       <div class="result-card-main-content">
-//         ${resultCardMediaString}
-//         <br/>
-//         <p class="result-card-text">${caption}</p>
-//       </div>
-//       <div class="result-card-stat-container">
-//         <p class = "result-card-stat result-card-stat-4col"><img class = "result-card-stat-img" src = "images/sm/insta.png" type="image/png"/><br/><span class = "result-card-stat-name">Instagram</span></p>
-//         <p class="result-card-stat result-card-stat-4col"><span class="result-card-stat-value">${
-//           edge["node"]["edge_liked_by"]["count"]
-//         }</span> <br /> <span class="result-card-stat-name">Likes</span></p>
-//             <p class="result-card-stat result-card-stat-4col"><span class="result-card-stat-value">${
-//               edge["node"]["edge_media_to_comment"]["count"]
-//             }</span> <br /> <span class="result-card-stat-name">Comments</span></p>
-//         ${mediaTypeStatString}
-//       </div>
-//       <a href = "https://instagram.com/p/${edge["node"]["shortcode"]}">
-//         <div class="result-card-link">
-//             <img src="/images/sm/link.png" type="image/png" class="result-card-link-img"/>
-//         </div>
-//       </a>
-//     </div>
-//   `
-//   });

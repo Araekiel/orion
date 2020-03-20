@@ -25,63 +25,29 @@ const fetchInstagramData = {
     return new Promise((resolve, reject) => {
       request(url, { json: true }, async (err, response, body) => {
         if (err) {
-          let verifiedUsers = [];
-          let unverifiedUsers = [];
-          let finalData = {
-            verified: verifiedUsers,
-            unverified: unverifiedUsers
-          };
-          resolve(finalData);
+          resolve([]);
         } else {
-          let verifiedUsers = [];
-          let unverifiedUsers = [];
+          let fetchedData = [];
           const users = body["users"];
           users.forEach(async user => {
-            let verifiedStatString, privPubStatString;
-            if (user["user"]["is_verified"] === true) {
-              verifiedStatString = `<p class = "result-card-stat result-card-stat-3col"><img class = "result-card-stat-img" src="images/sm/verified.png" type="image/png"/><br/><span class = "result-card-stat-name">Verified</span></p>`;
-            } else {
-              verifiedStatString = `<p class = "result-card-stat result-card-stat-3col"><img class = "result-card-stat-img" src="images/sm/unverified.png" type="image/png"/><br/><span class = "result-card-stat-name">Unverified</span></p>`;
-            }
-            if(user["user"]["is_private"] === true) {
-              privPubStatString = `<p class = "result-card-stat result-card-stat-3col result-card-stat-right"><img class = "result-card-stat-img" src = "images/sm/private.png" type = "image/png"/><br/><span class = "result-card-stat-name">Private</span></p>`;
-            } else {
-              privPubStatString = `<p class = "result-card-stat result-card-stat-3col result-card-stat-right"><img class = "result-card-stat-img" src = "images/sm/public.png" type = "image/png"/><br/><span class = "result-card-stat-name">Public</span></p>`
-            }
             let userData = {
               type: "user",
               network: "instagram",
-              htmlString: `<div class = "result-card result-card-instagram-user"><img src = ${
-                  user["user"]["profile_pic_url"]
-                } class = "result-card-instagram-user-dp" /><p class = "result-card-instagram-user-name">${
-                  user["user"]["full_name"]
-                }</p><p class = "result-card-instagram-user-username">@${
-                  user["user"]["username"]
-                }</p>
-                <div class="result-card-stat-container result-card-stat-container-user">
-                  <p class = "result-card-stat result-card-stat-3col"><img class = "result-card-stat-img" src="images/sm/insta.png" type="image/png"/><br/><span class = "result-card-stat-name">Instagram</span></p>                
-                  ${verifiedStatString}
-                  ${privPubStatString}
-                </div>
-                <a href = "https://www.instagram.com/${user["user"]["username"]}">
-                  <div class="result-card-link">
-                      <img src="/images/sm/link.png" type="image/png" class="result-card-link-img"/>
-                  </div>
-                </a>
-              </div>
-             `
+              data: {
+                profilePic: {
+                  url: user["user"]["profile_pic_url"],
+                },
+                fullName: user["user"]["full_name"],
+                username: user["user"]["username"],
+                isVerified: user["user"]["is_verified"],
+                isPrive: user["user"]["is_private"]
+              }
             }
-            if(user["user"]["is_verified"] === true) {
-              verifiedUsers.push(userData);
-            } else {
-              unverifiedUsers.push(userData);
-            }
+
+            fetchedData.push(userData);
           });
-          const finalData = {
-            verified: verifiedUsers,
-            unverified: unverifiedUsers
-          };
-          resolve(finalData);
+
+          resolve(fetchedData);
         }
       });
     });
@@ -153,3 +119,6 @@ const fetchInstagramData = {
 module.exports = {
   fetchInstagramData
 };
+
+
+
