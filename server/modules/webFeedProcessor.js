@@ -135,8 +135,34 @@ const processData = {
     },
     processTwitterTweets: (value) => {
         return new Promise(async (resolve, reject) => {
-            let data = await fetchTwitterData.fetchTweets(value);
-            resolve(data);
+            let processedData = [];
+            fetchTwitterData.fetchTweets(value).then(data => {
+                data.forEach(currentChunk => {
+                     processedData.push({
+                        type: currentChunk.type,
+                        network: currentChunk.network,
+                        htmlString: `<div class="result-card result-card-twitter-tweet">
+                        <div class="result-card-main-content">
+                            <p class="result-card-twitter-tweet-username">@${currentChunk.data.username}</p>
+                            ${currentChunk.data.media.src.length > 0 ? `<img class="result-card-media" src="${currentChunk.data.media.src}"/>` : ""}
+                            <p class="result-card-text">${currentChunk.data.text}</p>
+                        </div>
+                        <div class="result-card-stat-container">    
+                            <p class="result-card-stat result-card-stat-4col"><img class = "result-card-stat-img" src = "/images/sm/twitter.png" type="image/png"/><br/><span class = "result-card-stat-name">Twitter</span></p>
+                            <p class="result-card-stat result-card-stat-4col"><span class="result-card-stat-value">${currentChunk.data.favoriteCount}</span> <br /> <span class="result-card-stat-name">Favourites</span></p>
+                            <p class="result-card-stat result-card-stat-4col"><span class="result-card-stat-value">${currentChunk.data.replyCount}</span> <br /> <span class="result-card-stat-name">Replies</span></p>
+                            <p class="result-card-stat result-card-stat-4col result-card-stat-right"><span class="result-card-stat-value">${currentChunk.data.retweetCount}</span> <br /> <span class="result-card-stat-name">Retweets</span></p>
+                        </div>
+                        <a href="https://twitter.com/${currentChunk.data.screenName}/status/${currentChunk.data.id}">
+                            <div class="result-card-link">
+                                <img src="/images/sm/link.png" type="image/png" class="result-card-link-img"/>
+                            </div>
+                        </a>
+                        </div>`
+                    }) 
+                });
+                resolve(processedData);
+            });
         });
     }
 }
