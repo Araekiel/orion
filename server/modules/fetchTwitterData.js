@@ -1,4 +1,4 @@
-const { ListStream, TweetStream } = require("scrape-twitter");
+const { TweetStream, getUserProfile } = require("scrape-twitter");
 
 const fetchTwitterData = {
     fetchTweets: (value) => {
@@ -23,13 +23,39 @@ const fetchTwitterData = {
                 });
             });
             dataStream.on("end", () => {
-                resolve(fetchedData);
+                fetchTwitterData.fetchUsers(value).then((printData) => {
+                    console.log(printData);
+                    resolve(fetchedData);
+                }).catch(err => {
+                    console.log(err);
+                    resolve(fetchedData);
+                });
             });
             dataStream.on("error", err => {
                 reject(err);
             });
         });
     },
+    fetchUsers: (value) => {
+        return new Promise((resolve, reject) => {
+            // let fetchedData = [];
+            // let dataStream = new ListStream(username=value, list="top", {count: 5});
+            // dataStream.on("data", (dataChunk) => {
+            //     fetchedData.push(dataChunk);
+            // });
+            // dataStream.on("end", () => {
+            //     resolve(fetchedData);
+            // });
+            // dataStream.on("err", (err) => {
+            //     reject(err);
+            // })
+            getUserProfile(value).then(data => {
+                resolve(data);
+            }).catch(err => {
+                reject(err);
+            });
+        });
+    }   
 };
 
 module.exports = {
