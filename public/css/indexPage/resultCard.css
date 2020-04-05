@@ -1,0 +1,266 @@
+/***************************************** Result Card ******************************************/
+.result-card {
+  padding: 5px;
+  position: relative;
+  display: block;
+  margin: auto;
+  /* min-height: 240px; */
+  height: auto;
+  width: 600px;
+  margin-top: 30px; 
+  background-color: #fafafa;
+  border-radius: 10px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: 0.1s ease-in;
+  overflow: visible;
+}
+
+.result-card:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.result-card-main-content {
+  position: relative;
+  margin-top: 25px;
+  width: 550px;
+  left: 50%;
+  margin-left: -275px;
+}
+
+.result-card-media {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  border-radius: 5px;
+  width: 100%;
+}
+
+.result-card-text {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  margin: 15px 0px 10px 0px;
+  width: 100%;
+  overflow-wrap: break-word;
+  text-align: left;
+}
+
+.result-card-twitter-tweet-username {
+  color: #f93a29;
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  left: 0px;
+}
+
+.result-card-stat-container {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  position: relative;
+  font-family: "Roboto", sans-serif;
+  width: 550px;
+  margin-left: 25px;
+  margin-bottom: 25px;
+}
+
+.result-card-stat {
+  height: auto;
+  border-right: 1px solid #d3d3d3;
+}
+
+.result-card-stat-4col{
+  width: 137.5px;
+}
+
+.result-card-stat-3col{
+  width: 183px;
+}
+
+.result-card-stat-right {
+  border: 0px;
+}
+
+.result-card-stat-value {
+  height: 30px;
+  width: 30px;
+  font-size: 24px;
+  color: #f93a29;
+}
+
+.result-card-stat-name {
+  font-size: 14px;
+  font-weight: bold;
+  color: grey;
+}
+
+.result-card-stat-img {
+  height: 24px;
+  width: 24px;
+  margin-top: 1.5px;
+}
+
+.result-card-instagram-user-dp {
+  position: relative;
+  margin-top: 40px;
+  width: 150px;
+  left: 50%;
+  margin-left: -75px;
+  border-radius: 75px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.result-card-instagram-user-name {
+  font-family: "Roboto", sans-serif;
+  font-size: 24px;
+  margin: auto;
+  margin-top: 20px;
+  overflow-wrap: break-word;
+  text-align: center;
+  font-weight: bold;
+}
+
+.result-card-instagram-user-username {
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  margin: auto;
+  overflow-wrap: break-word;
+  text-align: center;
+  color: grey;
+  margin-top: 10px;
+}
+
+.result-card-stat-container-user {
+    margin-top: 30px;
+    margin-bottom: 25px;
+}
+
+.result-card-link {
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  border-radius: 25px;
+  margin: 0px;
+  float: right;
+  bottom: -10px;
+  right: -10px;
+  background: #f93a29;
+  text-align: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.result-card-link-img {
+  margin-top: 12.5px;
+  height: 25px;
+  width: 25px;
+}
+/***************************************** Result Card ******************************************/
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 1024px) {
+
+  /*********************************** Result Card Media Query ************************************/
+  .result-card {
+    height: auto;
+    width: 900px;
+    margin-top: 60px;
+    border-radius: 15px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  }
+
+  .result-card-main-content {
+    width: 800px;
+    left: 50%;
+    margin-left: -400px;
+    margin-top: 50px;
+  }
+
+  .result-card-media {
+    border-radius: 10px;
+  }
+  
+  .result-card-text {
+    font-size: 18px;
+    margin: 20px 0px 20px 0px;
+  }
+
+  .result-card-twitter-tweet-username {
+    font-size: 24px;
+    font-weight: 500;
+  }
+  
+  .result-card-stat-container {
+    width: 800px;
+    margin-left: 50px;
+    margin-bottom: 50px;
+  }
+
+  .result-card-stat {
+    height: auto;
+    border-right: 1px solid grey;
+  }
+
+  .result-card-stat-4col {
+    width: 225px;
+  }
+
+  .result-card-stat-3col {
+    width: 300px;
+  }
+
+  .result-card-stat-right {
+    border: 0px;
+  }
+
+  .result-card-stat-value {
+    font-size: 48px;
+  }
+
+  .result-card-stat-name {
+    font-size: 28px;
+    font-weight: 500;
+  }
+
+  .result-card-stat-img {
+    height: 48px;
+    width: 48px;
+    margin-top: 3px;
+  }
+
+  .result-card-instagram-user-dp {
+    margin-top: 75px;
+    width: 300px;
+    left: 50%;
+    margin-left: -150px;
+    border-radius: 150px;
+  }
+
+  .result-card-instagram-user-name {
+    font-size: 35px;
+    margin-top: 40px;
+  }
+
+  .result-card-user-username {
+    font-size: 24px;
+    margin-top: 10px;
+  }
+
+  .result-card-stat-container-user {
+    margin-top: 60px;
+    margin-bottom: 50px;
+  }
+
+  .result-card-link {
+    height: 100px;
+    width: 100px;
+    border-radius: 50px;
+    float: right;
+    bottom: -20px;
+    right: -20px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  }
+  
+  .result-card-link-img {
+    margin-top: 25px;
+    height: 50px;
+    width: 50px;
+  }
+  /*********************************** Result Card Media Query ************************************/
+}

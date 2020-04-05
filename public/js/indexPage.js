@@ -35,6 +35,10 @@ function search() {
         resContainer.innerHTML = `<div class="loader"></div>`;
       },
       success: function(data) {
+        let resultCardStylesheet = document.getElementById("result-card-stylesheet");
+        if(resultCardStylesheet == undefined || resultCardStylesheet == null) {
+          addStylesheet("css/indexPage/resultCard.css", "result-card-stylesheet");
+        }
         resContainer.innerHTML = "";
         data.forEach(currentElement => {
           resContainer.innerHTML += currentElement["htmlString"];
@@ -50,4 +54,11 @@ function search() {
   }
 }
 
-
+function addStylesheet(src, id) {
+  const stylesheet = document.createElement("link");
+  stylesheet.href = src;
+  stylesheet.rel = "stylesheet";
+  stylesheet.type = "text/css";
+  stylesheet.id = id;
+  document.getElementsByTagName("head")[0].appendChild(stylesheet);
+}
