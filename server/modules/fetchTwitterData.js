@@ -23,13 +23,14 @@ const fetchTwitterData = {
                 });
             });
             dataStream.on("end", () => {
-                fetchTwitterData.fetchUsers(value).then((printData) => {
-                    console.log(printData);
-                    resolve(fetchedData);
-                }).catch(err => {
-                    console.log(err);
-                    resolve(fetchedData);
-                });
+                // fetchTwitterData.fetchUsers(value).then((printData) => {
+                //     console.log(printData);
+                //     resolve(fetchedData);
+                // }).catch(err => {
+                //     console.log(err);
+                //     resolve(fetchedData);
+                // });
+                resolve(fetchedData);
             });
             dataStream.on("error", err => {
                 reject(err);
