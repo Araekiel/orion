@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");
@@ -5,7 +7,7 @@ const hbs = require("express-handlebars");
 const morganLogger = require("morgan");
 const helmet = require("helmet");
 
-const port = process.env.PORT || 108;
+const port = process.env.PORT;
 const server = express();
 
 //Routes
