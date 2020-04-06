@@ -44,9 +44,9 @@ function search() {
           resContainer.innerHTML += currentElement["htmlString"];
         });
       },
-      error: function() {
+      error: function(err) {
         resContainer.innerHTML = "";
-        snackbarController("An error was encountered while looking for what you entered");
+        snackbarController(err.responseText);
       }
     });
   } else {

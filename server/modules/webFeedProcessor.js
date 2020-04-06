@@ -21,10 +21,9 @@ const webFeedProcessor = async (value) => {
             if(processedData.unverifiedUsers.length > 0) {
                 processedData.mainData = processedData.unverifiedUsers;
             } else {
-                reject("error: no data found");
+                reject("An error was encountered while looking for what you entered");
             }
         }
-
         resolve(processedData);
     });   
 }
@@ -100,7 +99,7 @@ const processData = {
                         resultCardMediaString = `<img class = "result-card-media result-card-media-img" src = "${currentChunk.data.media.src}"/>`;
                         mediaTypeStatString = `<p class = "result-card-stat result-card-stat-4col result-card-stat-right"><img class = "result-card-stat-img" src = "images/sm/photo.png" type = "image/png"/><br/><span class = "result-card-stat-name">Photo</span></p>`;
                     }
-
+                    
                     processedData.push({
                         type: currentChunk.type,
                         network: currentChunk.network,
@@ -131,7 +130,7 @@ const processData = {
                 }
                 resolve(processedData);
             });
-        })
+        });
     },
     processTwitterTweets: (value) => {
         return new Promise(async (resolve, reject) => {

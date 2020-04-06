@@ -5,8 +5,12 @@ const fetchInstagramData = {
     const url = `https://www.instagram.com/p/${shortcode}/?__a=1`;
     return new Promise(async (resolve, reject) => {
       request(url, { json: true }, async (err, response, body) => {
-        let videoUrl = body["graphql"]["shortcode_media"]["video_url"];
-        resolve(videoUrl);
+        if(err) {
+          reject(err);  
+        } else {
+          let videoUrl = body["graphql"]["shortcode_media"]["video_url"];
+          resolve(videoUrl);
+        }      
       });
     });
   },
@@ -14,7 +18,6 @@ const fetchInstagramData = {
     const url = `https://www.instagram.com/${username}/?__a=1`;
     return new Promise(async (resolve, reject) => {
       request(url, { json: true }, async (err, response, body) => {
-        //console.log(body["graphql"]);
         let followerCount = body["graphql"]["user"]["edge_followed_by"]["count"];
         resolve(followerCount);
       }); 
@@ -43,10 +46,8 @@ const fetchInstagramData = {
                 isPrive: user["user"]["is_private"]
               }
             }
-
             fetchedData.push(userData);
           });
-
           resolve(fetchedData);
         }
       });
@@ -57,62 +58,67 @@ const fetchInstagramData = {
     const specialChars = "!@#$%&*^()_-=+?/>.<,~`[]{}|";
     let specialCharErr = false;
     for (let char of editedTag) {
-      if (specialChars.indexOf(char) > -1 || specialCharErr === true) {
+      if (specialChars.indexOf(char) > -1) {
         specialCharErr = true;
+        break;
       }
     }
-    const url = `https://www.instagram.com/explore/tags/${editedTag}/?__a=1`;
-    return new Promise(async (resolve, reject) => {
-      request(url, { json: true }, async (err, response, body) => {
-        if (err || specialCharErr || response.statusCode != 200) {
-          resolve([]);
-        } else {
-          let fetchedData = [];
-          const edges =
-            body["graphql"]["hashtag"]["edge_hashtag_to_top_posts"]["edges"]; 
-          /* 
-          Using for-of loop instead of forEach because await doesn't work as expected inside
-          forEach. An async call is made to fetchInstagramData.fetchVideoUrl() if a post 
-          contains a video.
-          */
-          for(let edge of edges) {
-            let edgeData = {
-              type: "post",
-              network: "instagram",
-              data: {
-                caption: "",
-                likeCount: edge["node"]["edge_liked_by"]["count"],
-                commentCount: edge["node"]["edge_media_to_comment"]["count"],
-                shortcode: edge["node"]["shortcode"],
-                media: {
-                  isVideo: edge["node"]["is_video"],
-                  src: ""
+    if(specialCharErr) {
+      resolve([]);
+    } else {
+      const url = `https://www.instagram.com/explore/tags/${editedTag}/?__a=1`;
+      return new Promise(async (resolve, reject) => {
+        request(url, { json: true }, async (err, response, body) => {
+          if (err || response.statusCode != 200) {
+            resolve([]);
+          } else {
+            let fetchedData = [];
+            const edges =
+              body["graphql"]["hashtag"]["edge_hashtag_to_top_posts"]["edges"]; 
+            /* 
+            Using for-of loop instead of forEach because await doesn't work as expected inside
+            forEach. An async call is made to fetchInstagramData.fetchVideoUrl() if a post 
+            contains a video.
+            */
+            for(let edge of edges) {
+              let edgeData = {
+                type: "post",
+                network: "instagram",
+                data: {
+                  caption: "",
+                  likeCount: edge["node"]["edge_liked_by"]["count"],
+                  commentCount: edge["node"]["edge_media_to_comment"]["count"],
+                  shortcode: edge["node"]["shortcode"],
+                  media: {
+                    isVideo: edge["node"]["is_video"],
+                    src: ""
+                  }
                 }
+              };
+
+              try {
+                edgeData.data.caption =
+                  edge["node"]["edge_media_to_caption"]["edges"][0]["node"][
+                    "text"
+                  ];
+              } catch (e) {
+                edgeData.data.caption = "";
               }
-            };
 
-            try {
-              edgeData.data.caption =
-                edge["node"]["edge_media_to_caption"]["edges"][0]["node"][
-                  "text"
-                ];
-            } catch (e) {
-              edgeData.data.caption = "";
-            }
-
-            if(edge["node"]["is_video"] === true) {
-              await fetchInstagramData.fetchVideoUrl(edge["node"]["shortcode"]).then(videoUrl => {
-                edgeData.data.media.src = videoUrl;
-              });          
-            } else {
-              edgeData.data.media.src = edge["node"]["display_url"];
-            }      
-            fetchedData.push(edgeData);
-          }    
-          resolve(fetchedData);
-        }
+              if(edge["node"]["is_video"] === true) {
+                await fetchInstagramData.fetchVideoUrl(edge["node"]["shortcode"]).then(videoUrl => {
+                  edgeData.data.media.src = videoUrl;
+                });          
+              } else {
+                edgeData.data.media.src = edge["node"]["display_url"];
+              }      
+              fetchedData.push(edgeData);
+            }    
+            resolve(fetchedData);
+          }
+        });
       });
-    });
+    }
   },
 };
 

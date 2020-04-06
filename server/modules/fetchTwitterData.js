@@ -33,7 +33,7 @@ const fetchTwitterData = {
                 resolve(fetchedData);
             });
             dataStream.on("error", err => {
-                reject(err);
+                resolve([]);
             });
         });
     },

@@ -10,6 +10,9 @@ const helmet = require("helmet");
 const port = process.env.PORT;
 const server = express();
 
+const { notFound } = require("./middleware/notFound.js");
+const { errorHandler } = require("./middleware/errorHandler.js");
+
 //Routes
 const appRoute = require("./routes/appRoute.js");
 const apiRoute = require("./routes/apiRoute.js");
@@ -35,6 +38,9 @@ server.get("/", (req, res) => {
 
 server.use(appRoute.router);
 server.use(apiRoute.router);
+
+server.use(notFound);
+server.use(errorHandler);
 
 server.listen(port, () => {
   console.log(`Server is running on port ${port}`);
