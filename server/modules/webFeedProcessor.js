@@ -148,7 +148,7 @@ const processData = {
                         </div>
                         <div class="result-card-stat-container">    
                             <p class="result-card-stat result-card-stat-4col"><img class = "result-card-stat-img" src = "/images/sm/twitter.png" type="image/png"/><br/><span class = "result-card-stat-name">Twitter</span></p>
-                            <p class="result-card-stat result-card-stat-4col"><span class="result-card-stat-value">${currentChunk.data.favoriteCount}</span> <br /> <span class="result-card-stat-name">Favourites</span></p>
+                            <p class="result-card-stat result-card-stat-4col"><span class="result-card-stat-value">${currentChunk.data.favoriteCount}</span> <br /> <span class="result-card-stat-name">Favorites</span></p>
                             <p class="result-card-stat result-card-stat-4col"><span class="result-card-stat-value">${currentChunk.data.replyCount}</span> <br /> <span class="result-card-stat-name">Replies</span></p>
                             <p class="result-card-stat result-card-stat-4col result-card-stat-right"><span class="result-card-stat-value">${currentChunk.data.retweetCount}</span> <br /> <span class="result-card-stat-name">Retweets</span></p>
                         </div>

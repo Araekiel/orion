@@ -10,13 +10,13 @@
   margin-top: 30px; 
   background-color: #fafafa;
   border-radius: 10px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   transition: 0.1s ease-in;
   overflow: visible;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
 .result-card:hover {
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
 .result-card-main-content {
@@ -162,7 +162,11 @@
     width: 900px;
     margin-top: 60px;
     border-radius: 15px;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+
+  .result-card:hover {
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
   }
 
   .result-card-main-content {
@@ -215,7 +219,7 @@
 
   .result-card-stat-name {
     font-size: 28px;
-    font-weight: 500;
+    font-weight: bold;
   }
 
   .result-card-stat-img {
@@ -254,7 +258,7 @@
     float: right;
     bottom: -20px;
     right: -20px;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    /* box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); */
   }
   
   .result-card-link-img {

@@ -45,7 +45,7 @@ html {
 body {
   margin: 0px;
   padding: 0px;
-  background-color: #e0e3e8;
+  background-color: #F1F4F7;
   /* text-align: center; */
 }
 
@@ -107,13 +107,13 @@ body {
   margin: auto;
   height: 50px;
   width: 610px;
-  border-radius: 10px;
+  border-radius: 25px;
   transform: translateZ(0);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
 #search-form:hover {
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
 #search-field {
@@ -122,28 +122,30 @@ body {
   background-color: white;
   border: 0px;
   border-radius: 0px;
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
   color: black;
   text-align: left;
+  font-family: "Roboto", sans-serif;
   font-size: 18px;
   padding-left: 20px;
 }
 
 #search-field::placeholder {
-  color: grey;
+  font-family: "Roboto", sans-serif;
+  color: #778A99;
 }
 
 #search-btn {
   height: 50px;
   width: 100px;
   font-size: 18px;
-  background-color: #f93a29;
+  background-color: #778A99;
   color: white;
   border: 0px;
   border-radius: 0px;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
   cursor: pointer;
   font-family: "Mont", sans-serif;
 }
@@ -170,7 +172,7 @@ body {
 }
 
 #snackbar {
-  background-color: #f93a29;
+  background-color: #778A99;
   position: fixed;
   bottom: 0px;
   width: 100%;
@@ -228,7 +230,7 @@ body {
     width: 910px;
     height: 96px;
     border-radius: 20px;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   }
 
   #search-field {
