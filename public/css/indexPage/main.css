@@ -1,8 +1,8 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
 
 @font-face {
-  src: url(./../../fonts/mont.otf);
-  font-family: "Mont";
+  src: url(./../../fonts/helvetica.ttf);
+  font-family: "Helvetica";
 }
 
 @keyframes spinLoader {
@@ -147,7 +147,7 @@ body {
   border-top-right-radius: 25px;
   border-bottom-right-radius: 25px;
   cursor: pointer;
-  font-family: "Mont", sans-serif;
+  font-family: "Helvetica", sans-serif;
 }
 
 #index-result-container {
