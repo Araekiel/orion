@@ -8,8 +8,8 @@
   height: auto;
   width: 600px;
   margin-top: 30px; 
-  background-color: #fafafa;
-  border-radius: 10px;
+  background-color: white;
+  border-radius: 25px;
   transition: 0.1s ease-in;
   overflow: visible;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
@@ -43,7 +43,7 @@
 }
 
 .result-card-twitter-tweet-username {
-  color: #f93a29;
+  color: #778A99;
   font-family: "Roboto", sans-serif;
   font-size: 18px;
   font-weight: bold;
@@ -83,7 +83,7 @@
   height: 30px;
   width: 30px;
   font-size: 24px;
-  color: #f93a29;
+  color: #778A99;
 }
 
 .result-card-stat-name {
@@ -93,8 +93,8 @@
 }
 
 .result-card-stat-img {
-  height: 24px;
-  width: 24px;
+  height: 30px;
+  width: 30px;
   margin-top: 1.5px;
 }
 
@@ -142,7 +142,7 @@
   float: right;
   bottom: -10px;
   right: -10px;
-  background: #f93a29;
+  background: #778A99;
   text-align: center;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
@@ -161,7 +161,7 @@
     height: auto;
     width: 900px;
     margin-top: 60px;
-    border-radius: 15px;
+    border-radius: 50px;
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   }
 
@@ -223,8 +223,8 @@
   }
 
   .result-card-stat-img {
-    height: 48px;
-    width: 48px;
+    height: 55px;
+    width: 55px;
     margin-top: 3px;
   }
 
