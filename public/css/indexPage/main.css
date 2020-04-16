@@ -228,26 +228,26 @@ body {
 
   #search-form {
     width: 910px;
-    height: 96px;
-    border-radius: 50px;
+    height: 110px;
+    border-radius: 60px;
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   }
 
   #search-field {
-    height: 96px;
+    height: 110px;
     width: 710px;
-    border-top-left-radius: 50px;
-    border-bottom-left-radius: 50px;
+    border-top-left-radius: 60px;
+    border-bottom-left-radius: 60px;
     font-size: 42px;
     padding-left: 50px;
   }
 
   #search-btn {
-    height: 98px;
+    height: 112px;
     width: 180px;
     font-size: 38px;
-    border-top-right-radius: 50px;
-    border-bottom-right-radius: 50px;
+    border-top-right-radius: 60px;
+    border-bottom-right-radius: 60px;
     line-height: 98px;
   }
 
