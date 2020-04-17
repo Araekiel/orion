@@ -189,6 +189,32 @@ body {
   animation-delay: -1.0s;
 }
 
+#snackbar {
+  background-color: #778A99;
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  height: 40px;
+  text-align: center;
+  visibility: hidden;
+  transform: translateZ(0);
+}
+
+#snackbar p {
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  line-height: 100%;
+  font-size: 15px;
+  color: white;
+  transform: translateZ(0);
+}
+
+.snackbar-visible {
+  visibility: visible !important;
+  animation: fadein 0.5s, fadeout 0.5s 2s;
+  transform: translateZ(0);
+}  
+
 /* 
 #copyright {
   margin: 20px 0px 10px 0px;

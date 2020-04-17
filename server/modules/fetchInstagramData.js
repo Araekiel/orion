@@ -64,7 +64,9 @@ const fetchInstagramData = {
       }
     }
     if(specialCharErr) {
-      resolve([]);
+      return new Promise((resolve, reject) => {
+        resolve([]);
+      });
     } else {
       const url = `https://www.instagram.com/explore/tags/${editedTag}/?__a=1`;
       return new Promise(async (resolve, reject) => {
