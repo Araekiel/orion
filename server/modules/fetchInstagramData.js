@@ -43,7 +43,7 @@ const fetchInstagramData = {
                 fullName: user["user"]["full_name"],
                 username: user["user"]["username"],
                 isVerified: user["user"]["is_verified"],
-                isPrive: user["user"]["is_private"]
+                isPrivate: user["user"]["is_private"]
               }
             }
             fetchedData.push(userData);
