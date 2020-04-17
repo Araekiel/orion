@@ -11,20 +11,18 @@ const webFeedProcessor = async (value) => {
             processData.processTwitterTweets(value)
         ]);
 
+        const userCollection = instagramUsersObj.verified.length > 0 ? instagramUsersObj.verified : instagramUsersObj.unverified.slice(0, 5);
+        const postCollection = shuffleArray(instagramPosts.concat(twitterTweets));
+
         const processedData = {
-            mainData: instagramUsersObj.verified.concat(shuffleArray(instagramPosts.concat(twitterTweets))),
-            unverifiedUsers: instagramUsersObj.unverified
+            mainData: userCollection.concat(postCollection)
         };
-    
-        //Following piece of code will change over time
-        if(processedData.mainData.length < 1) {
-            if(processedData.unverifiedUsers.length > 0) {
-                processedData.mainData = processedData.unverifiedUsers;
-            } else {
-                reject("An error was encountered while looking for what you entered");
-            }
+        
+        if(processedData.mainData.length > 0) {
+            resolve(processedData);
+        } else {
+            reject("An error was encountered while looking for what you entered");
         }
-        resolve(processedData);
     });   
 }
 
