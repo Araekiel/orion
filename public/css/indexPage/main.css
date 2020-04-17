@@ -5,15 +5,6 @@
   font-family: "Helvetica";
 }
 
-@keyframes spinLoader {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
 @keyframes fadein {
   from {
     bottom: -40px;
@@ -36,6 +27,20 @@
   }
 }
 
+@-webkit-keyframes loader-bounce {
+  0%, 100% { -webkit-transform: scale(0.0) }
+  50% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes loader-bounce {
+  0%, 100% { 
+    transform: scale(0.0);
+    -webkit-transform: scale(0.0);
+  } 50% { 
+    transform: scale(1.0);
+    -webkit-transform: scale(1.0);
+  }
+}
 
 /********************************************* Main *********************************************/
 html {
@@ -159,41 +164,31 @@ body {
 }
 
 .loader {
-  margin: auto;
-  margin-top: 150px;
-  border: 12px solid transparent; 
-  border-top: 12px double #778A99;
-  border-radius: 50%;
-  width: 75px;
-  height: 75px;
-  animation: spinLoader 0.75s linear infinite;
+  width: 85px;
+  height: 85px;
+  position: relative;
+  margin: 175px auto;
 }
 
-#snackbar {
-  background-color: #778A99;
-  position: fixed;
-  bottom: 0px;
+.loader1, .loader2 {
   width: 100%;
-  height: 40px;
-  text-align: center;
-  visibility: hidden;
-  transform: translateZ(0);
+  height: 100%;
+  border-radius: 50%;
+  background-color: #778A99;
+  opacity: 0.6;
+  position: absolute;
+  top: 0;
+  left: 0;
+  
+  -webkit-animation: loader-bounce 2.0s infinite ease-in-out;
+  animation: loader-bounce 2.0s infinite ease-in-out;
 }
 
-#snackbar p {
-  font-family: "Roboto", sans-serif;
-  font-weight: bold;
-  line-height: 100%;
-  font-size: 15px;
-  color: white;
-  transform: translateZ(0);
+.loader2 {
+  -webkit-animation-delay: -1.0s;
+  animation-delay: -1.0s;
 }
 
-.snackbar-visible {
-  visibility: visible !important;
-  animation: fadein 0.5s, fadeout 0.5s 2s;
-  transform: translateZ(0);
-}   
 /* 
 #copyright {
   margin: 20px 0px 10px 0px;
@@ -248,11 +243,9 @@ body {
   }
 
   .loader {
-    margin-top: 450px;
-    border: 28px solid transparent;
-    border-top: 28px double #778A99;
-    width: 180px;
-    height: 180px;
+    width: 200px;
+    height: 200px;
+    margin: 450px auto;
   }
 
   #snackbar {
