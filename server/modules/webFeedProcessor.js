@@ -13,11 +13,10 @@ const webFeedProcessor = async (value) => {
 
         const userCollection = instagramUsersObj.verified.length > 0 ? instagramUsersObj.verified : instagramUsersObj.unverified.slice(0, 5);
         const postCollection = shuffleArray(instagramPosts.concat(twitterTweets));
-
         const processedData = {
             mainData: userCollection.concat(postCollection)
         };
-        
+
         if(processedData.mainData.length > 0) {
             resolve(processedData);
         } else {
@@ -34,7 +33,7 @@ const processData = {
                 fetchedData.forEach(currentChunk => {
                     let verifiedStatString, privPubStatString;
 
-                    if (currentChunk.data.isVerified === true) {
+                    if(currentChunk.data.isVerified === true) {
                         verifiedStatString = `<p class = "result-card-stat result-card-stat-3col"><img class = "result-card-stat-img" src="images/sm/verified.png" type="image/png"/><br/><span class = "result-card-stat-name">Verified</span></p>`;
                     } else {
                         verifiedStatString = `<p class = "result-card-stat result-card-stat-3col"><img class = "result-card-stat-img" src="images/sm/unverified.png" type="image/png"/><br/><span class = "result-card-stat-name">Unverified</span></p>`;

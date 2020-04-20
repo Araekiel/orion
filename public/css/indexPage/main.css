@@ -155,7 +155,6 @@ body {
 
 #index-result-container {
   position: relative;
-  top: 0px;
   min-height: 80%;
   height: auto;
   width: 100%;
@@ -235,7 +234,7 @@ body {
   }
 
   .logo-search-inactive {
-    margin-top: 450px;
+    margin-top: 400px;
     height: 300px;
   }
 
@@ -268,10 +267,14 @@ body {
     line-height: 98px;
   }
 
+  #index-result-container {
+    top: 30px;
+  }
+
   .loader {
     width: 250px;
     height: 250px;
-    margin: 450px auto;
+    margin: 400px auto;
   }
 
   #snackbar {
