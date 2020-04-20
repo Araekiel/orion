@@ -33,13 +33,12 @@ function search() {
       beforeSend: function() {
         // copyright.style.display = "none";
         resContainer.innerHTML = `<div class="loader"><div class="loader1"></div><div class="loader2"></div></div>`;
-        console.log(resContainer.innerHTML);
-      },
-      success: function(data) {
         let resultCardStylesheet = document.getElementById("result-card-stylesheet");
         if(resultCardStylesheet == undefined || resultCardStylesheet == null) {
           addStylesheet("css/indexPage/resultCard.css", "result-card-stylesheet");
         }
+      },
+      success: function(data) {
         resContainer.innerHTML = "";
         data.forEach(currentElement => {
           resContainer.innerHTML += currentElement["htmlString"];
