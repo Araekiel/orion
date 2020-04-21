@@ -1,5 +1,5 @@
 const searchContainer = document.getElementById("index-search-container");
-const mainLogo = document.getElementById("socialhunter-logo");
+const mainLogo = document.getElementById("orion-logo");
 const searchForm = document.getElementById("search-form");
 const searchField = document.getElementById("search-field");
 const searchBtn = document.getElementById("search-btn");

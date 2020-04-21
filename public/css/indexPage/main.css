@@ -61,13 +61,13 @@ body {
 
 .logo-search-active {
   margin-top: 0px;
-  height: 80px;
+  height: 70px;
   transition: 0.2s ease-in;
 }
 
 .logo-search-inactive {
-  margin-top: 150px;
-  height: 200px;
+  margin-top: 175px;
+  height: 150px;
 }
 
 .ind-search-cont-search-active {
@@ -96,7 +96,7 @@ body {
   transform: translateZ(0);
 }
 
-#socialhunter-logo {
+#orion-logo {
   cursor: pointer;
   transform: translateZ(0);
 }
@@ -230,12 +230,12 @@ body {
   /*************************************** Main Media Query ***************************************/
   .logo-search-active {
     margin-top: 0px;
-    height: 140px;
+    height: 125px;
   }
 
   .logo-search-inactive {
     margin-top: 400px;
-    height: 300px;
+    height: 250px;
   }
 
   .ind-search-cont-search-active {

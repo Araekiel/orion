@@ -4,7 +4,7 @@ const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");
 const hbs = require("express-handlebars");
-// const morganLogger = require("morgan");
+const morganLogger = require("morgan");
 const helmet = require("helmet");
 
 const port = process.env.PORT;
@@ -27,7 +27,7 @@ server.use(
   })
 );
 server.use(bodyParser.json());
-// server.use(morganLogger("common"));
+server.use(morganLogger("common"));
 server.use(helmet());
 
 server.get("/", (req, res) => {

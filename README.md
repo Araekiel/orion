@@ -1,8 +1,8 @@
-<img alt="Socialhunter" src="https://raw.githubusercontent.com/KSSBro/socialhunter/master/public/images/socialhunter.png" height="100">
+<img alt="Orion" src="https://raw.githubusercontent.com/KSSBro/socialhunter/master/public/images/logo.png" height="100">
 
-# Socialhunter
+# Orion
 
-Socialhunter is an open-source Search Engine for social media websites built with Node.js.
+Orion is an open-source Search Engine for social media websites built with Node.js.
 <br/>
 <br/>
 **Currently under development.**
@@ -54,7 +54,7 @@ Pull requests are welcome.<br/>For major changes, please open an issue first to 
 
 ## Foundry
 
-Elements of socialhunter before being integrated into the app.
+Elements of orion before being integrated into the app.
 <br/>
 
 [Tweet Design](https://kssbro.github.io/socialhunter/foundry/tweet-design)<br/>[Instagram (alpha)](https://kssbro.github.io/socialhunter/foundry/instagram)
