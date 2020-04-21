@@ -1,4 +1,4 @@
-<img alt="Orion" src="https://raw.githubusercontent.com/KSSBro/socialhunter/master/public/images/logo.png" height="100">
+<img alt="Orion" src="https://raw.githubusercontent.com/KSSBro/orion/master/public/images/logo.png" height="100">
 
 # Orion
 
@@ -15,14 +15,14 @@ Orion is an open-source Search Engine for social media websites built with Node.
 ### Prerequisites
 
 [Git](https://git-scm.com/) is needed to clone the repository on your machine.
-Use [Node.js](https://nodejs.org/en/download/) and the package manager [npm](https://www.npmjs.com/get-npm) that is installed along with it to run Socialhunter on your machine.
+Use [Node.js](https://nodejs.org/en/download/) and the package manager [npm](https://www.npmjs.com/get-npm) that is installed along with it to run Orion on your machine.
 
 ### Installing and Running
 
 After installing git, clone the repository on your machine
 
 ```
-git clone https://github.com/KSSBro/socialhunter.git
+git clone https://github.com/KSSBro/orion.git
 ```
 
 Then install the node-modules in package.json
@@ -57,7 +57,7 @@ Pull requests are welcome.<br/>For major changes, please open an issue first to 
 Elements of orion before being integrated into the app.
 <br/>
 
-[Tweet Design](https://kssbro.github.io/socialhunter/foundry/tweet-design)<br/>[Instagram (alpha)](https://kssbro.github.io/socialhunter/foundry/instagram)
+[Tweet Design](https://kssbro.github.io/orion/foundry/tweet-design)<br/>[Instagram (alpha)](https://kssbro.github.io/orion/foundry/instagram)
 
 ## Authors
 
