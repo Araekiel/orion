@@ -61,13 +61,15 @@ body {
 
 .logo-search-active {
   margin-top: 0px;
-  height: 70px;
+  height: 50px;
   transition: 0.2s ease-in;
+  margin-bottom: 0px;
 }
 
 .logo-search-inactive {
   margin-top: 190px;
   height: 120px;
+  margin-bottom: 20px
 }
 
 .ind-search-cont-search-active {
