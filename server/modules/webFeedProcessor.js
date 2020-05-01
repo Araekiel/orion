@@ -34,15 +34,15 @@ const processData = {
                     let verifiedStatString, privPubStatString;
 
                     if(currentChunk.data.isVerified === true) {
-                        verifiedStatString = `<p class = "result-card-stat result-card-stat-3col"><img class = "result-card-stat-img" src="images/sm/verified.png" type="image/png"/><br/><span class = "result-card-stat-name">Verified</span></p>`;
+                        verifiedStatString = `<p class = "result-card-stat result-card-stat-3col"><img class = "result-card-stat-img" src="images/sm/verified.webp" type="image/webp"/><br/><span class = "result-card-stat-name">Verified</span></p>`;
                     } else {
-                        verifiedStatString = `<p class = "result-card-stat result-card-stat-3col"><img class = "result-card-stat-img" src="images/sm/unverified.png" type="image/png"/><br/><span class = "result-card-stat-name">Unverified</span></p>`;
+                        verifiedStatString = `<p class = "result-card-stat result-card-stat-3col"><img class = "result-card-stat-img" src="images/sm/unverified.webp" type="image/webp"/><br/><span class = "result-card-stat-name">Unverified</span></p>`;
                     }
 
                     if(currentChunk.data.isPrivate === true) {
-                        privPubStatString = `<p class = "result-card-stat result-card-stat-3col result-card-stat-right"><img class = "result-card-stat-img" src = "images/sm/private.png" type = "image/png"/><br/><span class = "result-card-stat-name">Private</span></p>`;
+                        privPubStatString = `<p class = "result-card-stat result-card-stat-3col result-card-stat-right"><img class = "result-card-stat-img" src = "images/sm/private.webp" type = "image/webp"/><br/><span class = "result-card-stat-name">Private</span></p>`;
                     } else {
-                        privPubStatString = `<p class = "result-card-stat result-card-stat-3col result-card-stat-right"><img class = "result-card-stat-img" src = "images/sm/public.png" type = "image/png"/><br/><span class = "result-card-stat-name">Public</span></p>`
+                        privPubStatString = `<p class = "result-card-stat result-card-stat-3col result-card-stat-right"><img class = "result-card-stat-img" src = "images/sm/public.webp" type = "image/webp"/><br/><span class = "result-card-stat-name">Public</span></p>`
                     }
 
                     let userData = {
@@ -56,13 +56,13 @@ const processData = {
                             currentChunk.data.username
                           }</p>
                           <div class="result-card-stat-container result-card-stat-container-user">
-                            <p class = "result-card-stat result-card-stat-3col"><img class = "result-card-stat-img" src="images/sm/insta.png" type="image/png"/><br/><span class = "result-card-stat-name">Instagram</span></p>                
+                            <p class = "result-card-stat result-card-stat-3col"><img class = "result-card-stat-img" src="images/sm/insta.webp" type="image/webp"/><br/><span class = "result-card-stat-name">Instagram</span></p>                
                             ${verifiedStatString}
                             ${privPubStatString}
                           </div>
                           <a href = "https://www.instagram.com/${currentChunk.data.username}">
                             <div class="result-card-link">
-                                <img src="/images/sm/link.png" type="image/png" class="result-card-link-img"/>
+                                <img src="/images/sm/link.webp" type="image/webp" class="result-card-link-img"/>
                             </div>
                           </a>
                         </div>
@@ -91,10 +91,10 @@ const processData = {
                     let resultCardMediaString, mediaTypeStatString;
                     if(currentChunk.data.media.isVideo === true) {
                         resultCardMediaString = `<video class="result-card-media result-card-media-vid" src="${currentChunk.data.media.src}" controls></video>`          
-                        mediaTypeStatString = `<p class = "result-card-stat result-card-stat-4col result-card-stat-right"><img class = "result-card-stat-img" src = "images/sm/video.png" type = "image/png"/><br/><span class = "result-card-stat-name">Video</span></p>`;
+                        mediaTypeStatString = `<p class = "result-card-stat result-card-stat-4col result-card-stat-right"><img class = "result-card-stat-img" src = "images/sm/video.webp" type = "image/webp"/><br/><span class = "result-card-stat-name">Video</span></p>`;
                     } else {
                         resultCardMediaString = `<img class = "result-card-media result-card-media-img" src = "${currentChunk.data.media.src}"/>`;
-                        mediaTypeStatString = `<p class = "result-card-stat result-card-stat-4col result-card-stat-right"><img class = "result-card-stat-img" src = "images/sm/photo.png" type = "image/png"/><br/><span class = "result-card-stat-name">Photo</span></p>`;
+                        mediaTypeStatString = `<p class = "result-card-stat result-card-stat-4col result-card-stat-right"><img class = "result-card-stat-img" src = "images/sm/photo.webp" type = "image/webp"/><br/><span class = "result-card-stat-name">Photo</span></p>`;
                     }
                     
                     processedData.push({
@@ -107,7 +107,7 @@ const processData = {
                                 <p class="result-card-text">${currentChunk.data.caption}</p>
                             </div>
                             <div class="result-card-stat-container">
-                                <p class = "result-card-stat result-card-stat-4col"><img class = "result-card-stat-img" src = "images/sm/insta.png" type="image/png"/><br/><span class = "result-card-stat-name">Instagram</span></p>
+                                <p class = "result-card-stat result-card-stat-4col"><img class = "result-card-stat-img" src = "images/sm/insta.webp" type="image/webp"/><br/><span class = "result-card-stat-name">Instagram</span></p>
                                 <p class="result-card-stat result-card-stat-4col"><span class="result-card-stat-value">${
                                 currentChunk.data.likeCount
                                 }</span> <br /> <span class="result-card-stat-name">Likes</span></p>
@@ -118,7 +118,7 @@ const processData = {
                             </div>
                             <a href = "https://instagram.com/p/${currentChunk.data.shortcode}">
                                 <div class="result-card-link">
-                                    <img src="/images/sm/link.png" type="image/png" class="result-card-link-img"/>
+                                    <img src="/images/sm/link.webp" type="image/webp" class="result-card-link-img"/>
                                 </div>
                             </a>
                             </div>
@@ -144,14 +144,14 @@ const processData = {
                             <p class="result-card-text">${currentChunk.data.text}</p>
                         </div>
                         <div class="result-card-stat-container">    
-                            <p class="result-card-stat result-card-stat-4col"><img class = "result-card-stat-img" src = "/images/sm/twitter.png" type="image/png"/><br/><span class = "result-card-stat-name">Twitter</span></p>
+                            <p class="result-card-stat result-card-stat-4col"><img class = "result-card-stat-img" src = "/images/sm/twitter.webp" type="image/webp"/><br/><span class = "result-card-stat-name">Twitter</span></p>
                             <p class="result-card-stat result-card-stat-4col"><span class="result-card-stat-value">${currentChunk.data.favoriteCount}</span> <br /> <span class="result-card-stat-name">Favorites</span></p>
                             <p class="result-card-stat result-card-stat-4col"><span class="result-card-stat-value">${currentChunk.data.replyCount}</span> <br /> <span class="result-card-stat-name">Replies</span></p>
                             <p class="result-card-stat result-card-stat-4col result-card-stat-right"><span class="result-card-stat-value">${currentChunk.data.retweetCount}</span> <br /> <span class="result-card-stat-name">Retweets</span></p>
                         </div>
                         <a href="https://twitter.com/${currentChunk.data.screenName}/status/${currentChunk.data.id}">
                             <div class="result-card-link">
-                                <img src="/images/sm/link.png" type="image/png" class="result-card-link-img"/>
+                                <img src="/images/sm/link.webp" type="image/webp" class="result-card-link-img"/>
                             </div>
                         </a>
                         </div>`

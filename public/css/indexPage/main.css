@@ -60,7 +60,7 @@ body {
 }
 
 .logo-search-active {
-  margin-top: 0px;
+  margin-top: 10px;
   height: 50px;
   transition: 0.2s ease-in;
   margin-bottom: 0px;
