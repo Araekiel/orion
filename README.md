@@ -1,4 +1,4 @@
-<img alt="Orion" src="https://raw.githubusercontent.com/KSSBro/orion/master/public/images/logo.png" height="100">
+<img alt="Orion" src="https://raw.githubusercontent.com/KSSBro/orion/master/public/images/logo.webp" height="100">
 
 # Orion
 
