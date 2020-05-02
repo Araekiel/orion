@@ -47,18 +47,6 @@ The app will run with nodemon and morgan
 
 Open a browser and type **localhost:_port_**
 
-## Contributing
-
-Fork the repository and open a pull request to contribute.
-Pull requests are welcome.<br/>For major changes, please open an issue first to discuss what you would like to change.<br/>Look at **_checklist.txt_** for things that need to be added or changed.
-
-## Foundry
-
-Elements of orion before being integrated into the app.
-<br/>
-
-[Tweet Design](https://kssbro.github.io/orion/foundry/tweet-design)<br/>[Instagram (alpha)](https://kssbro.github.io/orion/foundry/instagram)
-
 ## Authors
 
 - **KSSBro** - [Github](https://github.com/KSSBro)
