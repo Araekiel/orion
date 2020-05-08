@@ -27,7 +27,7 @@ server.use(
   })
 );
 server.use(bodyParser.json());
-server.use(morganLogger("common"));
+server.use(morganLogger(process.env.MORGAN_METHOD));
 server.use(helmet());
 
 server.get("/", (req, res) => {

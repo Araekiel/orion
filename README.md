@@ -31,11 +31,9 @@ Then install the node-modules in package.json
 npm install
 ```
 
-Set the port you want to run the app on in server/server.js on line 7
-
-```
-const port = *port*;
-```
+Make a .env file and set the following environment variables: 
+- *PORT*: For the port the server is going to run on
+- *MORGAN_METHOD*: For the method that morgan is going to log requests
 
 Then run the app
 
@@ -43,7 +41,11 @@ Then run the app
 npm start
 ```
 
-The app will run with nodemon and morgan
+Or if you want to run the app with nodemon 
+
+```
+npm run dev
+```
 
 Open a browser and type **localhost:_port_**
 
