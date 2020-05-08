@@ -32,8 +32,8 @@ npm install
 ```
 
 Make a .env file and set the following environment variables: 
-- *PORT*: For the port the server is going to run on
-- *MORGAN_METHOD*: For the method that morgan is going to log requests
+- **PORT** - For the port the server is going to run on
+- **MORGAN_METHOD** - For the method that morgan is going to log requests
 
 Then run the app
 
