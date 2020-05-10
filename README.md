@@ -17,11 +17,12 @@ Currently the data that Orion can lookup is:
 ## Prerequisites
 
 - Git is need to clone repository on your machine.
-- Node.js and npm are needed to run the Orion.
+- npm is needed to install packages.
+- Node.js is needed to run Orion.
 
 ### Ubuntu
 
-Installing git, Node.js and npm on your machine running Ubuntu:
+Install git, Node.js and npm on your machine running Ubuntu:
 
 ``` 
 $ sudo apt-get install git-core
@@ -30,12 +31,13 @@ $ sudo apt install npm
 ```
 ### Windows 
 
-Use the official links for the downloads:
+Use the official links for downloading on Windows:
+
 - [Git](https://git-scm.com/)
 - [Node.js](https://nodejs.org/en/download/)
 - [npm](https://www.npmjs.com/get-npm)
 
-Run the following commands to confirm if the installation was successful
+Run the following commands to confirm if the installation was successful:
 
 ```
 $ git --version
@@ -45,14 +47,14 @@ $ npm --version
 
 ## Installation
 
-Clone the repo and cd into the directory 
+Clone the repo and cd into the directory: 
 
 ```
 $ git clone https://github.com/KSSBro/orion.git
 $ cd orion 
 ```
 
-Then install the node-modules in package.json
+Then install the node-modules in package.json:
 
 ```
 $ npm install
