@@ -2,49 +2,79 @@
 
 # Orion
 
-Orion is an open-source Search Engine for social media websites built with Node.js.
+Orion is an Open-Source Search Engine for social networking websites, that displays search results in the form of a well designed feed with links to the original content like you would expect from a conventional social networking website.
+<br/>
+Currently the data that Orion can lookup is:
+- Top Posts from Instagram 
+- Verified and Unverified Users from Instagram
+- Top Tweets from Twitter
+<br/>
+> Orion doesn't display latest posts and tweets, they aren't always relevant to the search 
 <br/>
 <br/>
-**Currently under development.**
-<br/>
-<br/>
 
+## Prerequisites
 
-## Getting Started
+- Git is need to clone repository on your machine.
+- Node.js and npm are needed to run the Orion.
 
-### Prerequisites
+### Ubuntu
 
-[Git](https://git-scm.com/) is needed to clone the repository on your machine.
-Use [Node.js](https://nodejs.org/en/download/) and the package manager [npm](https://www.npmjs.com/get-npm) that is installed along with it to run Orion on your machine.
+Installing git, Node.js and npm on your machine running Ubuntu:
 
-### Installing and Running
+``` 
+$ sudo apt-get install git-core
+$ sudo apt install nodejs
+$ sudo apt install npm
+```
+### Windows 
 
-After installing git, clone the repository on your machine
+Use the official links for the downloads:
+- [Git](https://git-scm.com/)
+- [Node.js](https://nodejs.org/en/download/)
+- [npm](https://www.npmjs.com/get-npm)
+
+Run the following commands to confirm if the installation was successful
 
 ```
-git clone https://github.com/KSSBro/orion.git
+$ git --version
+$ node --version
+$ npm --version 
+```
+
+## Installation
+
+Clone the repo and cd into the directory 
+
+```
+$ git clone https://github.com/KSSBro/orion.git
+$ cd orion 
 ```
 
 Then install the node-modules in package.json
 
 ```
-npm install
+$ npm install
 ```
+
+## Configuration 
 
 Make a .env file and set the following environment variables: 
 - **PORT** - For the port the server is going to run on
 - **MORGAN_METHOD** - For the method that morgan is going to log requests
 
-Then run the app
+## Running
+
+Run the app with the following command:
 
 ```
-npm start
+$ npm start
 ```
 
-Or if you want to run the app with nodemon 
+Or if you want to run the app with nodemon: 
 
 ```
-npm run dev
+$ npm run dev
 ```
 
 Open a browser and type **localhost:_port_**
