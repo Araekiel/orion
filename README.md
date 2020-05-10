@@ -12,9 +12,6 @@ Currently the data that Orion can lookup is:
 
 > Orion doesn't display latest posts and tweets, they aren't always relevant to the search 
 
-<br/>
-<br/>
-
 ## Prerequisites
 
 - Git is need to clone repository on your machine.
