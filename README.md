@@ -1,6 +1,8 @@
 <img alt="Orion" src="https://raw.githubusercontent.com/KSSBro/orion/master/public/images/logo.webp" height="100">
 
 # Orion
+[![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/tterb/atomic-design-ui/blob/master/LICENSEs)
+[![Version](https://badge.fury.io/gh/tterb%2FHyde.svg)](https://badge.fury.io/gh/tterb%2FHyde)
 
 Orion is an Open-Source Search Engine for social networking websites, that displays search results in the form of a well designed feed with links to the original content like you would expect from a conventional social networking website.
 <br/>
