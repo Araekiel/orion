@@ -9,7 +9,9 @@ Currently the data that Orion can lookup is:
 - Verified and Unverified Users from Instagram
 - Top Tweets from Twitter
 <br/>
+
 > Orion doesn't display latest posts and tweets, they aren't always relevant to the search 
+
 <br/>
 <br/>
 
