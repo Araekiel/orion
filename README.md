@@ -13,6 +13,8 @@ Currently the data that Orion can lookup is:
 - Top Tweets from Twitter
 <br/>
 
+<img alt="Gif" src="https://raw.githubusercontent.com/KSSBro/orion/master/public/images/other/orion.gif">
+
 > Orion doesn't display latest posts and tweets, they aren't always relevant to the search 
 
 ## Prerequisites
