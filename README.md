@@ -4,7 +4,7 @@
 [![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)]()
 [![Version](https://badge.fury.io/gh/tterb%2FHyde.svg)]()
 
-Orion is an Open-Source Search Engine for social networking websites, that displays search results in the form of a well designed feed with links to the original content like you would expect from a conventional social networking website.
+Orion is an Open-Source Search Engine for social networking websites, that displays search results in the form of a well designed feed with links to the original post like you would expect from a conventional social networking website.
 <br/>
 <br/>
 Currently the data that Orion can lookup is:
@@ -87,7 +87,7 @@ Open a browser and type **localhost:_port_**
 
 ## Authors
 
-- **KSSBro** - [Github](https://github.com/KSSBro)
+- **Araekiel** - [Github](https://github.com/Araekiel)
 
 ## License
 
