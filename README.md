@@ -1,4 +1,4 @@
-<img alt="Orion" src="https://raw.githubusercontent.com/KSSBro/orion/master/public/images/logo.webp" height="100">
+<img alt="Orion" src="https://raw.githubusercontent.com/Araekiel/orion/master/public/images/logo.webp" height="100">
 
 # Orion
 [![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)]()
@@ -13,7 +13,7 @@ Currently the data that Orion can lookup is:
 - Top Tweets from Twitter
 <br/>
 
-<img alt="Gif" src="https://raw.githubusercontent.com/KSSBro/orion/master/public/images/other/orion.gif">
+<img alt="Gif" src="https://raw.githubusercontent.com/Araekiel/orion/master/public/images/other/orion.gif">
 
 > Orion doesn't display latest posts and tweets, they aren't always relevant to the search 
 
@@ -53,7 +53,7 @@ $ npm --version
 Clone the repo and cd into the directory: 
 
 ```
-$ git clone https://github.com/KSSBro/orion.git
+$ git clone https://github.com/Araekiel/orion.git
 $ cd orion 
 ```
 
