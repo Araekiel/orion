@@ -27,7 +27,7 @@ Currently the data that Orion can lookup is:
 
 Install git, Node.js and npm on your machine running Ubuntu:
 
-``` 
+```bash
 $ sudo apt-get install git-core
 $ sudo apt install nodejs
 $ sudo apt install npm
@@ -42,7 +42,7 @@ Use the official links for downloading on Windows:
 
 Run the following commands to confirm if the installation was successful:
 
-```
+```bash
 $ git --version
 $ node --version
 $ npm --version 
@@ -52,14 +52,14 @@ $ npm --version
 
 Clone the repo and cd into the directory: 
 
-```
+```bash
 $ git clone https://github.com/Araekiel/orion.git
 $ cd orion 
 ```
 
 Then install the node-modules in package.json:
 
-```
+```bash
 $ npm install
 ```
 
@@ -73,13 +73,13 @@ Make a .env file and set the following environment variables:
 
 Run the app with the following command:
 
-```
+```bash
 $ npm start
 ```
 
 Or if you want to run the app with nodemon: 
 
-```
+```bash
 $ npm run dev
 ```
 
