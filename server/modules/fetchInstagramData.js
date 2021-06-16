@@ -32,6 +32,7 @@ const fetchInstagramData = {
         } else {
           let fetchedData = [];
           const users = body["users"];
+          console.log(users);
           users.forEach(async user => {
             let userData = {
               type: "user",
@@ -77,6 +78,7 @@ const fetchInstagramData = {
             let fetchedData = [];
             const edges =
               body["graphql"]["hashtag"]["edge_hashtag_to_top_posts"]["edges"]; 
+            console.log(edges)
             /* 
             Using for-of loop instead of forEach because await doesn't work as expected inside
             forEach. An async call is made to fetchInstagramData.fetchVideoUrl() if a post 
