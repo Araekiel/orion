@@ -48,9 +48,9 @@ const processData = {
                     let userData = {
                         type: currentChunk.type,
                         network: currentChunk.network,
-                        htmlString: `<div class = "result-card result-card-instagram-user"><img src = ${
+                        htmlString: `<div class = "result-card result-card-instagram-user"><img src = "/img?url=${
                             currentChunk.data.profilePic.url
-                          } class = "result-card-instagram-user-dp" /><p class = "result-card-instagram-user-name">${
+                          }" class = "result-card-instagram-user-dp" /><p class = "result-card-instagram-user-name">${
                             currentChunk.data.fullName
                           }</p><p class = "result-card-instagram-user-username">@${
                             currentChunk.data.username
@@ -93,7 +93,7 @@ const processData = {
                         resultCardMediaString = `<video class="result-card-media result-card-media-vid" src="${currentChunk.data.media.src}" controls></video>`          
                         mediaTypeStatString = `<p class = "result-card-stat result-card-stat-4col result-card-stat-right"><img class = "result-card-stat-img" src = "images/sm/video.webp" type = "image/webp"/><br/><span class = "result-card-stat-name">Video</span></p>`;
                     } else {
-                        resultCardMediaString = `<img class = "result-card-media result-card-media-img" src = "${currentChunk.data.media.src}"/>`;
+                        resultCardMediaString = `<img class = "result-card-media result-card-media-img" src = "/img?url=${currentChunk.data.media.src}"/>`;
                         mediaTypeStatString = `<p class = "result-card-stat result-card-stat-4col result-card-stat-right"><img class = "result-card-stat-img" src = "images/sm/photo.webp" type = "image/webp"/><br/><span class = "result-card-stat-name">Photo</span></p>`;
                     }
                     
@@ -116,7 +116,7 @@ const processData = {
                                     }</span> <br /> <span class="result-card-stat-name">Comments</span></p>
                                 ${mediaTypeStatString}
                             </div>
-                            <a href = "https://instagram.com/p/${currentChunk.data.shortcode}">
+                            <a target = "_blank" href = "https://instagram.com/p/${currentChunk.data.shortcode}">
                                 <div class="result-card-link">
                                     <img src="/images/sm/link.webp" type="image/webp" class="result-card-link-img"/>
                                 </div>
