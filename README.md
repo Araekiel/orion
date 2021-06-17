@@ -13,6 +13,10 @@ Currently the data that Orion can lookup is:
 - Top Tweets from Twitter
 <br/>
 
+#### UPDATE:
+The Instagram and Twitter APIs have changed. Orion doesn't display tweets anymore and the number of Instagram top posts have reduced. Orion only displays data from Instagram at the moment and considering the pace at which Instagram updates it API, this project probably won't recieve anymore updates. <br>
+> Last Update: Added image proxy to fix the Instagram image CDN issue. 
+
 <img alt="Gif" src="https://raw.githubusercontent.com/Araekiel/orion/master/public/images/other/orion.gif">
 
 > Orion doesn't display latest posts and tweets, they aren't always relevant to the search 
