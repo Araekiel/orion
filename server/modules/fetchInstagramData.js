@@ -1,10 +1,13 @@
 const request = require("request");
 
 const fetchInstagramData = {
+  headers: {
+    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:55.0) Gecko/20100101 Firefox/55.0",
+  },
   fetchVideoUrl: shortcode => {
     const url = `https://www.instagram.com/p/${shortcode}/?__a=1`;
     return new Promise(async (resolve, reject) => {
-      request(url, { json: true }, async (err, response, body) => {
+      request(url, { json: true, headers: this.headers}, async (err, response, body) => {
         if(err) {
           reject(err);  
         } else {
@@ -17,7 +20,7 @@ const fetchInstagramData = {
   fetchFollowerCount: username => {
     const url = `https://www.instagram.com/${username}/?__a=1`;
     return new Promise(async (resolve, reject) => {
-      request(url, { json: true }, async (err, response, body) => {
+      request(url, { json: true, headers: this.headers}, async (err, response, body) => {
         let followerCount = body["graphql"]["user"]["edge_followed_by"]["count"];
         resolve(followerCount);
       }); 
@@ -26,13 +29,12 @@ const fetchInstagramData = {
   fetchUsers: query => {
     const url = `https://www.instagram.com/web/search/topsearch/?query=${query}`;
     return new Promise((resolve, reject) => {
-      request(url, { json: true }, async (err, response, body) => {
+      request(url, { json: true, headers: this.headers }, async (err, response, body) => {
         if (err) {
           resolve([]);
         } else {
           let fetchedData = [];
           const users = body["users"];
-          console.log(users);
           users.forEach(async user => {
             let userData = {
               type: "user",
@@ -71,14 +73,13 @@ const fetchInstagramData = {
     } else {
       const url = `https://www.instagram.com/explore/tags/${editedTag}/?__a=1`;
       return new Promise(async (resolve, reject) => {
-        request(url, { json: true }, async (err, response, body) => {
+        request(url, { json: true, headers: this.headers }, async (err, response, body) => {
           if (err || response.statusCode != 200) {
             resolve([]);
           } else {
             let fetchedData = [];
             const edges =
               body["graphql"]["hashtag"]["edge_hashtag_to_top_posts"]["edges"]; 
-            console.log(edges)
             /* 
             Using for-of loop instead of forEach because await doesn't work as expected inside
             forEach. An async call is made to fetchInstagramData.fetchVideoUrl() if a post 
