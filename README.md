@@ -94,4 +94,4 @@ Open a browser and type **localhost:_port_**
 
 ## License
 
-[MIT](https://choosealicense.com/licenses/mit/)
+[MIT License](https://github.com/Araekiel/orion/blob/master/LICENSE) | Copyright (c) 2020 Kumar Shashwat
